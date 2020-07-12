@@ -1,4 +1,5 @@
 import React from 'react'
+import PageHeader from '../PageHeader/PageHeader'
 import RecipesList from './RecipesList/RecipesList'
 
 
@@ -39,7 +40,7 @@ class StashedRecipesPage extends React.Component {
     render() {
         return (
             <div className="StashedRecipesPage">
-                <h2>Stashed Recipes</h2>
+                <PageHeader title="Stashed Recipes" />
                 <div>Add Recipe</div>
                 <div>Search Filter</div>
                 <RecipesList recipes={this.state.recipes}/>
