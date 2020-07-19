@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './Meals.css'
+
 function Meals(props) {
 
     return (

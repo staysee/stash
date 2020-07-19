@@ -1,6 +1,8 @@
 import React from 'react'
 import Meals from './Meals/Meals'
 
+import './Days.css'
+
 function Days(props){
     return(
         <div className="Days">
