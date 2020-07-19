@@ -1,9 +1,11 @@
 import React from 'react'
 
+import './RecipesList.css'
+
 function RecipesList (props) {
     //use array of recipes to make an 'lil' for each recipe
     const recipesList = props.recipes.map( (recipe) =>
-        <li key={recipe.id}>
+        <li className="RecipesList__item" key={recipe.id}>
             <img src={recipe.imageURL} alt={recipe.title} />
             {recipe.title} - {recipe.type}
         </li>        
