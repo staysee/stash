@@ -1,0 +1,32 @@
+.RegistrationForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.FormField {
+    margin-bottom: 20px;
+}
+
+.FormField a {
+    display: block;
+    text-align: center;
+}
+
+.FormField__label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.FormField__input {
+    border: none;
+    border-bottom: 1px solid #445366;
+    font-size: 0.5em;
+    width: 100%;
+}
+
+.FormField__button {
+    display: block;
+    width: 100%;
+
+}

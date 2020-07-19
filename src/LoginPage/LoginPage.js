@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import './LoginPage.css'
+
 class LoginPage extends React.Component {
     constructor(props){
         super(props);
@@ -29,7 +31,11 @@ class LoginPage extends React.Component {
 
     render() {
         return (
-            <form className="FormFields" onSubmit={this.handleSubmit}>
+            <div className="LoginPage">
+                <div class="LoginPage__image">
+                    <img src="https://via.placeholder.com/100" alt="LoginPage" />
+                </div>
+                <form className="FormFields" onSubmit={this.handleSubmit}>
     
                     <div className="FormField">
                         <label className="FormField__label" htmlFor="email">E-mail Address</label>
@@ -43,7 +49,7 @@ class LoginPage extends React.Component {
                             onChange={this.handleChange}
                         />
                     </div>
-    
+
                     <div className="FormField">
                         <label className="FormField__label" htmlFor="password">Password</label>
                         <input 
@@ -56,7 +62,7 @@ class LoginPage extends React.Component {
                             onChange={this.handleChange}
                         />
                     </div>
-    
+
                     <div className="FormField">
                         <button className="FormField__button">
                             <Link to='/stashed-recipes'>Log In</Link>
@@ -64,6 +70,8 @@ class LoginPage extends React.Component {
                         <Link to='/'>Create an Account</Link>
                     </div>
                 </form>
+            </div>
+            
         )
     }
 }

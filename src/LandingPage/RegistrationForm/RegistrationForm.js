@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import './RegistrationForm.css'
+
 class RegistrationForm extends React.Component {
     constructor(props){
         super(props);
@@ -33,7 +35,7 @@ class RegistrationForm extends React.Component {
 
     render() {
         return (
-            <form className="FormFields" onSubmit={this.handleSubmit}>
+            <form className="RegistrationForm FormFields" onSubmit={this.handleSubmit}>
 
                 <div className="FormField">
                     <label className="FormField__label" htmlFor="firstName">First Name</label>
@@ -85,7 +87,8 @@ class RegistrationForm extends React.Component {
 
                 <div className="FormField">
                     <button className="FormField__button">
-                        <Link to="/stashed-recipes">Sign Up</Link></button>
+                        <Link to="/stashed-recipes">Sign Up</Link>
+                    </button>
                     <Link to='/login'>Already have an account?</Link>
                 </div>
             </form>
