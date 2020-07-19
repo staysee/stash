@@ -58,7 +58,9 @@ class LoginPage extends React.Component {
                     </div>
     
                     <div className="FormField">
-                        <button className="FormField__button">Log In</button>
+                        <button className="FormField__button">
+                            <Link to='/stashed-recipes'>Log In</Link>
+                        </button>
                         <Link to='/'>Create an Account</Link>
                     </div>
                 </form>

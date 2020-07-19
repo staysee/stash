@@ -84,7 +84,8 @@ class RegistrationForm extends React.Component {
                 </div>
 
                 <div className="FormField">
-                    <button className="FormField__button">Sign Up</button>
+                    <button className="FormField__button">
+                        <Link to="/stashed-recipes">Sign Up</Link></button>
                     <Link to='/login'>Already have an account?</Link>
                 </div>
             </form>
