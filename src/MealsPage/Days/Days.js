@@ -3,13 +3,14 @@ import Meals from './Meals/Meals'
 
 import './Days.css'
 
-function Days(props){
+function Days({day, meals}){
+    console.log(meals)
+    console.log(`day`, day)
     return(
         <div className="Days">
-            <h3>{props.day}</h3>
-            <Meals type="breakfast" />
-            <Meals type="lunch" />
-            <Meals type="dinner" />
+            <h3>{day}</h3>
+
+            {meals && meals.map( meal => <Meals meal={meal} />)}
         </div>
     )
 }

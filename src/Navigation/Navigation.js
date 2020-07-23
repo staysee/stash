@@ -8,6 +8,7 @@ function Navigation () {
         <div className="Navigation">
             <NavLink to='/stashed-recipes'>Stashed Recipes</NavLink>
             <NavLink to='/meals'>Meals</NavLink>
+            Stash New Recipe
         </div>
     )
 }
