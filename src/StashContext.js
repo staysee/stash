@@ -54,7 +54,9 @@ const StashContext = React.createContext({
             "Friday": [],
             "Saturday": [],
             "Sunday": [],
-    }
+    },
+    addRecipe: () => {},
+    deleteRecipe: () => {}
 
 
 })
