@@ -22,11 +22,19 @@ class App extends React.Component {
 		this.setState(store)
 	}
 
+	addRecipe = recipe => {
+		const newRecipe = [...this.state.recipes, recipe]
+		this.setState({
+			recipes: newRecipe
+		})
+	}
+
 	render() {
 		// Change state to context value
 		const contextValue = {
 			recipes: this.state.recipes,
-			meals: this.state.meals	
+			meals: this.state.meals,
+			addRecipe: this.addRecipe
 		}
 
 		return (

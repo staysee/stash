@@ -1,6 +1,8 @@
 import React from 'react'
+import StashContext from '../StashContext'
 
 class AddRecipe extends React.Component {
+    static contextType = StashContext
 
     constructor(props) {
         super(props)
@@ -37,16 +39,14 @@ class AddRecipe extends React.Component {
         }
         console.log(`The new recipe:`, newRecipe);
 
-        this.setState({
-            recipes: [...this.state.recipes, newRecipe]
-        })
-
-        console.log(`state`, this.state)
+        this.context.addRecipe(newRecipe)
+        //return to
+        this.props.history.push(`/stashed-recipes`)
     }
 
 
-    cancelNewRecipe = () => {
-        console.log('cancel new recipe')
+    handleClickCancel = () => {
+        this.props.history.push('/stashed-recipes')
     }
 
     render() {
@@ -127,8 +127,8 @@ class AddRecipe extends React.Component {
                             </select>
                         </div>
                     
-                    <button onSubmit={this.handleSubmit}>Stash My Recipe</button>
-                    <button onClick={this.cancelNewRecipe}>Cancel</button>
+                    <button type="submit">Stash My Recipe</button>
+                    <button onClick={this.handleClickCancel}>Cancel</button>
                 </form>
             </div>
         )
