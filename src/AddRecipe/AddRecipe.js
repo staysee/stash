@@ -121,9 +121,9 @@ class AddRecipe extends React.Component {
                                 onChange={this.handleChange}
                                 >
                                 <option value="">Select Type</option>
-                                <option value="breakfast">Breakfast</option>
-                                <option value="lunch">Lunch</option>
-                                <option value="dinner">Dinner</option>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Dinner">Dinner</option>
                             </select>
                         </div>
                     
