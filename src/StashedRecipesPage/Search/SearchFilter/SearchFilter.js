@@ -2,18 +2,18 @@ import React from 'react'
 
 class SearchFilter extends React.Component {
     
-    handleChange = () => {
-        console.log('change select')
-    }
-    
     render() {
+        const { filterType } = this.props;
+
         return (
             <div className="SearchFilter">
-                <select onChange={this.handleChange}>
-                    <option value="">-Select-</option>
-                    <option value="breakfast">Breakfast</option>
-                    <option value="lunch">Lunch</option>
-                    <option value="dinner">Dinner</option>
+                <select value={filterType}
+                    onChange={ e => this.props.updateFilterType(e.target.value)}
+                >
+                    <option value="All">All</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
                 </select>
             </div>
         )
