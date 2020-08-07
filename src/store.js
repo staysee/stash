@@ -31,14 +31,14 @@ const store = {
     meals: {
             "Monday": [
                 {
+                    "id": "2testMealId",
+                    "type": "Breakfast",
+                    "recipeId": "1testRecipeId"
+                },
+                {
                     "id": "1testMealId",
                     "type": "Lunch",
                     "recipeId": "3testRecipeId"
-                },
-                {
-                    "id": "2testMealId",
-                    "type": "Breakfast",
-                    "recipeId": "1testRecipeId",
                 },
                 {
                     "id": "3testMealId",

@@ -31,10 +31,14 @@ class Meals extends React.Component {
 
         return (
             <div className="Meals">
-                <img src="https://via.placeholder.com/100" alt="Placeholder" />
                 <div className="Meals__type">{meal.type}</div>
-                <div className="Meals__recipe-title">{recipeTitle}</div>
-                <button>Remove</button>
+                <div className="Meals__info">
+                    <div className="Meals__img">
+                        <img src="https://via.placeholder.com/100" alt="Placeholder" />
+                    </div>
+                    <div className="Meals__recipe-title">{recipeTitle}</div>
+                    <button>X</button>
+                </div>
             </div>
         )
     }

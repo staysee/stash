@@ -1,6 +1,7 @@
 .Days h3 {
     background-color: #d1c9c9;
-    text-transform: uppercase;
+    border-bottom: 1px solid #bdb2b2;
     margin: 0;
     padding: 5px;
+    text-transform: uppercase;
 }

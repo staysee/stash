@@ -9,7 +9,6 @@ function Days({day, meals}){
     return(
         <div className="Days">
             <h3>{day}</h3>
-
             {meals && meals.map( meal => <Meals meal={meal} />)}
         </div>
     )
