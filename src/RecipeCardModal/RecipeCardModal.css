@@ -1,0 +1,13 @@
+.RecipeCardModal .recipe-image img {
+    display: block;
+    margin: 0 auto;
+}
+
+.RecipeCardModal h2 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.RecipeCardModal p span {
+    font-weight: bolder;
+}

@@ -1,5 +1,4 @@
 import React from 'react'
-// import Modal from 'react-modal'
 import PageHeader from '../PageHeader/PageHeader'
 import RecipesList from './RecipesList/RecipesList'
 import Search from './Search/Search'

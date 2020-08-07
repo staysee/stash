@@ -5,10 +5,3 @@
     justify-content: space-between;
     padding-left: 0;
 }
-
-.RecipesList__item {
-    display: flex;
-    flex-direction: column;
-    width: 48%;
-    margin-bottom: 15px;
-}
