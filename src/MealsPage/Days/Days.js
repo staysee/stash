@@ -12,11 +12,18 @@ class Days extends React.Component{
             <div className="Days">
                 <h3>{day}</h3>
                 {meals && Object.keys(meals).map( (meal, key) => 
-                    <Meals
-                        key={key}
-                        meal={meals[meal]}
-                        type={meal}
-                    />
+                    {
+                        if (meals[meal].recipeId) {
+                            return (
+                                <Meals
+                                    key={key}
+                                    meal={meals[meal]}
+                                    type={meal}
+                                />
+                            )
+                        }
+                        return ""
+                    }
                 )}
             </div>
         )
