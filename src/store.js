@@ -26,33 +26,87 @@ const store = {
             "type": "Dinner",
             "imageURL": "https://via.placeholder.com/100",
             "createdBy": "userid1"
+        },
+        {
+            "id": "4testRecipeId",
+            "title": "Ice Cream",
+            "ingredients": ["milk, ice, salt, cream"],
+            "instructions": "Blah Blah blah Blah",
+            "type": "Dinner",
+            "imageURL": "https://via.placeholder.com/100",
+            "createdBy": "userid1"
+        },
+        {
+            "id": "5testRecipeId",
+            "title": "Curry",
+            "ingredients": ["beef, carrots, potato, curry sauce, rice"],
+            "instructions": "Blah Blah blah Blah",
+            "type": "Lunch",
+            "imageURL": "https://via.placeholder.com/100",
+            "createdBy": "userid1"
+        },
+        {
+            "id": "6testRecipeId",
+            "title": "Spaghetti",
+            "ingredients": ["pasta, marinara sauce, mushrooms, meatballs"],
+            "instructions": "Blah Blah blah Blah",
+            "type": "Lunch",
+            "imageURL": "https://via.placeholder.com/100",
+            "createdBy": "userid1"
         }
     ],
     meals: {
-            "Monday": [
-                {
-                    "id": "2testMealId",
-                    "type": "Breakfast",
+            "Monday": {
+                "breakfast": {
                     "recipeId": "1testRecipeId"
                 },
-                {
-                    "id": "1testMealId",
-                    "type": "Lunch",
-                    "recipeId": "3testRecipeId"
+                "lunch": {
+                    "recipeId": "2testRecipeId" 
                 },
-                {
-                    "id": "3testMealId",
-                    "type": "Dinner",
+                "dinner" : {
                     "recipeId": "3testRecipeId"
                 }
-            ],
-            "Tuesday": [],
-            "Wednesday": [],
-            "Thursday": [],
-            "Friday": [],
-            "Saturday": [],
-            "Sunday": [],
+            },
+            "Tuesday": {
+                "breakfast": {
+                    "recipeId": "4testRecipeId"
+                },
+                "lunch": {
+                    "recipeId": "5testRecipeId" 
+                },
+                "dinner" : {
+                    "recipeId": "6testRecipeId"
+                }
+
+            },
+            "Wednesday": {
+                "breakfast": {},
+                "lunch": {},
+                "dinner" : {}
+            },
+            "Thursday": {
+                "breakfast": {},
+                "lunch": {},
+                "dinner" : {}
+
+            },
+            "Friday": {
+                "breakfast": {},
+                "lunch": {},
+                "dinner" : {}
+            },
+            "Saturday": {
+                "breakfast": {},
+                "lunch": {},
+                "dinner" : {}
+            },
+            "Sunday": {
+                "breakfast": {},
+                "lunch": {},
+                "dinner" : {}
+            }
     }
 }
 
 export default store
+

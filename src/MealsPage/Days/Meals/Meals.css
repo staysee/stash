@@ -13,6 +13,7 @@
     display: flex;
     justify-content: space-between;
 }
+
 .Meals__img {
     width: 50px;
 }
@@ -24,6 +25,12 @@
 .Meals__recipe-title {
     display: flex;
     align-self: center;
+    text-transform: uppercase;
+}
+
+.Meals__buttons {
+    display: flex;
+    flex-direction: column;
 }
 
 .Meals button {

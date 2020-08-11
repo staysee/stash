@@ -13,9 +13,11 @@ class Meals extends React.Component {
     findRecipe = (recipeId, recipes) => {
         const recipe = recipes.find( recipe => recipe.id === recipeId)
 
-        this.setState({
-            recipeTitle: recipe.title
-        })
+        if (recipe) {
+            this.setState({
+                recipeTitle: recipe.title
+            })
+        }
     }
 
     componentDidMount() {
@@ -26,23 +28,28 @@ class Meals extends React.Component {
     }
 
     render(){
-        const { meal } = this.props;
+        const { meal, type } = this.props;
         const { recipeTitle } = this.state;
 
         return (
             <div className="Meals">
-                <div className="Meals__type">{meal.type}</div>
+                <div className="Meals__type">{type}</div>
+                
                 <div className="Meals__info">
                     <div className="Meals__img">
                         <img src="https://via.placeholder.com/100" alt="Placeholder" />
                     </div>
-                    <div className="Meals__recipe-title">{recipeTitle}</div>
-                    <button>X</button>
+                    <div className="Meals__recipe-title">
+                        {recipeTitle}
+                    </div>
+                    <div className="Meals__buttons">
+                        <button>R</button>
+                        <button>X</button>
+                    </div>
                 </div>
             </div>
         )
     }
-
 }
 
 export default Meals
