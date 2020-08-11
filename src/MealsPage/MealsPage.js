@@ -14,8 +14,9 @@ class MealsPage extends React.Component {
             <div className="MealsPage">
                 <PageHeader title="Meal Plan" />
                 <Days day="Unassigned" />
-                {days.map( day => 
+                {days.map( (day, key) => 
                     <Days 
+                        key={key}
                         day={day} 
                         meals={meals[day]} 
                     />

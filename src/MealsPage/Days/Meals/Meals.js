@@ -28,7 +28,7 @@ class Meals extends React.Component {
     }
 
     render(){
-        const { meal, type } = this.props;
+        const { type } = this.props;
         const { recipeTitle } = this.state;
 
         return (
