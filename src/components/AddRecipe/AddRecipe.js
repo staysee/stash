@@ -1,5 +1,5 @@
 import React from 'react'
-import StashContext from '../StashContext'
+import StashContext from '../../StashContext'
 
 class AddRecipe extends React.Component {
     static contextType = StashContext

@@ -1,7 +1,7 @@
 import React from 'react'
 import PageHeader from '../PageHeader/PageHeader'
 import Days from './Days/Days'
-import StashContext from '../StashContext'
+import StashContext from '../../StashContext'
 
 class MealsPage extends React.Component {
     static contextType = StashContext

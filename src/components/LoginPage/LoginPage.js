@@ -28,14 +28,22 @@ class LoginPage extends React.Component {
         console.log('The log in form was submitted with the following data:');
         console.log(this.state);
     }
+    
+    handleSubmitBasicAuth = e => {
+        e.preventDefault()
+        const { email, password } = e.target
+
+        console.log('login form submitted')
+        console.log({email, password})
+    }
 
     render() {
         return (
             <div className="LoginPage">
-                <div class="LoginPage__image">
+                <div className="LoginPage__image">
                     <img src="https://via.placeholder.com/100" alt="LoginPage" />
                 </div>
-                <form className="FormFields" onSubmit={this.handleSubmit}>
+                <form className="FormFields" onSubmit={this.handleSubmitBasicAuth}>
     
                     <div className="FormField">
                         <label className="FormField__label" htmlFor="email">E-mail Address</label>
