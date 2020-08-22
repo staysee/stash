@@ -2,7 +2,7 @@ import React from 'react'
 
 import './RecipeCardModal.css'
 
-function RecipeCardModal({ title, ingredients, instructions, type, imageURL, toggleModal, addMealPlan }) {
+function RecipeCardModal({ title, ingredients, instructions, type, imageURL, toggleModal, addMealPlan, editRecipe }) {
 
     return(
         <>

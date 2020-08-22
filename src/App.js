@@ -34,7 +34,9 @@ class App extends React.Component {
 		const contextValue = {
 			recipes: this.state.recipes,
 			meals: this.state.meals,
-			addRecipe: this.addRecipe
+			addRecipe: this.addRecipe,
+			deleteRecipe: this.deleteRecipe,
+			updateRecipe: this.updateRecipe
 		}
 
 		return (
@@ -48,6 +50,7 @@ class App extends React.Component {
 						<Route path='/stashed-recipes' component={StashedRecipesPage} />
 						<Route path='/meals' component={MealsPage} />
 						<Route path='/new-recipe' component={AddRecipe} />
+						{/* <Route path='/edit-recipe' component={EditRecipe} /> */}
 						<Route component={NotFoundPage} />
 					</Switch>
 				</main>
