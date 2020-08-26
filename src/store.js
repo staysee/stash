@@ -1,111 +1,72 @@
 const store = {
     recipes: [
         {
-            "id": "1testRecipeId",
+            "id": "1",
             "title": "Egg Scramble",
-            "ingredients": ["eggs", "salt", "pepper"],
+            "ingredients": "Eggs, salt, pepper",
             "instructions": "Blah Blah blah Blah",
-            "type": "Breakfast",
-            "imageURL": "https://via.placeholder.com/100",
-            "createdBy": "userid1"
+            "meal_type": "Breakfast",
+            "image_url": "https://via.placeholder.com/100",
+            "author": "1"
         },
         {
-            "id": "2testRecipeId",
+            "id": "2",
             "title": "Salad",
-            "ingredients": ["eggs", "lettuce", "tomatoes", "dressing"],
+            "ingredients": "Eggs, lettuce, tomatoes, dressing",
             "instructions": "Blah Blah blah Blah",
-            "type": "Lunch",
-            "imageURL": "https://via.placeholder.com/100",
-            "createdBy": "userid1"
+            "meal_type": "Lunch",
+            "image_url": "https://via.placeholder.com/100",
+            "author": "1"
         },
         {
-            "id": "3testRecipeId",
+            "id": "3",
             "title": "Steak",
-            "ingredients": ["steak", "salt", "pepper", "garlic", "butter"],
+            "ingredients": "Steak, salt, pepper, garlic, butter",
             "instructions": "Blah Blah blah Blah",
-            "type": "Dinner",
-            "imageURL": "https://via.placeholder.com/100",
-            "createdBy": "userid1"
+            "meal_type": "Dinner",
+            "image_url": "https://via.placeholder.com/100",
+            "author": "1"
         },
         {
-            "id": "4testRecipeId",
+            "id": "4",
             "title": "Ice Cream",
-            "ingredients": ["milk, ice, salt, cream"],
+            "ingredients": "milk, ice, salt, cream",
             "instructions": "Blah Blah blah Blah",
-            "type": "Dinner",
-            "imageURL": "https://via.placeholder.com/100",
-            "createdBy": "userid1"
+            "meal_type": "Dinner",
+            "image_url": "https://via.placeholder.com/100",
+            "author": "1"
         },
-        {
-            "id": "5testRecipeId",
-            "title": "Curry",
-            "ingredients": ["beef, carrots, potato, curry sauce, rice"],
-            "instructions": "Blah Blah blah Blah",
-            "type": "Lunch",
-            "imageURL": "https://via.placeholder.com/100",
-            "createdBy": "userid1"
-        },
-        {
-            "id": "6testRecipeId",
-            "title": "Spaghetti",
-            "ingredients": ["pasta, marinara sauce, mushrooms, meatballs"],
-            "instructions": "Blah Blah blah Blah",
-            "type": "Lunch",
-            "imageURL": "https://via.placeholder.com/100",
-            "createdBy": "userid1"
-        }
     ],
-    meals: {
-            "Monday": {
-                "breakfast": {
-                    "recipeId": "1testRecipeId"
-                },
-                "lunch": {
-                    "recipeId": "2testRecipeId" 
-                },
-                "dinner" : {
-                    "recipeId": "3testRecipeId"
-                }
-            },
-            "Tuesday": {
-                "breakfast": {
-                    "recipeId": "4testRecipeId"
-                },
-                "lunch": {
-                    "recipeId": "5testRecipeId" 
-                },
-                "dinner" : {
-                    "recipeId": "6testRecipeId"
-                }
-
-            },
-            "Wednesday": {
-                "breakfast": {},
-                "lunch": {},
-                "dinner" : {}
-            },
-            "Thursday": {
-                "breakfast": {},
-                "lunch": {},
-                "dinner" : {}
-
-            },
-            "Friday": {
-                "breakfast": {},
-                "lunch": {},
-                "dinner" : {}
-            },
-            "Saturday": {
-                "breakfast": {},
-                "lunch": {},
-                "dinner" : {}
-            },
-            "Sunday": {
-                "breakfast": {},
-                "lunch": {},
-                "dinner" : {}
-            }
-    }
+    meals: [
+        {
+            "id": 1,
+            "day": "Monday",
+            "meal_type": "Breakfast",
+            "recipe_id": 2,
+            "user_id": 1
+        },
+        {
+            "id": 2,
+            "day": "Monday",
+            "meal_type": "Lunch",
+            "recipe_id": 1,
+            "user_id": 1
+        },
+        {
+            "id": 3,
+            "day": "Monday",
+            "meal_type": "Dinner",
+            "recipe_id": 3,
+            "user_id": 1
+        },
+        {
+            "id": 4,
+            "day": "Tuesday",
+            "meal_type": "Breakfast",
+            "recipe_id": 4,
+            "user_id": 1
+        },
+    ]
 }
 
 export default store

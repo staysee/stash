@@ -1,4 +1,5 @@
 import React from 'react'
+import TokenService from '../../service/token-service'
 import { Link } from 'react-router-dom'
 
 import './LoginPage.css'
@@ -31,10 +32,14 @@ class LoginPage extends React.Component {
     
     handleSubmitBasicAuth = e => {
         e.preventDefault()
-        const { email, password } = e.target
+        const { username, password } = e.target
 
-        console.log('login form submitted')
-        console.log({email, password})
+        TokenService.saveAuthToken(
+            TokenService.makeBasicAuthToken(username.value, password.value)
+        )
+
+        username.value = ''
+        password.value = ''
     }
 
     render() {
@@ -46,14 +51,14 @@ class LoginPage extends React.Component {
                 <form className="FormFields" onSubmit={this.handleSubmitBasicAuth}>
     
                     <div className="FormField">
-                        <label className="FormField__label" htmlFor="email">E-mail Address</label>
+                        <label className="FormField__label" htmlFor="username">Username</label>
                         <input 
-                            type="email" 
-                            id="email" 
+                            type="text" 
+                            id="username" 
                             className="FormField__input" 
-                            placeholder="Enter your email" 
-                            name="email" 
-                            value={this.state.email}
+                            placeholder="Enter your username" 
+                            name="username" 
+                            value={this.state.username}
                             onChange={this.handleChange}
                         />
                     </div>

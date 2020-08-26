@@ -1,16 +1,45 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 import './Navigation.css'
+import TokenService from '../../service/token-service'
 
-function Navigation () {
-    return (
-        <div className="Navigation">
-            <NavLink to='/stashed-recipes'>Stashed Recipes</NavLink>
-            <NavLink to='/meals'>Meals</NavLink>
-            <NavLink to='/new-recipe'>Stash New Recipe</NavLink>
-        </div>
-    )
+class Navigation extends React.Component {
+    handleLogoutClick = () => {
+        TokenService.clearAuthToken()
+    }
+
+    renderLoggedOutLinks() {
+        return (
+            <div className='Navigation__logged-in'>
+                <NavLink to='/stashed-recipes'>Stashed Recipes</NavLink>
+                <NavLink to='/meals'>Meals</NavLink>
+                <NavLink to='/new-recipe'>Stash New Recipe</NavLink>
+                <Link 
+                    onClick={this.handleLogoutClick}
+                    to='/'>
+                    Logout
+                </Link>
+            </div>
+        )
+    }
+
+    renderLoggedInLinks() {
+        return (
+            <div className='Navigation__not-logged-in'>
+            </div>
+        )
+    }
+
+    render() {
+        return (
+            <div className="Navigation">
+                {TokenService.hasAuthToken()
+                ? this.renderLoggedInLinks()
+                : this.renderLoggedOutLinks()}
+            </div>
+        )
+    }
 }
 
 export default Navigation
