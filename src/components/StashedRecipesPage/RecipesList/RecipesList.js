@@ -30,8 +30,8 @@ class RecipesList extends React.Component{
             currentTitle: recipe.title,
             currentIngredients: recipe.ingredients,
             currentInstructions: recipe.instructions,
-            currentType: recipe.type,
-            currentImageURL: recipe.imageURL
+            currentType: recipe.meal_type,
+            currentImageURL: recipe.image_url
         })
     }
 
@@ -58,9 +58,9 @@ class RecipesList extends React.Component{
         .map( (recipe, key) =>
             <RecipeItem 
                 key={key} 
-                imageURL={recipe.imageURL} 
+                imageURL={recipe.image_url} 
                 title={recipe.title} 
-                type={recipe.type}
+                type={recipe.meal_type}
                 handleOpenModal={ () => this.handleOpenModal(recipe)} 
             />
         )
