@@ -54,7 +54,7 @@ class RecipesList extends React.Component{
 
         //use array of recipes to make an 'li' for each recipe
         const recipesList = recipes
-        .filter(recipe => recipe.title.toLowerCase().includes(searchTerm.toLowerCase()) && (filterType === 'All' || recipe.type === filterType))
+        .filter(recipe => recipe.title.toLowerCase().includes(searchTerm.toLowerCase()) && (filterType === 'All' || recipe.meal_type === filterType))
         .map( (recipe, key) =>
             <RecipeItem 
                 key={key} 
