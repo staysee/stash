@@ -9,7 +9,7 @@ class Navigation extends React.Component {
         TokenService.clearAuthToken()
     }
 
-    renderLoggedOutLinks() {
+    renderLoggedInLinks() {
         return (
             <div className='Navigation__logged-in'>
                 <NavLink to='/stashed-recipes'>Stashed Recipes</NavLink>
@@ -24,7 +24,7 @@ class Navigation extends React.Component {
         )
     }
 
-    renderLoggedInLinks() {
+    renderLoggedOutLinks() {
         return (
             <div className='Navigation__not-logged-in'>
             </div>

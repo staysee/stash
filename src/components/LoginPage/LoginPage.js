@@ -9,7 +9,7 @@ class LoginPage extends React.Component {
         super(props);
 
         this.state = {
-            email: '',
+            username: '',
             password: ''
         }
     }
