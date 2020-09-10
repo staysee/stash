@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ValidationError from '../../ValidationError/ValidationError'
 
 import './RegistrationForm.css'
 
@@ -8,10 +9,26 @@ class RegistrationForm extends React.Component {
         super(props);
 
         this.state = {
-            username: '',
-            password: '',
-            firstName: '',
-            lastName: ''
+            username: {
+                value: '',
+                touched: false
+            },
+            password: {
+                value: '',
+                touched: false
+            },
+            repeatPassword: {
+                value: '',
+                touched: false
+            },
+            firstName: {
+                value: '',
+                touched: false
+            },
+            lastName: {
+                value: '',
+                touched: false
+            },
         }
     }
 
@@ -21,7 +38,10 @@ class RegistrationForm extends React.Component {
         let name = target.name;
 
         this.setState({
-            [name]: value
+            [name]: { 
+                value: value,
+                touched: true
+            } 
         })
     }
 
@@ -33,7 +53,40 @@ class RegistrationForm extends React.Component {
         //POST to server
     }
 
+    validateUserName() {
+        const username = this.state.username.value.trim()
+        if (username.length === 0) {
+            return 'Username is required'
+        } else if (username.length < 5) {
+            return 'Username must be at least 3 characters long'
+        }
+    }
+
+    validatePassword() {
+        const password = this.state.password.value.trim()
+        if (password.length === 0) {
+            return 'Password is required';
+          } else if (password.length < 6 || password.length > 72) {
+            return 'Password must be between 6 and 72 characters long';
+          } else if (!password.match(/[0-9]/)) {
+            return 'Password must contain at least one number';
+          }
+    }
+
+    validateRepeatPassword() {
+        const repeatPassword = this.state.repeatPassword.value.trim();
+        const password = this.state.password.value.trim();
+    
+        if (repeatPassword !== password) {
+          return 'Passwords do not match';
+        }
+      }
+
     render() {
+        const usernameError = this.validateUserName()
+        const passwordError = this.validatePassword()
+        const repeatPasswordError = this.validateRepeatPassword()
+
         return (
             <form className="RegistrationForm FormFields" onSubmit={this.handleSubmit}>
 
@@ -71,6 +124,7 @@ class RegistrationForm extends React.Component {
                         name="username"
                         onChange={this.handleChange}
                     />
+                    {this.state.username.touched && (<ValidationError message={usernameError} />)}
                 </div>
 
                 <div className="FormField">
@@ -83,10 +137,31 @@ class RegistrationForm extends React.Component {
                         name="password" 
                         onChange={this.handleChange}
                     />
+                    {this.state.password.touched && (<ValidationError message={passwordError} />)}
+                </div>
+                <div className="FormField">
+                    <label className="FormField__label" htmlFor="repeatPassword">Repeat Password</label>
+                    <input 
+                        type="password" 
+                        id="repeat-password" 
+                        className="FormField__input" 
+                        placeholder="Repeat password to confirm" 
+                        name="repeatPassword" 
+                        onChange={this.handleChange}
+                    />
+                    {this.state.repeatPassword.touched && (<ValidationError message={repeatPasswordError} />)}
                 </div>
 
                 <div className="FormField">
-                    <button className="FormField__button">
+                    <button 
+                        type="submit" 
+                        className="FormField__registration-button"
+                        disabled={
+                            this.validateUserName() ||
+                            this.validatePassword() ||
+                            this.validateRepeatPassword()
+                        }
+                    >
                         <Link to="/stashed-recipes">Sign Up</Link>
                     </button>
                     <Link to='/login'>Already have an account?</Link>
