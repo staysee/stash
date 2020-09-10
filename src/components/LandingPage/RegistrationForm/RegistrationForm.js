@@ -8,7 +8,7 @@ class RegistrationForm extends React.Component {
         super(props);
 
         this.state = {
-            email: '',
+            username: '',
             password: '',
             firstName: '',
             lastName: ''
@@ -62,13 +62,13 @@ class RegistrationForm extends React.Component {
                 </div>
 
                 <div className="FormField">
-                    <label className="FormField__label" htmlFor="email">E-mail Address</label>
+                    <label className="FormField__label" htmlFor="username">Username</label>
                     <input 
-                        type="email" 
-                        id="email" 
+                        type="text" 
+                        id="username" 
                         className="FormField__input" 
-                        placeholder="Enter your email" 
-                        name="email"
+                        placeholder="Enter your username" 
+                        name="username"
                         onChange={this.handleChange}
                     />
                 </div>

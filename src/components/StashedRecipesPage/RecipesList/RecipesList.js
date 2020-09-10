@@ -30,8 +30,8 @@ class RecipesList extends React.Component{
             currentTitle: recipe.title,
             currentIngredients: recipe.ingredients,
             currentInstructions: recipe.instructions,
-            currentType: recipe.type,
-            currentImageURL: recipe.imageURL
+            currentType: recipe.meal_type,
+            currentImageURL: recipe.image_url
         })
     }
 
@@ -54,13 +54,13 @@ class RecipesList extends React.Component{
 
         //use array of recipes to make an 'li' for each recipe
         const recipesList = recipes
-        .filter(recipe => recipe.title.toLowerCase().includes(searchTerm.toLowerCase()) && (filterType === 'All' || recipe.type === filterType))
+        .filter(recipe => recipe.title.toLowerCase().includes(searchTerm.toLowerCase()) && (filterType === 'All' || recipe.meal_type === filterType))
         .map( (recipe, key) =>
             <RecipeItem 
                 key={key} 
-                imageURL={recipe.imageURL} 
+                imageURL={recipe.image_url} 
                 title={recipe.title} 
-                type={recipe.type}
+                type={recipe.meal_type}
                 handleOpenModal={ () => this.handleOpenModal(recipe)} 
             />
         )
