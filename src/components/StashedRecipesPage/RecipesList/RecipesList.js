@@ -10,6 +10,7 @@ class RecipesList extends React.Component{
         super()
         this.state = {
             showModal: false,
+            currentRecipeId: '',
             currentTitle: '',
             currentIngredients: '',
             currentInstructions: '',
@@ -27,6 +28,7 @@ class RecipesList extends React.Component{
     handleOpenModal = (recipe) => {
         this.setState({
             showModal: true,
+            currentRecipeId: recipe.id,
             currentTitle: recipe.title,
             currentIngredients: recipe.ingredients,
             currentInstructions: recipe.instructions,
@@ -36,9 +38,10 @@ class RecipesList extends React.Component{
     }
 
     renderModal = () => {
-        const { currentTitle, currentIngredients, currentInstructions, currentType, currentImageURL } = this.state;
+        const { currentRecipeId, currentTitle, currentIngredients, currentInstructions, currentType, currentImageURL } = this.state;
         return (
             <RecipeCardModal 
+                id={currentRecipeId}
                 title={currentTitle}
                 ingredients={currentIngredients}
                 instructions={currentInstructions}

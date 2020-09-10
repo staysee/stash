@@ -29,12 +29,20 @@ class App extends React.Component {
 		})
 	}
 
+	deleteRecipe = recipeId => {
+		const newRecipes = this.state.recipes.filter( recipe => recipe.id !== recipeId )
+		this.setState({
+			recipes: newRecipes
+		})
+	}
+
 	render() {
 		// Change state to context value
 		const contextValue = {
 			recipes: this.state.recipes,
 			meals: this.state.meals,
-			addRecipe: this.addRecipe
+			addRecipe: this.addRecipe,
+			deleteRecipe: this.deleteRecipe,
 		}
 
 		return (
