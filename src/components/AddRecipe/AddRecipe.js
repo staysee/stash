@@ -10,8 +10,8 @@ class AddRecipe extends React.Component {
             title: '',
             ingredients: '',
             instructions: '',
-            type: '',
-            imageURL: ''
+            meal_type: '',
+            image_url: ''
         }
     }
 
@@ -28,14 +28,14 @@ class AddRecipe extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
 
-        const { title, ingredients, instructions, type, imageURL } = this.state
+        const { title, ingredients, instructions, meal_type, image_url } = this.state
 
         const newRecipe = {
             title,
             ingredients,
             instructions,
-            type,
-            imageURL
+            meal_type,
+            image_url
         }
         console.log(`The new recipe:`, newRecipe);
 
@@ -100,14 +100,14 @@ class AddRecipe extends React.Component {
                         <div className="FormField">
                             <label className="FormField__label" htmlFor="imageURL">Image URL</label>
                             <input 
-                                type="url" 
                                 id="imageURL" 
+                                type="url" 
                                 className="FormField__input" 
                                 placeholder="https://example.com"
                                 pattern="https://.*" 
                                 size="30"
-                                name="imageURL" 
-                                value={this.state.imageURL}
+                                name="image_url" 
+                                value={this.state.image_url}
                                 onChange={this.handleChange}
                             />
                         </div>
@@ -115,9 +115,9 @@ class AddRecipe extends React.Component {
                             <label className="FormField__label" htmlFor="type">Meal Type</label>
                             <select 
                                 id="type" 
-                                name="type"
                                 className="FormField__select"
-                                value={this.state.type}
+                                name="meal_type"
+                                value={this.state.meal_type}
                                 onChange={this.handleChange}
                                 >
                                 <option value="">Select Type</option>
