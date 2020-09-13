@@ -45,9 +45,6 @@ class LoginPage extends React.Component {
     render() {
         return (
             <div className="LoginPage">
-                <div className="LoginPage__image">
-                    <img src="https://via.placeholder.com/100" alt="LoginPage" />
-                </div>
                 <form className="FormFields" onSubmit={this.handleSubmitBasicAuth}>
     
                     <div className="FormField">
@@ -78,7 +75,7 @@ class LoginPage extends React.Component {
 
                     <div className="FormField">
                         <button className="FormField__button">
-                            <Link to='/stashed-recipes'>Log In</Link>
+                            <Link to='/recipes'>Log In</Link>
                         </button>
                         <Link to='/'>Create an Account</Link>
                     </div>

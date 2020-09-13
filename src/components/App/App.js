@@ -3,10 +3,11 @@ import { Route, Switch, Link } from 'react-router-dom'
 import StashContext from '../../StashContext'
 import LandingPage from '../LandingPage/LandingPage'
 import LoginPage from '../LoginPage/LoginPage'
-import StashedRecipesPage from '../StashedRecipesPage/StashedRecipesPage'
-import MealsPage from '../MealsPage/MealsPage'
+import Logo from '../Logo/Logo'
 import Navigation from '../Navigation/Navigation'
+import RecipesPage from '../RecipesPage/RecipesPage'
 import AddRecipe from '../AddRecipe/AddRecipe'
+import MealsPage from '../MealsPage/MealsPage'
 import NotFoundPage from '../../NotFoundPage'
 import store from '../../store'
 
@@ -67,12 +68,12 @@ class App extends React.Component {
 		return (
 			<StashContext.Provider value={contextValue}>
 				<main className='App'>
-					<Link to="/"><h1>STASH</h1></Link>
+					<Logo />
 					<Navigation />
 					<Switch>
 						<Route exact path='/' component={LandingPage} />
 						<Route path='/login' component={LoginPage} />
-						<Route path='/stashed-recipes' component={StashedRecipesPage} />
+						<Route path='/recipes' component={RecipesPage} />
 						<Route path='/meals' component={MealsPage} />
 						<Route path='/new-recipe' component={AddRecipe} />
 						<Route component={NotFoundPage} />

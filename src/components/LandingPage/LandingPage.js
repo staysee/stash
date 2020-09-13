@@ -7,7 +7,7 @@ function LandingPage () {
     return (
         <div className="LandingPage">
             <div className="LandingPage__description">
-                Deserunt amet incididunt do eiusmod aliquip Lorem sit in aliquip sint. Sint fugiat ad sunt cupidatat elit proident non irure. Commodo aliquip consectetur nulla dolore id exercitation ut proident laborum. Reprehenderit excepteur Lorem nulla ex minim exercitation sint mollit fugiat magna dolore ut minim.
+                Stash is a place where you can keep all of your recipes in one place for safekeeping. Anytime you're ready to start cooking up a meal, open up your drawer where you stashed away all of your delicious recipes and easily find what you're looking for! Stash can also help you plan out your meals for the week so you don't have to waste time thinking of your next meal!
             </div>
 
             <RegistrationForm />
