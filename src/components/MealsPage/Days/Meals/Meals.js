@@ -28,6 +28,12 @@ class Meals extends React.Component {
         this.findRecipe(meal.recipe_id, recipes)
     }
 
+    handleClickDelete = event => {
+        event.preventDefault()
+        const mealId = this.props.id
+        this.context.deleteMeal(mealId)
+    }
+
     render(){
         const { recipeTitle } = this.state;
 
@@ -43,7 +49,7 @@ class Meals extends React.Component {
                     </div>
                     <div className="Meals__buttons">
                         <button>R</button>
-                        <button>X</button>
+                        <button onClick={this.handleClickDelete}>X</button>
                     </div>
                 </div>
             </div>
