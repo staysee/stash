@@ -40,10 +40,9 @@ class RecipeCardModal extends React.Component {
             day,
             recipe_id
         }
-        console.log(`New to meal plan`, newMeal)
 
         this.context.addMeal(newMeal)
-        this.props.toggleModal()
+        // this.props.toggleModal()
     }
 
 
