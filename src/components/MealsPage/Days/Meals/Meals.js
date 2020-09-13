@@ -13,6 +13,7 @@ class Meals extends React.Component {
     findRecipe = (recipeId, recipes) => {
         const recipe = recipes.find( recipe => recipe.id === recipeId)
 
+        console.log(recipe)
         if (recipe) {
             this.setState({
                 recipeTitle: recipe.title
@@ -24,17 +25,15 @@ class Meals extends React.Component {
         const { recipes } = this.context
         const { meal } = this.props
 
-        this.findRecipe(meal.recipeId, recipes)
+        this.findRecipe(meal.recipe_id, recipes)
     }
 
     render(){
-        const { type } = this.props;
         const { recipeTitle } = this.state;
 
         return (
             <div className="Meals">
-                <div className="Meals__type">{type}</div>
-                
+            
                 <div className="Meals__info">
                     <div className="Meals__img">
                         <img src="https://via.placeholder.com/100" alt="Placeholder" />

@@ -66,7 +66,10 @@ const store = {
             "recipe_id": 4,
             "user_id": 1
         },
-    ]
+    ],
+    meals2: {
+
+    }
 }
 
 export default store
