@@ -6,7 +6,7 @@ const store = {
             "ingredients": "Eggs, salt, pepper",
             "instructions": "Blah Blah blah Blah",
             "meal_type": "Breakfast",
-            "image_url": "https://via.placeholder.com/100",
+            "image_url": "https://picsum.photos/100",
             "author": "1"
         },
         {
@@ -15,7 +15,7 @@ const store = {
             "ingredients": "Eggs, lettuce, tomatoes, dressing",
             "instructions": "Blah Blah blah Blah",
             "meal_type": "Lunch",
-            "image_url": "https://via.placeholder.com/100",
+            "image_url": "https://picsum.photos/100",
             "author": "1"
         },
         {
@@ -24,7 +24,7 @@ const store = {
             "ingredients": "Steak, salt, pepper, garlic, butter",
             "instructions": "Blah Blah blah Blah",
             "meal_type": "Dinner",
-            "image_url": "https://via.placeholder.com/100",
+            "image_url": "https://picsum.photos/100",
             "author": "1"
         },
         {
@@ -33,7 +33,7 @@ const store = {
             "ingredients": "milk, ice, salt, cream",
             "instructions": "Blah Blah blah Blah",
             "meal_type": "Dinner",
-            "image_url": "https://via.placeholder.com/100",
+            "image_url": "https://picsum.photos/100",
             "author": "1"
         },
     ],

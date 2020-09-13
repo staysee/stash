@@ -36,6 +36,7 @@ class App extends React.Component {
 		})
 	}
 
+
 	render() {
 		// Change state to context value
 		const contextValue = {
