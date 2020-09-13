@@ -36,6 +36,13 @@ class App extends React.Component {
 		})
 	}
 
+	addMeal = meal => {
+		const newMeal = [...this.state.meals, meal]
+		this.setState({
+			meals: newMeal
+		})
+	}
+
 
 	render() {
 		// Change state to context value
@@ -44,6 +51,7 @@ class App extends React.Component {
 			meals: this.state.meals,
 			addRecipe: this.addRecipe,
 			deleteRecipe: this.deleteRecipe,
+			addMeal: this.addMeal,
 		}
 
 		return (
