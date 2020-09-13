@@ -69,8 +69,11 @@ class RecipesList extends React.Component{
         )
 
         const customStyles = {
+            overlay: {
+                background: '#4c645682'
+            },
             content: {
-                background: '#9bb9ad'
+                background: '#ffffff'
             }
         }
     
@@ -78,6 +81,8 @@ class RecipesList extends React.Component{
             <div className="RecipesList">
                 <Modal
                     isOpen={this.state.showModal}
+                    onRequestClose={this.toggleModal}
+                    contentLabel="Recipe Modal"
                     ariaHideApp={false}
                     style={customStyles}
                 >
