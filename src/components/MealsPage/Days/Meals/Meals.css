@@ -1,7 +1,6 @@
 .Meals {
     display: flex;
     flex-direction: column;
-    padding: 10px;
     border-bottom: 1px solid #bdb2b2;
 }
 
@@ -20,6 +19,7 @@
 
 .Meals__img img {
     width: 100%;
+    height: 100%;
 }
 
 .Meals__recipe-title {

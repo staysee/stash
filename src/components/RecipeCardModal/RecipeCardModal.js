@@ -32,36 +32,55 @@ class RecipeCardModal extends React.Component {
         })
     }
 
+    //temporary to generate meal Id
+    getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
     handleSubmit = e => {
         e.preventDefault();
         const { day, recipe_id } = this.state;
-
+        
         const newMeal = {
+            id: this.getRandomInt(1, 500),
             day,
             recipe_id
         }
 
         this.context.addMeal(newMeal)
         // this.props.toggleModal()
+
     }
 
 
 
     render() {
-        const { title, ingredients, instructions, type, imageURL, toggleModal } = this.props
+        const { title, ingredients, instructions, type, imageURL, editRecipe=true, deleteRecipe=true } = this.props
         return(
             <>
                 <div className="RecipeCardModal">
-                    <div className="recipe-image">
-                        <img src={imageURL} alt={title} />
+                    <div className="recipe-information">
+                        <h2>{title}</h2>
+                        <div className="recipe-image">
+                            <img src={imageURL} alt={title} />
+                        </div>
+                        <div className="ingredients">
+                            <p className="label">Ingredients</p>
+                            <p>{ingredients}</p>
+                        </div>
+                        <div className="instructions">
+                            <p className="label">Instructions</p>
+                            <p>{instructions}</p>
+                        </div>
+                        <div className="meal-type">
+                            <p className="label">Meal Type</p>
+                            <p>{type}</p>
+                        </div>
                     </div>
-    
-                    <h2>{title}</h2>
-                    <p><span>Ingredients: </span>{ingredients}</p>
-                    <p><span>Instructions: </span>{instructions}</p>
-                    <p><span>Meal Type: </span>{type}</p>
                     
-                    <form className="FormFields" onSubmit={this.handleSubmit}>
+                    {editRecipe && (<form className="FormFields recipeOptions" onSubmit={this.handleSubmit}>
                         <label className="FormField__label" htmlFor="mealPlanDay">Add to Meal Plan</label>
                         <select 
                             id="mealPlanDay" 
@@ -80,16 +99,21 @@ class RecipeCardModal extends React.Component {
                             <option value="Sunday">Sunday</option>
                         </select>
 
-                        <button type="submit">Add This Meal</button>
-                    </form>
-
-                    <button onClick={toggleModal}>Close</button>
+                        <button type="submit" className="add-meal">Add This Meal</button>
+                    </form>)}
                     
-                    <button 
-                        type="button"
-                        onClick={this.handleClickDelete}>
-                        Delete Recipe
-                    </button>
+
+                    {/* <button onClick={toggleModal}>Close</button> */}
+                    
+                    {deleteRecipe &&
+                        <button 
+                            type="button"
+                            className="delete-recipe"
+                            onClick={this.handleClickDelete}>
+                            Delete Recipe
+                        </button>
+                    }
+                    
                 </div>
             </>
         )

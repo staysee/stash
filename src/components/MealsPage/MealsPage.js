@@ -9,7 +9,6 @@ class MealsPage extends React.Component {
     render() {
         const { meals } = this.context;
         const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-        // const days = Object.keys(meals)
         
         return (
             <div className="MealsPage">
@@ -22,13 +21,6 @@ class MealsPage extends React.Component {
                     />
                 )}
 
-                {/* {days.map( (day, key) => 
-                    <Days 
-                        key={key}
-                        day={day} 
-                        meals={meals[day]} 
-                    />
-                )} */}
             </div>
         )
     }

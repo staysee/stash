@@ -48,6 +48,8 @@ class RecipesList extends React.Component{
                 type={currentType}
                 imageURL={currentImageURL}
                 toggleModal={this.toggleModal}
+                editRecipe={true}
+                addRecipe={false}
             />
         )
     }
@@ -73,7 +75,7 @@ class RecipesList extends React.Component{
                 background: '#4c645682'
             },
             content: {
-                background: '#ffffff'
+                background: 'rgb(240 240 240)'
             }
         }
     
