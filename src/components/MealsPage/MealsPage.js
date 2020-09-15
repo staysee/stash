@@ -20,7 +20,6 @@ class MealsPage extends React.Component {
                         meals={meals}
                     />
                 )}
-
             </div>
         )
     }

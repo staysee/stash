@@ -42,6 +42,7 @@ class App extends React.Component {
 		this.setState({
 			meals: newMeal
 		})
+		console.log('meal was added')
 	}
 
 	deleteMeal = mealId => {

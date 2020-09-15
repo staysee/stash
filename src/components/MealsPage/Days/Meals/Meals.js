@@ -1,8 +1,8 @@
 import React from 'react'
 import StashContext from '../../../../StashContext'
+import DisplayModal from '../../../DisplayModal/DisplayModal';
 
 import './Meals.css'
-import DisplayModal from '../../../DisplayModal/DisplayModal';
 
 class Meals extends React.Component {
     static contextType = StashContext;
@@ -15,8 +15,6 @@ class Meals extends React.Component {
     findRecipe = (recipeId, recipes) => {
         const recipe = recipes.find( recipe => recipe.id == recipeId)
 
-        console.log(recipe)
-        console.log(recipeId)
         if (recipe) {
             this.setState({
                 recipeTitle: recipe.title
@@ -35,11 +33,12 @@ class Meals extends React.Component {
         event.preventDefault()
         const mealId = this.props.meal.id
         this.context.deleteMeal(mealId)
-        console.log('props', this.props)
     }
 
-    handleOpenModal = meal => {
-        
+    toggleModal = () => {
+        this.setState({
+            showModal: !this.state.showModal
+        })
     }
 
     render(){
@@ -58,7 +57,7 @@ class Meals extends React.Component {
         const permissions = {
             edit: false,
             add: false,
-            delete: true
+            delete: false
         }
 
         return (
@@ -67,7 +66,8 @@ class Meals extends React.Component {
                     <DisplayModal 
                         meal={meal} 
                         customStyles={customStyles} 
-                        showModal={showModal} 
+                        showModal={showModal}
+                        closeModal={this.toggleModal}
                         label="Meal Modal"
                         permissions={permissions}
                     />

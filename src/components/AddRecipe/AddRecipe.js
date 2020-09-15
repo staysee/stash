@@ -41,12 +41,12 @@ class AddRecipe extends React.Component {
 
         this.context.addRecipe(newRecipe)
         //return to
-        this.props.history.push(`/stashed-recipes`)
+        this.props.history.push(`/recipes`)
     }
 
 
     handleClickCancel = () => {
-        this.props.history.push('/stashed-recipes')
+        this.props.history.push('/rrecipes')
     }
 
     render() {
