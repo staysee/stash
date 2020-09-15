@@ -4,7 +4,7 @@ import RecipesList from './RecipesList/RecipesList'
 import Search from './Search/Search'
 import StashContext from '../../StashContext'
 
-class StashedRecipesPage extends React.Component {
+class RecipesPage extends React.Component {
     static contextType = StashContext;
 
     constructor(props){
@@ -31,7 +31,7 @@ class StashedRecipesPage extends React.Component {
         const { recipes=[] } = this.context 
         const { searchTerm, filterType } = this.state
         return (
-            <div className="StashedRecipesPage">
+            <div className="RecipesPage">
                 <PageHeader title="Stashed Recipes" />
                 <Search
                     searchTerm={searchTerm}
@@ -51,4 +51,4 @@ class StashedRecipesPage extends React.Component {
 }
 
 
-export default StashedRecipesPage
+export default RecipesPage

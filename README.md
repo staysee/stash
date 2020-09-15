@@ -2,7 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+<<<<<<< HEAD
 [![Run on Repl.it](https://repl.it/badge/github/staysee/stash)](https://repl.it/github/staysee/stash)
+=======
+[logo](https://logomakr.com/07PGmC)
+>>>>>>> static-client
 
 ## Available Scripts
 

@@ -12,7 +12,7 @@ class Navigation extends React.Component {
     renderLoggedInLinks() {
         return (
             <div className='Navigation__logged-in'>
-                <NavLink to='/stashed-recipes'>Stashed Recipes</NavLink>
+                <NavLink to='/recipes'>Recipes</NavLink>
                 <NavLink to='/meals'>Meals</NavLink>
                 <NavLink to='/new-recipe'>Stash New Recipe</NavLink>
                 <Link 
