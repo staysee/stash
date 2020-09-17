@@ -22,7 +22,8 @@ class DisplayModal extends React.Component {
     }
 
     componentDidMount(){
-        this.findRecipe(this.props.meal.recipe_id, this.context.recipes)
+        // this.findRecipe(this.props.meal.recipe_id, this.context.recipes)
+        this.findRecipe(this.props.id, this.context.recipes)
     }
 
     render() {
@@ -50,7 +51,8 @@ class DisplayModal extends React.Component {
                             imageURL={image_url}
                             editRecipe={permissions.edit}
                             addRecipe={permissions.add}
-                            deleteRecipe={permissions.delete} />
+                            deleteRecipe={permissions.delete}
+                            closeModal={this.props.closeModal} />
                     </Modal>}
                 }
             </>

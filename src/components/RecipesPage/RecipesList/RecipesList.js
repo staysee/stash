@@ -1,7 +1,9 @@
 import React from 'react'
 import RecipeItem from './RecipeItem/RecipeItem'
 import RecipeCardModal from '../../RecipeCardModal/RecipeCardModal'
-import Modal from 'react-modal'
+import DisplayModal from '../../DisplayModal/DisplayModal'
+import StashContext from '../../../StashContext'
+
 
 import './RecipesList.css'
 
@@ -15,7 +17,7 @@ class RecipesList extends React.Component{
             currentIngredients: '',
             currentInstructions: '',
             currentType: '',
-            currentImageURL: ''
+            currentImageURL: '',
         }
     }
 
@@ -37,24 +39,8 @@ class RecipesList extends React.Component{
         })
     }
 
-    renderModal = () => {
-        const { currentRecipeId, currentTitle, currentIngredients, currentInstructions, currentType, currentImageURL } = this.state;
-        return (
-            <RecipeCardModal 
-                id={currentRecipeId}
-                title={currentTitle}
-                ingredients={currentIngredients}
-                instructions={currentInstructions}
-                type={currentType}
-                imageURL={currentImageURL}
-                toggleModal={this.toggleModal}
-                editRecipe={true}
-                addRecipe={false}
-            />
-        )
-    }
-
     render() {
+        const { showModal, currentRecipeId, currentTitle, currentIngredients, currentInstructions, currentType, currentImageURL } = this.state;
         const { searchTerm, filterType, recipes } = this.props;
 
         //use array of recipes to make an 'li' for each recipe
@@ -78,18 +64,33 @@ class RecipesList extends React.Component{
                 background: 'rgb(240 240 240)'
             }
         }
+
+        const permissions = {
+            edit: true,
+            add: false,
+            delete: true
+        }
     
         return (
             <div className="RecipesList">
-                <Modal
-                    isOpen={this.state.showModal}
-                    onRequestClose={this.toggleModal}
-                    contentLabel="Recipe Modal"
-                    ariaHideApp={false}
-                    style={customStyles}
-                >
-                    {this.renderModal()}
-                </Modal>
+                {showModal && 
+                    <DisplayModal 
+                        id={currentRecipeId}
+                        title={currentTitle}
+                        ingredients={currentIngredients}
+                        instructions={currentInstructions}
+                        type={currentType}
+                        imageURL={currentImageURL}
+                        // toggleModal={this.toggleModal}
+                        editRecipe={true}
+                        addRecipe={false}
+                        customStyles={customStyles} 
+                        showModal={showModal}
+                        closeModal={this.toggleModal}
+                        label="Recipe Modal"
+                        permissions={permissions}
+                    />
+                }
                 <ul>
                     {recipesList}
                 </ul>

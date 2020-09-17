@@ -19,7 +19,7 @@ class RecipeCardModal extends React.Component {
         const recipeId = this.props.id
         this.context.deleteRecipe(recipeId)
         //return to
-        this.props.toggleModal()
+        this.props.closeModal()
     }
 
     handleChange = e => {
@@ -50,8 +50,6 @@ class RecipeCardModal extends React.Component {
         }
 
         this.context.addMeal(newMeal)
-        // this.props.toggleModal()
-
     }
 
 
@@ -101,9 +99,6 @@ class RecipeCardModal extends React.Component {
 
                         <button type="submit" className="add-meal">Add This Meal</button>
                     </form>)}
-                    
-
-                    {/* <button onClick={toggleModal}>Close</button> */}
                     
                     {deleteRecipe &&
                         <button 
