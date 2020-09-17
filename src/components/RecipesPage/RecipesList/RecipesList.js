@@ -1,9 +1,6 @@
 import React from 'react'
 import RecipeItem from './RecipeItem/RecipeItem'
-import RecipeCardModal from '../../RecipeCardModal/RecipeCardModal'
 import DisplayModal from '../../DisplayModal/DisplayModal'
-import StashContext from '../../../StashContext'
-
 
 import './RecipesList.css'
 
@@ -81,7 +78,6 @@ class RecipesList extends React.Component{
                         instructions={currentInstructions}
                         type={currentType}
                         imageURL={currentImageURL}
-                        // toggleModal={this.toggleModal}
                         editRecipe={true}
                         addRecipe={false}
                         customStyles={customStyles} 

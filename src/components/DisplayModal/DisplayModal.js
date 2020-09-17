@@ -22,8 +22,11 @@ class DisplayModal extends React.Component {
     }
 
     componentDidMount(){
-        // this.findRecipe(this.props.meal.recipe_id, this.context.recipes)
-        this.findRecipe(this.props.id, this.context.recipes)
+        if(this.props.meal){
+            this.findRecipe(this.props.meal.recipe_id, this.context.recipes)
+        } else {
+            this.findRecipe(this.props.id, this.context.recipes)
+        }
     }
 
     render() {
