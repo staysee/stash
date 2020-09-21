@@ -4,7 +4,9 @@ const StashContext = React.createContext({
     recipes: [],
     meals: {},
     addRecipe: () => {},
-    deleteRecipe: () => {}
+    deleteRecipe: () => {},
+    addMeal: () => {},
+    deleteMeal: () => {}
 })
 
 export default StashContext
