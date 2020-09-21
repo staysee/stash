@@ -1,40 +1,40 @@
 const store = {
     recipes: [
         {
-            "id": "1",
+            "id": 1,
             "title": "Egg Scramble",
             "ingredients": "Eggs, salt, pepper",
             "instructions": "Blah Blah blah Blah",
             "meal_type": "Breakfast",
             "image_url": "https://picsum.photos/100",
-            "author": "1"
+            "user_id": 1
         },
         {
-            "id": "2",
+            "id": 2,
             "title": "Salad",
             "ingredients": "Eggs, lettuce, tomatoes, dressing",
             "instructions": "Blah Blah blah Blah",
             "meal_type": "Lunch",
             "image_url": "https://picsum.photos/100",
-            "author": "1"
+            "user_id": 1
         },
         {
-            "id": "3",
+            "id": 3,
             "title": "Steak",
             "ingredients": "Steak, salt, pepper, garlic, butter",
             "instructions": "Blah Blah blah Blah",
             "meal_type": "Dinner",
             "image_url": "https://picsum.photos/100",
-            "author": "1"
+            "user_id": 1
         },
         {
-            "id": "4",
+            "id": 4,
             "title": "Ice Cream",
             "ingredients": "milk, ice, salt, cream",
             "instructions": "Blah Blah blah Blah",
             "meal_type": "Dinner",
             "image_url": "https://picsum.photos/100",
-            "author": "1"
+            "user_id": 1
         },
     ],
     meals: [
