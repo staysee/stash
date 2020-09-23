@@ -4,15 +4,17 @@
 }
 .RecipeCardModal .recipe-image {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    display: flex;
     height: 200px;
+
     margin-bottom:15px;
 }
 
 .RecipeCardModal .recipe-image img {
-    display: block;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     margin: 0 auto;
     max-height: 100%;
-    width: 100%;
+    max-width: 100%;
 }
 
 .RecipeCardModal h2 {

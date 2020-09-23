@@ -15,6 +15,19 @@
     cursor: pointer;
 }
 
+.RecipeItem .item_image {
+    background-color: #ebebeb;
+    border: 2px solid #ffffff;
+    display: flex;
+    height: 200px;
+}
+
+.RecipeItem img {
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
 .RecipeItem p {
     margin: 0;
     padding: 10px;

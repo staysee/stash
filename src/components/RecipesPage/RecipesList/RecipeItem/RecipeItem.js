@@ -10,7 +10,9 @@ function RecipeItem({id, title, ingredients, instructions, imageURL, handleOpenM
                 key={id}
                 onClick={handleOpenModal}
             >
-                <img src={imageURL} alt={title} />
+                <div className="item_image">
+                    <img src={imageURL} alt={title} />
+                </div>
                 <p>{title}</p>
             </li>
         </>   
