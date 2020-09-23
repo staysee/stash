@@ -10,24 +10,47 @@ import AddRecipe from '../AddRecipe/AddRecipe'
 import MealsPage from '../MealsPage/MealsPage'
 import NotFoundPage from '../../NotFoundPage'
 import store from '../../store'
+import recipesService from '../../service/recipe-service'
 
 import './App.css'
 
 class App extends React.Component {
+	static contextType = StashContext
+
 	state = {
 		recipes: [],
 		meals: []
 	}
 
-	componentDidMount(){
-		this.setState(store)
+	async componentDidMount(){
+		// this.setState(store)
+		await Promise.all([
+			await this.fetchAllRecipes(),
+			// await this.fetchAllMeals(),
+			// await this.fetchAllUsers()
+		])
+		
 	}
 
-	addRecipe = recipe => {
+	fetchAllRecipes = async () => {
+		const recipes = await recipesService.getAllRecipes()
+		this.context.recipes = recipes
+		console.log('context', this.context)
+	}
+
+	//fetchAllMeals
+	//fetchAllUsers
+
+
+	addRecipe = async (recipe) => {
 		const newRecipe = [...this.state.recipes, recipe]
 		this.setState({
 			recipes: newRecipe
 		})
+
+		console.log('addRecipe', recipe)
+		const resolve = await recipesService.insertNewRecipe({...recipe, user_id: 1})
+		console.log('resolve', resolve)
 	}
 
 	deleteRecipe = recipeId => {
