@@ -7,20 +7,25 @@ import './Days.css'
 class Days extends React.Component{
     render() {
         const { day, meals } = this.props
+        let mealsList;
 
-        const mealsList = meals
-            .filter( meal => meal.day === day)
+        if (meals[day]) {
+            console.log(meals[day].length)
+
+            mealsList = meals[day]
             .map( (meal, key) => 
                 <Meals 
                     key={key}
+                    day={day}
                     meal={meal}
                 />
             )
+        }
         
         return(
             <div className="Days">
                 <h3>{day}</h3>
-                {meals && mealsList}
+                {meals && meals[day] && mealsList}
             </div>
         )
 

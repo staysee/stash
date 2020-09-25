@@ -16,12 +16,8 @@ import './App.css'
 
 class App extends React.Component {
 	state = {
-		recipes: [],
-		meals: []
-	}
-
-	componentDidMount(){
-		this.setState(store)
+		recipes: store.recipes,
+		meals: store.meals
 	}
 
 	addRecipe = recipe => {
@@ -36,6 +32,7 @@ class App extends React.Component {
 		this.setState({
 			recipes: newRecipes
 		})
+		
 	}
 
 	updateRecipe = updatedRecipe => {
@@ -54,12 +51,16 @@ class App extends React.Component {
 		console.log('meal was added')
 	}
 
-	deleteMeal = mealId => {
-		const newMeals = this.state.meals.filter( meal => meal.id !== mealId )
+	deleteMeal = (day, mealId, recipeId) => {
+		const currentDayMeals = this.state.meals[day]
+			.filter( meal => meal.id !== mealId && meal.recipe_id !== recipeId )
+
+		console.log('recipeid', recipeId)
+
 		this.setState({
-			meals: newMeals
+			meals: {...this.state.meals, "Monday": currentDayMeals}
 		})
-		
+		console.log('current', currentDayMeals)
 		console.log('deleted this meal', mealId)
 	}
 
