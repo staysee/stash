@@ -14,17 +14,6 @@ class EditRecipe extends React.Component {
         meal_type: '',
         image_url: ''
     }
-    
-    findRecipe = (recipeId, recipes) => {
-        const recipe = recipes.find( recipe => recipe.id == recipeId)
-        console.log(recipe) 
-    }
-
-    componentDidMount() {
-        const { recipe_id } = this.props.match.params;
-        this.findRecipe(recipe_id, this.context.recipes)
-        // console.log(recipe_id)
-    }
 
     findRecipe = (recipeId, recipes) => {
         const recipe = recipes.find( recipe => recipe.id == recipeId)
@@ -39,6 +28,11 @@ class EditRecipe extends React.Component {
                 image_url: recipe.image_url
             })
         }
+    }
+    
+    componentDidMount() {
+        const { recipe_id } = this.props.match.params;
+        this.findRecipe(recipe_id, this.context.recipes)
     }
 
     handleChange = e => {
@@ -66,7 +60,7 @@ class EditRecipe extends React.Component {
 
         this.context.updateRecipe(newRecipe)
         // return to
-        // this.props.history.push(`/recipes`)
+        this.props.history.push(`/recipes`)
     }
 
     render() {

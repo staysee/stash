@@ -42,8 +42,7 @@ class App extends React.Component {
 		console.log('update this recipe')
 		this.setState({
 			recipes: this.state.recipes.map(recipe =>
-				(recipe.id !== updatedRecipe.id) ? recipe : updatedRecipe
-				)
+				(recipe.id !== updatedRecipe.id) ? recipe : updatedRecipe)
 		})
 	}
 
