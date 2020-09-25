@@ -35,13 +35,21 @@
     background-color: #f7cb95;
 }
 
-.RecipeCardModal .delete-recipe, .RecipeCardModal .edit-recipe {
+.RecipeCardModal .delete-recipe {
     background: none;
     border: none;
     color: #8c8888;
     display: block;
     margin: 0 auto;
     font-size: 0.5em;
+}
+
+.RecipeCardModal .edit-recipe {
+    display: flex;
+    justify-content: center;
+    font-size: 0.5em;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
 }
 
 .RecipeCardModal .delete-recipe:hover {
