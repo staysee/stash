@@ -4,15 +4,16 @@
 }
 .RecipeCardModal .recipe-image {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    display: flex;
     height: 200px;
     margin-bottom:15px;
 }
 
 .RecipeCardModal .recipe-image img {
-    display: block;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     margin: 0 auto;
     max-height: 100%;
-    width: 100%;
+    max-width: 100%;
 }
 
 .RecipeCardModal h2 {
@@ -43,9 +44,22 @@
     font-size: 0.5em;
 }
 
+.RecipeCardModal .edit-recipe {
+    display: flex;
+    justify-content: center;
+    font-size: 0.5em;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
 .RecipeCardModal .delete-recipe:hover {
     cursor: pointer;
     color: rgb(141, 19, 19);
+}
+
+.RecipeCardModal .edit-recipe:hover {
+    cursor: pointer;
+    color: rgb(240, 183, 61);
 }
 
 .RecipeCardModal .FormFields{

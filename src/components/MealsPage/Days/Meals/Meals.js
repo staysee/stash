@@ -1,7 +1,8 @@
 import React from 'react'
 import StashContext from '../../../../StashContext'
 import DisplayModal from '../../../DisplayModal/DisplayModal';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faBackspace } from '@fortawesome/free-solid-svg-icons';
 import './Meals.css'
 
 class Meals extends React.Component {
@@ -9,6 +10,7 @@ class Meals extends React.Component {
 
     state = {
         recipeTitle: 'No Title',
+        recipeImageUrl: '',
         showModal: false
     }
 
@@ -17,7 +19,8 @@ class Meals extends React.Component {
 
         if (recipe) {
             this.setState({
-                recipeTitle: recipe.title
+                recipeTitle: recipe.title,
+                recipeImageUrl: recipe.image_url
             })
         }
     }
@@ -42,7 +45,7 @@ class Meals extends React.Component {
     }
 
     render(){
-        const { recipeTitle, showModal } = this.state;
+        const { recipeTitle, recipeImageUrl, showModal } = this.state;
         const { meal } = this.props;
 
         const customStyles = {
@@ -74,15 +77,26 @@ class Meals extends React.Component {
                 }
 
                 <div className="Meals__info">
-                    <div className="Meals__img">
-                        <img src="https://picsum.photos/100" alt="Placeholder" />
+                    <div className="info_box left">
+                        <div className="Meals__img">
+                            <img src={recipeImageUrl} alt="Placeholder" />
+                        </div>
                     </div>
-                    <div className="Meals__recipe-title">
-                        {recipeTitle}
+
+                    <div className="info_box middle">
+                        <div className="Meals__recipe-title">
+                            {recipeTitle}
+                        </div>
                     </div>
-                    <div className="Meals__buttons">
-                        <button onClick={e => {this.setState({showModal: true})}}>R</button>
-                        <button onClick={this.handleClickDelete}>X</button>
+                    <div className="info_box right">
+                        <div className="Meals__options">
+                            <FontAwesomeIcon
+                                icon={faEye} 
+                                onClick={e => {this.setState({showModal: true})}} />
+                            <FontAwesomeIcon 
+                                icon={faBackspace} 
+                                onClick={this.handleClickDelete} />
+                        </div>
                     </div>
                 </div>
             </div>

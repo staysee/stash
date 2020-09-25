@@ -1,7 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import StashContext from '../../StashContext'
 
 import './RecipeCardModal.css'
+
 
 class RecipeCardModal extends React.Component {
     static contextType = StashContext;
@@ -10,7 +12,8 @@ class RecipeCardModal extends React.Component {
         super(props)
         this.state = {
             day: '',
-            recipe_id: ''
+            recipe_id: '',
+            message: ''
         }
     }
 
@@ -28,12 +31,19 @@ class RecipeCardModal extends React.Component {
         let name = target.name;
         this.setState({
             recipe_id: this.props.id,
-            [name]: value
+            [name]: value,
+            message: ''
+        })
+    }
+
+    resetFields = () => {
+        this.setState({
+            day: ''
         })
     }
 
     //temporary to generate meal Id
-    getRandomInt(min, max) {
+    getRandomInt = (min, max) => {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -42,20 +52,25 @@ class RecipeCardModal extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         const { day, recipe_id } = this.state;
-        
+    
         const newMeal = {
             id: this.getRandomInt(1, 500),
             day,
             recipe_id
         }
-
+        this.setState({
+            message: `Meal added to ${newMeal.day}`
+        })
         this.context.addMeal(newMeal)
+        this.resetFields()
     }
 
 
 
     render() {
-        const { title, ingredients, instructions, type, imageURL, editRecipe=true, deleteRecipe=true } = this.props
+        const { id, title, ingredients, instructions, type, imageURL, addMeal=true, editRecipe=true, deleteRecipe=true } = this.props
+        const { message } = this.state
+        
         return(
             <>
                 <div className="RecipeCardModal">
@@ -78,7 +93,8 @@ class RecipeCardModal extends React.Component {
                         </div>
                     </div>
                     
-                    {editRecipe && (<form className="FormFields recipeOptions" onSubmit={this.handleSubmit}>
+                    {addMeal && (<form className="FormFields recipeOptions" onSubmit={this.handleSubmit}>
+                        {message}
                         <label className="FormField__label" htmlFor="mealPlanDay">Add to Meal Plan</label>
                         <select 
                             id="mealPlanDay" 
@@ -99,6 +115,15 @@ class RecipeCardModal extends React.Component {
 
                         <button type="submit" className="add-meal">Add This Meal</button>
                     </form>)}
+
+                    {editRecipe &&
+                        <Link 
+                            className="edit-recipe"
+                            to={`/edit-recipe/${id}`}
+                        >
+                            Edit Recipe
+                        </Link>
+                    }
                     
                     {deleteRecipe &&
                         <button 

@@ -7,6 +7,7 @@ import Logo from '../Logo/Logo'
 import Navigation from '../Navigation/Navigation'
 import RecipesPage from '../RecipesPage/RecipesPage'
 import AddRecipe from '../AddRecipe/AddRecipe'
+import EditRecipe from '../EditRecipe/EditRecipe'
 import MealsPage from '../MealsPage/MealsPage'
 import NotFoundPage from '../../NotFoundPage'
 import store from '../../store'
@@ -60,6 +61,14 @@ class App extends React.Component {
 		})
 	}
 
+	updateRecipe = updatedRecipe => {
+		console.log('update this recipe')
+		this.setState({
+			recipes: this.state.recipes.map(recipe =>
+				(recipe.id !== updatedRecipe.id) ? recipe : updatedRecipe)
+		})
+	}
+
 	addMeal = meal => {
 		const newMeal = [...this.state.meals, meal]
 		this.setState({
@@ -85,6 +94,7 @@ class App extends React.Component {
 			meals: this.state.meals,
 			addRecipe: this.addRecipe,
 			deleteRecipe: this.deleteRecipe,
+			updateRecipe: this.updateRecipe,
 			addMeal: this.addMeal,
 			deleteMeal: this.deleteMeal
 		}
@@ -100,6 +110,7 @@ class App extends React.Component {
 						<Route path='/recipes' component={RecipesPage} />
 						<Route path='/meals' component={MealsPage} />
 						<Route path='/new-recipe' component={AddRecipe} />
+						<Route path='/edit-recipe/:recipe_id' component={EditRecipe} />
 						<Route component={NotFoundPage} />
 					</Switch>
 				</main>

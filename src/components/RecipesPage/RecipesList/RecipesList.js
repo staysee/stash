@@ -64,7 +64,7 @@ class RecipesList extends React.Component{
 
         const permissions = {
             edit: true,
-            add: false,
+            add: true,
             delete: true
         }
     
@@ -79,7 +79,7 @@ class RecipesList extends React.Component{
                         type={currentType}
                         imageURL={currentImageURL}
                         editRecipe={true}
-                        addRecipe={false}
+                        addMeal={true}
                         customStyles={customStyles} 
                         showModal={showModal}
                         closeModal={this.toggleModal}
