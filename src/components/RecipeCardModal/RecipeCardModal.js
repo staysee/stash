@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import StashContext from '../../StashContext'
 
 import './RecipeCardModal.css'
@@ -33,6 +34,10 @@ class RecipeCardModal extends React.Component {
         })
     }
 
+    handleClickEdit = e => {
+        console.log('handle click edit')
+    }
+
     //temporary to generate meal Id
     getRandomInt(min, max) {
         min = Math.ceil(min);
@@ -56,7 +61,8 @@ class RecipeCardModal extends React.Component {
 
 
     render() {
-        const { title, ingredients, instructions, type, imageURL, editRecipe=true, deleteRecipe=true } = this.props
+        const { id, title, ingredients, instructions, type, imageURL, editRecipe=true, deleteRecipe=true } = this.props
+        const recipe = { id, title, ingredients, instructions, type, imageURL }
         return(
             <>
                 <div className="RecipeCardModal">
@@ -100,6 +106,15 @@ class RecipeCardModal extends React.Component {
 
                         <button type="submit" className="add-meal">Add This Meal</button>
                     </form>)}
+
+                    {editRecipe &&
+                        <Link 
+                            className="edit-recipe"
+                            to={`/edit-recipe/${id}`}
+                        >
+                            Edit Recipe
+                        </Link>
+                    }
                     
                     {deleteRecipe &&
                         <button 

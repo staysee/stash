@@ -38,6 +38,15 @@ class App extends React.Component {
 		})
 	}
 
+	updateRecipe = updatedRecipe => {
+		console.log('update this recipe')
+		this.setState({
+			recipes: this.state.recipes.map(recipe =>
+				(recipe.id !== updatedRecipe.id) ? recipe : updatedRecipe
+				)
+		})
+	}
+
 	addMeal = meal => {
 		const newMeal = [...this.state.meals, meal]
 		this.setState({
@@ -79,7 +88,7 @@ class App extends React.Component {
 						<Route path='/recipes' component={RecipesPage} />
 						<Route path='/meals' component={MealsPage} />
 						<Route path='/new-recipe' component={AddRecipe} />
-						<Route path='/edit-recipe' component={EditRecipe} />
+						<Route path='/edit-recipe/:recipe_id' component={EditRecipe} />
 						<Route component={NotFoundPage} />
 					</Switch>
 				</main>

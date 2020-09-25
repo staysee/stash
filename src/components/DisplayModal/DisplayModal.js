@@ -33,7 +33,6 @@ class DisplayModal extends React.Component {
         const { customStyles, label, showModal, closeModal, permissions } = this.props;
         const { recipe } = this.state;
         const { id, title, ingredients, instructions, meal_type, image_url } = recipe;
-        console.log('meal props', this.props.meal)
 
         return (
             <>
