@@ -1,7 +1,6 @@
 import React from 'react'
 import RecipeItem from './RecipeItem/RecipeItem'
-import RecipeCardModal from '../../RecipeCardModal/RecipeCardModal'
-import Modal from 'react-modal'
+import DisplayModal from '../../DisplayModal/DisplayModal'
 
 import './RecipesList.css'
 
@@ -10,11 +9,12 @@ class RecipesList extends React.Component{
         super()
         this.state = {
             showModal: false,
+            currentRecipeId: '',
             currentTitle: '',
             currentIngredients: '',
             currentInstructions: '',
             currentType: '',
-            currentImageURL: ''
+            currentImageURL: '',
         }
     }
 
@@ -27,6 +27,7 @@ class RecipesList extends React.Component{
     handleOpenModal = (recipe) => {
         this.setState({
             showModal: true,
+            currentRecipeId: recipe.id,
             currentTitle: recipe.title,
             currentIngredients: recipe.ingredients,
             currentInstructions: recipe.instructions,
@@ -35,21 +36,8 @@ class RecipesList extends React.Component{
         })
     }
 
-    renderModal = () => {
-        const { currentTitle, currentIngredients, currentInstructions, currentType, currentImageURL } = this.state;
-        return (
-            <RecipeCardModal 
-                title={currentTitle}
-                ingredients={currentIngredients}
-                instructions={currentInstructions}
-                type={currentType}
-                imageURL={currentImageURL}
-                toggleModal={this.toggleModal}
-            />
-        )
-    }
-
     render() {
+        const { showModal, currentRecipeId, currentTitle, currentIngredients, currentInstructions, currentType, currentImageURL } = this.state;
         const { searchTerm, filterType, recipes } = this.props;
 
         //use array of recipes to make an 'li' for each recipe
@@ -66,20 +54,39 @@ class RecipesList extends React.Component{
         )
 
         const customStyles = {
+            overlay: {
+                background: '#4c645682'
+            },
             content: {
-                background: '#9bb9ad'
+                background: 'rgb(240 240 240)'
             }
+        }
+
+        const permissions = {
+            edit: true,
+            add: false,
+            delete: true
         }
     
         return (
             <div className="RecipesList">
-                <Modal
-                    isOpen={this.state.showModal}
-                    ariaHideApp={false}
-                    style={customStyles}
-                >
-                    {this.renderModal()}
-                </Modal>
+                {showModal && 
+                    <DisplayModal 
+                        id={currentRecipeId}
+                        title={currentTitle}
+                        ingredients={currentIngredients}
+                        instructions={currentInstructions}
+                        type={currentType}
+                        imageURL={currentImageURL}
+                        editRecipe={true}
+                        addRecipe={false}
+                        customStyles={customStyles} 
+                        showModal={showModal}
+                        closeModal={this.toggleModal}
+                        label="Recipe Modal"
+                        permissions={permissions}
+                    />
+                }
                 <ul>
                     {recipesList}
                 </ul>

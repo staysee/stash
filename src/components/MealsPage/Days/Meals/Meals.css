@@ -1,12 +1,7 @@
 .Meals {
     display: flex;
     flex-direction: column;
-    padding: 10px;
     border-bottom: 1px solid #bdb2b2;
-}
-
-.Meals__type {
-    padding-bottom: 5px;
 }
 
 .Meals__info {
@@ -14,27 +9,58 @@
     justify-content: space-between;
 }
 
+.Meals__info .info_box {
+    display: flex;
+    justify-content: center;
+}
+
+.left {
+    width: 20%;
+}
+
+.middle {
+    width: 75%;
+}
+
+.right {
+    width: 5%;
+}
+
 .Meals__img {
-    width: 50px;
+    width: 100px;
+    height: 50px;
 }
 
 .Meals__img img {
     width: 100%;
+    height: 100%;
 }
 
 .Meals__recipe-title {
     display: flex;
     align-self: center;
+    font-size: 1.5em;
     text-transform: uppercase;
 }
 
-.Meals__buttons {
+.Meals__options {
     display: flex;
     flex-direction: column;
 }
 
-.Meals button {
+.Meals svg {
+    color: gray;
     height: 20px;
     width: 20px;
     padding: 0;
+}
+
+.Meals svg:hover {
+    cursor: pointer;
+    color: green;
+}
+
+.Meals svg:nth-child(2):hover {
+    cursor: pointer;
+    color: red;
 }

@@ -1,6 +1,7 @@
 # STASH Client
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[logo](https://logomakr.com/07PGmC)
 
 ## Available Scripts
 

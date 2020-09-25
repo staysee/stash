@@ -8,17 +8,16 @@ class MealsPage extends React.Component {
 
     render() {
         const { meals } = this.context;
-        const days = Object.keys(meals)
-
+        const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        
         return (
             <div className="MealsPage">
                 <PageHeader title="Meal Plan" />
-                <Days day="Unassigned" />
-                {days.map( (day, key) => 
+                {daysOfWeek.map( (aDay, key) => 
                     <Days 
                         key={key}
-                        day={day} 
-                        meals={meals[day]} 
+                        day={aDay}
+                        meals={meals}
                     />
                 )}
             </div>

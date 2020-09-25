@@ -8,8 +8,8 @@ class SearchBox extends React.Component {
     render() {
         return (
             <div className="SearchBox">
+                <FontAwesomeIcon className="search-icon" icon={faSearch} />
                 <div className="FormField">
-                    <FontAwesomeIcon icon={faSearch} />
                     <input 
                         type="text" 
                         className="FormField__input"

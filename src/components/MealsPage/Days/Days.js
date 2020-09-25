@@ -8,23 +8,19 @@ class Days extends React.Component{
     render() {
         const { day, meals } = this.props
 
+        const mealsList = meals
+            .filter( meal => meal.day === day)
+            .map( (meal, key) => 
+                <Meals 
+                    key={key}
+                    meal={meal}
+                />
+            )
+        
         return(
             <div className="Days">
                 <h3>{day}</h3>
-                {meals && Object.keys(meals).map( (meal, key) => 
-                    {
-                        if (meals[meal].recipeId) {
-                            return (
-                                <Meals
-                                    key={key}
-                                    meal={meals[meal]}
-                                    type={meal}
-                                />
-                            )
-                        }
-                        return ""
-                    }
-                )}
+                {meals && mealsList}
             </div>
         )
 

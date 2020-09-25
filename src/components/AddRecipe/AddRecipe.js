@@ -41,12 +41,12 @@ class AddRecipe extends React.Component {
 
         this.context.addRecipe(newRecipe)
         //return to
-        this.props.history.push(`/stashed-recipes`)
+        this.props.history.push(`/recipes`)
     }
 
 
     handleClickCancel = () => {
-        this.props.history.push('/stashed-recipes')
+        this.props.history.push('/rrecipes')
     }
 
     render() {
@@ -124,6 +124,7 @@ class AddRecipe extends React.Component {
                                 <option value="Breakfast">Breakfast</option>
                                 <option value="Lunch">Lunch</option>
                                 <option value="Dinner">Dinner</option>
+                                <option value="Snack">Snack</option>
                             </select>
                         </div>
                     
