@@ -12,6 +12,8 @@ import MealsPage from '../MealsPage/MealsPage'
 import NotFoundPage from '../../NotFoundPage'
 import store from '../../store'
 import recipesService from '../../service/recipe-service'
+import mealsService from '../../service/meal-service'
+import usersService from '../../service/user-service'
 
 import './App.css'
 
@@ -27,8 +29,8 @@ class App extends React.Component {
 		// this.setState(store)
 		await Promise.all([
 			await this.fetchAllRecipes(),
-			// await this.fetchAllMeals(),
-			// await this.fetchAllUsers()
+			await this.fetchAllMeals(),
+			await this.fetchAllUsers()
 		])
 		
 	}
@@ -39,8 +41,17 @@ class App extends React.Component {
 		console.log('context', this.context)
 	}
 
-	//fetchAllMeals
-	//fetchAllUsers
+	fetchAllMeals = async () => {
+		const meals = await mealsService.getAllMeals()
+		this.context.meals = meals
+		console.log('context', this.context)
+	}
+
+	fetchAllUsers = async () => {
+		const users = await usersService.getAllUsers()
+		this.context.users = users
+		console.log('context', this.context)
+	}
 
 
 	addRecipe = async (recipe) => {
