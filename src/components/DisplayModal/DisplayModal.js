@@ -51,8 +51,8 @@ class DisplayModal extends React.Component {
                             instructions={instructions}
                             type={meal_type}
                             imageURL={image_url}
+                            addMeal={permissions.add}
                             editRecipe={permissions.edit}
-                            addRecipe={permissions.add}
                             deleteRecipe={permissions.delete}
                             closeModal={this.props.closeModal} />
                     </Modal>}
