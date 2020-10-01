@@ -34,9 +34,9 @@ class Meals extends React.Component {
 
     handleClickDelete = (event) => {
         const { day, meal } = this.props
+        const { id } = meal
         event.preventDefault()
-    
-        this.context.deleteMeal(day, meal.id, meal.recipe_id)
+        this.context.deleteMeal(day, id)
     }
 
     toggleModal = () => {

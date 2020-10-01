@@ -10,15 +10,13 @@ class Days extends React.Component{
         let mealsList;
 
         if (meals[day]) {
-            console.log(meals[day].length)
-
             mealsList = meals[day]
-            .map( (meal, key) => 
-                <Meals 
-                    key={key}
-                    day={day}
-                    meal={meal}
-                />
+                .map((meal, key) => 
+                    <Meals 
+                        key={key}
+                        day={day}
+                        meal={meal}
+                    />
             )
         }
         

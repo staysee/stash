@@ -51,19 +51,30 @@ class App extends React.Component {
 		console.log('meal was added')
 	}
 
-	deleteMeal = (day, mealId, recipeId) => {
-		const currentDayMeals = this.state.meals[day]
-			.filter( meal => meal.id !== mealId && meal.recipe_id !== recipeId )
+	// deleteMeal = (day, mealId, recipeId) => {
+	// 	const currentDayMeals = this.state.meals[day]
+	// 		.filter( meal => meal.id !== mealId && meal.recipe_id !== recipeId )
 
-		console.log('recipeid', recipeId)
+	// 	this.setState({
+	// 		meals: {...this.state.meals, "Monday": currentDayMeals}
+	// 	})
+	// 	console.log('current', currentDayMeals)
+	// 	console.log('deleted this meal', mealId)
+	// }
 
-		this.setState({
-			meals: {...this.state.meals, "Monday": currentDayMeals}
-		})
-		console.log('current', currentDayMeals)
-		console.log('deleted this meal', mealId)
+	deleteMeal = (day, mealId) => {
+		this.setState(prevState => ({
+			// copy existing state
+			...prevState,
+			// update meals key
+			meals: {
+			// copy existing meals state
+			...prevState.meals,
+			// update day key & filter meals array by id
+			[day]: prevState.meals[day].filter( ({ id }) => id !== mealId) ,
+			},
+		}));
 	}
-
 
 	render() {
 		// Change state to context value

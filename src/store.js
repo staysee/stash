@@ -66,7 +66,7 @@ const store = {
         "Wednesday": [],
         "Thursday": [],
         "Friday": [],
-        "Satday": [],
+        "Saturday": [],
         "Sunday": []
     }
 }
