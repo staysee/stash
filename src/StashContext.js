@@ -2,7 +2,7 @@ import React from 'react'
 
 const StashContext = React.createContext({
     recipes: [],
-    meals: {},
+    meals: [],
     addRecipe: () => {},
     deleteRecipe: () => {},
     updateRecipe: () => {},

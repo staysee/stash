@@ -17,12 +17,13 @@ class RecipeCardModal extends React.Component {
         }
     }
 
-    handleClickDelete = event => {
+    handleClickDelete = (event, recipeId) => {
         event.preventDefault()
-        const recipeId = this.props.id
         this.context.deleteRecipe(recipeId)
+        console.log('recipeId', recipeId)
         //return to
         this.props.closeModal()
+
     }
 
     handleChange = e => {
@@ -129,7 +130,7 @@ class RecipeCardModal extends React.Component {
                         <button 
                             type="button"
                             className="delete-recipe"
-                            onClick={this.handleClickDelete}>
+                            onClick={(e) => this.handleClickDelete(e, id )}>
                             Delete Recipe
                         </button>
                     }

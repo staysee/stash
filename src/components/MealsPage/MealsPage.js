@@ -8,7 +8,7 @@ class MealsPage extends React.Component {
 
     render() {
         const { meals } = this.context;
-        const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        const daysOfWeek = Object.keys(meals);
         
         return (
             <div className="MealsPage">

@@ -37,32 +37,38 @@ const store = {
             "user_id": 1
         },
     ],
-    meals: [
-        {
-            "id": 1,
-            "day": "Monday",
-            "recipe_id": 2,
-            "user_id": 1
-        },
-        {
-            "id": 2,
-            "day": "Monday",
-            "recipe_id": 1,
-            "user_id": 1
-        },
-        {
-            "id": 3,
-            "day": "Monday",
-            "recipe_id": 3,
-            "user_id": 1
-        },
-        {
-            "id": 4,
-            "day": "Tuesday",
-            "recipe_id": 4,
-            "user_id": 1
-        },
-    ],
+    meals: {
+        "Monday": [
+            {
+                "id": 1,
+                "recipe_id": 2,
+                 "user_id": 1
+            },
+            {
+                "id": 2,
+                "recipe_id": 1,
+                "user_id": 1
+            },
+            {
+                "id": 3,
+                "recipe_id": 3,
+                "user_id": 1
+            }
+
+        ],
+        "Tuesday": [
+            {
+                "id": 4,
+                "recipe_id": 4,
+                "user_id": 1
+            }
+        ],
+        "Wednesday": [],
+        "Thursday": [],
+        "Friday": [],
+        "Saturday": [],
+        "Sunday": []
+    }
 }
 
 export default store
