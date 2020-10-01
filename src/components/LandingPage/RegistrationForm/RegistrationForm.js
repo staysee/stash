@@ -47,9 +47,9 @@ class RegistrationForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        console.log('The registration form was submitted with the following data:');
-        console.log(this.state);
+        console.log(`The registration form was submitted with the following data: `, this.state);
 
+        // this.props.history.push('/recipes')
         //POST to server
     }
 
@@ -162,7 +162,7 @@ class RegistrationForm extends React.Component {
                             this.validateRepeatPassword()
                         }
                     >
-                        <Link to="/stashed-recipes">Sign Up</Link>
+                        <Link to="/recipes">Sign Up</Link>
                     </button>
                     <Link to='/login'>Already have an account?</Link>
                 </div>

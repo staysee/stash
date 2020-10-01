@@ -51,17 +51,6 @@ class App extends React.Component {
 		console.log('meal was added')
 	}
 
-	// deleteMeal = (day, mealId, recipeId) => {
-	// 	const currentDayMeals = this.state.meals[day]
-	// 		.filter( meal => meal.id !== mealId && meal.recipe_id !== recipeId )
-
-	// 	this.setState({
-	// 		meals: {...this.state.meals, "Monday": currentDayMeals}
-	// 	})
-	// 	console.log('current', currentDayMeals)
-	// 	console.log('deleted this meal', mealId)
-	// }
-
 	deleteMeal = (day, mealId) => {
 		this.setState(prevState => ({
 			// copy existing state
