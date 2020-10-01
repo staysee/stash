@@ -68,10 +68,10 @@ class App extends React.Component {
 			...prevState,
 			// update meals key
 			meals: {
-			// copy existing meals state
-			...prevState.meals,
-			// update day key & filter meals array by id
-			[day]: prevState.meals[day].filter( ({ id }) => id !== mealId) ,
+				// copy existing meals state
+				...prevState.meals,
+				// update day key & filter meals array by id
+				[day]: prevState.meals[day].filter( ({ id }) => id !== mealId),
 			},
 		}));
 	}

@@ -54,7 +54,7 @@ const store = {
                 "recipe_id": 3,
                 "user_id": 1
             }
-
+    
         ],
         "Tuesday": [
             {
