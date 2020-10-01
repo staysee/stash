@@ -13,7 +13,7 @@ class Days extends React.Component{
             mealsList = meals[day]
                 .map((meal, key) => 
                     <Meals 
-                        key={key}
+                        key={meal.id}
                         day={day}
                         meal={meal}
                     />
