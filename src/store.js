@@ -68,7 +68,26 @@ const store = {
         "Friday": [],
         "Saturday": [],
         "Sunday": []
-    }
+    },
+    users: [
+        {
+            "id": 1,
+            "username": 'janedoe@test.com',
+            "firstname": 'Jane',
+            "lastname": 'Doe',
+            "password": 'password1',
+        },
+        {
+            "id": 2,
+            "username": 'johndoe@test.com',
+            "firstname": 'John',
+            "lastname": 'Doe',
+            "password": 'password1',   
+        },
+        {
+
+        }
+    ]
 }
 
 export default store

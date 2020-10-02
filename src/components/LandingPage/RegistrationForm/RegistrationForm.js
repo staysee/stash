@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ValidationError from '../../ValidationError/ValidationError'
-
+import store from '../../../store'
 import './RegistrationForm.css'
 
 class RegistrationForm extends React.Component {
@@ -49,7 +49,7 @@ class RegistrationForm extends React.Component {
         e.preventDefault();
         console.log(`The registration form was submitted with the following data: `, this.state);
 
-        // this.props.history.push('/recipes')
+        this.props.history.push('/recipes')
         //POST to server
     }
 

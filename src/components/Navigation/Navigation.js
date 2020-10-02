@@ -34,9 +34,10 @@ class Navigation extends React.Component {
     render() {
         return (
             <div className="Navigation">
-                {TokenService.hasAuthToken()
+                {/* {TokenService.hasAuthToken()
                 ? this.renderLoggedInLinks()
-                : this.renderLoggedOutLinks()}
+                : this.renderLoggedOutLinks()} */}
+                {this.renderLoggedInLinks()}
             </div>
         )
     }

@@ -38,6 +38,8 @@ class LoginPage extends React.Component {
             TokenService.makeBasicAuthToken(username.value, password.value)
         )
 
+        this.props.history.push('/recipes')
+
         username.value = ''
         password.value = ''
     }
