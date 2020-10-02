@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ValidationError from '../../ValidationError/ValidationError'
-import store from '../../../store'
 import './RegistrationForm.css'
 
 class RegistrationForm extends React.Component {
