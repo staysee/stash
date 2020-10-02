@@ -37,19 +37,28 @@ class App extends React.Component {
 
 	fetchAllRecipes = async () => {
 		const recipes = await recipesService.getAllRecipes()
-		this.context.recipes = recipes
+		// this.context.recipes = recipes
+		this.setState({
+			recipes
+		})
 		console.log('context', this.context)
 	}
 
 	fetchAllMeals = async () => {
 		const meals = await mealsService.getAllMeals()
-		this.context.meals = meals
+		// this.context.meals = meals
+		this.setState({
+			meals
+		})
 		console.log('context', this.context)
 	}
 
 	fetchAllUsers = async () => {
 		const users = await usersService.getAllUsers()
-		this.context.users = users
+		// this.context.users = users
+		this.setState({
+			users
+		})
 		console.log('context', this.context)
 	}
 
