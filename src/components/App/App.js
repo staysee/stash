@@ -44,14 +44,6 @@ class App extends React.Component {
 	}
 
 	addMeal = meal => {
-		const newMeal = [...this.state.meals, meal]
-		this.setState({
-			meals: newMeal
-		})
-		console.log('meal was added')
-	}
-
-	deleteMeal = (day, mealId) => {
 		this.setState(prevState => ({
 			// copy existing state
 			...prevState,
@@ -60,9 +52,33 @@ class App extends React.Component {
 				// copy existing meals state
 				...prevState.meals,
 				// update day key & filter meals array by id
-				[day]: prevState.meals[day].filter( ({ id }) => id !== mealId),
+				[meal.day]: [...prevState.meals[meal.day], meal]
 			},
 		}));
+		console.log('meal was added')
+	}
+	// addMeal = meal => {
+	// 	const newMeal = [...this.state.meals, meal]
+	// 	this.setState({
+	// 		meals: newMeal
+	// 	})
+	// }
+
+	deleteMeal = (day, mealId) => {
+		this.setState(prevState =>{
+
+			return	{
+				// copy existing state
+				...prevState,
+				// update meals key
+				meals: {
+					// copy existing meals state
+					...prevState.meals,
+					// update day key & filter meals array by id
+					[day]: prevState.meals[day].filter( ({ id }) => id !== mealId),
+				},
+			}
+		});
 	}
 
 	render() {
