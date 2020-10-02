@@ -22,7 +22,15 @@ class App extends React.Component {
 
 	state = {
 		recipes: [],
-		meals: []
+		meals: {
+			"Monday": [],
+			"Tuesday": [],
+			"Wednesday": [],
+			"Thursday": [],
+			"Friday": [],
+			"Saturday": [],
+			"Sunday": []
+		}
 	}
 
 	async componentDidMount(){
@@ -32,34 +40,39 @@ class App extends React.Component {
 			await this.fetchAllMeals(),
 			await this.fetchAllUsers()
 		])
-		
 	}
 
 	fetchAllRecipes = async () => {
 		const recipes = await recipesService.getAllRecipes()
-		// this.context.recipes = recipes
 		this.setState({
 			recipes
 		})
-		console.log('context', this.context)
 	}
 
 	fetchAllMeals = async () => {
 		const meals = await mealsService.getAllMeals()
-		// this.context.meals = meals
-		this.setState({
-			meals
+		const days = Object.keys(meals)
+
+		days.forEach( day => {
+			this.setState({
+				meals: { 
+					...this.state.meals,
+					[day]: [...meals[day], ...this.state.meals[day]],
+				}
+			})
+
 		})
-		console.log('context', this.context)
+
+		console.log(`days`, days)
+		console.log(`meals`, meals[days[0]])
 	}
 
 	fetchAllUsers = async () => {
 		const users = await usersService.getAllUsers()
-		// this.context.users = users
 		this.setState({
 			users
 		})
-		console.log('context', this.context)
+		console.log('users', users)
 	}
 
 
@@ -70,32 +83,56 @@ class App extends React.Component {
 		})
 
 		console.log('addRecipe', recipe)
-		const resolve = await recipesService.insertNewRecipe({...recipe, user_id: 1})
-		console.log('resolve', resolve)
+		try {
+			const resolve = await recipesService.insertNewRecipe({...recipe, user_id: 1})
+			console.log(`resolve`, resolve)
+		} catch (error) {
+			console.log(`add recipe failed: `,error)
+		}
 	}
 
-	deleteRecipe = recipeId => {
+	deleteRecipe = async recipeId => {
 		const newRecipes = this.state.recipes.filter( recipe => recipe.id !== recipeId )
 		this.setState({
 			recipes: newRecipes
 		})
 		
+		try {
+			const resolve = await recipesService.deleteRecipe(recipeId)
+			console.log(`resolve`, resolve)
+		} catch (error) {
+			console.log(`delete recipe failed: `, error)
+		}
+		
 	}
 
-	updateRecipe = updatedRecipe => {
+	updateRecipe = async updatedRecipe => {
 		console.log('update this recipe')
 		this.setState({
 			recipes: this.state.recipes.map(recipe =>
 				(recipe.id !== updatedRecipe.id) ? recipe : updatedRecipe)
 		})
+
+		try {
+			const resolve = await recipesService.updateRecipe(updatedRecipe)
+			console.log(`resolve`, resolve)
+		} catch (error) {
+			console.log(`update recipe failed: `, error)
+		}
 	}
 
 	addMeal = meal => {
-		const newMeal = [...this.state.meals, meal]
-		this.setState({
-			meals: newMeal
-		})
-		console.log('meal was added')
+		this.setState(prevState => ({
+			// copy existing state
+			...prevState,
+			// update meals key
+			meals: {
+			// copy existing meals state
+			...prevState.meals,
+			// update day key & filter meals array by id
+				[meal.day]: [...prevState.meals[meal.day], meal]
+			}
+		}));
 	}
 
 	deleteMeal = (day, mealId) => {

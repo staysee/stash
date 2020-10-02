@@ -37,17 +37,12 @@ const mealService = {
             .catch(error => console.log('error', error));
     },
     deleteMeal: mealID => {
-      const serializeMeal = JSON.stringify(mealID);
         const requestOptions = {
             method: 'DELETE',
-            body: serializeMeal,
-            headers: {
-                "Content-Type": 'application/json'
-            },
         }
 
         return fetch(`${config.API_ENDPOINT}/meals/${mealID}`, requestOptions)
-            .then(response => response.json())
+            .then(response => response.text())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
     },

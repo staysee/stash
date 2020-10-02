@@ -41,22 +41,19 @@ const recipesService = {
             .catch(error => console.log('error', error));
     },
     deleteRecipe: (recipeID) => {
-        const serializeRecipe = JSON.stringify(recipeID);
         const requestOptions = {
             method: 'DELETE',
-            body: serializeRecipe,
-            headers: {
-                "Content-Type": 'application/json'
-            },
         }
 
         return fetch(`${config.API_ENDPOINT}/recipes/${recipeID}`, requestOptions)
-            .then(response => response.json())
+            .then(response => response.text())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
     },
-    updateRecipe: (recipeID) => {
-        const serializeRecipe = JSON.stringify(recipeID);
+    updateRecipe: (recipe) => {
+        const serializeRecipe = JSON.stringify(recipe);
+        delete serializeRecipe.id
+        
         const requestOptions = {
             method: 'PATCH',
             body: serializeRecipe,
@@ -65,7 +62,7 @@ const recipesService = {
             },
         }
 
-        return fetch(`${config.API_ENDPOINT}/recipes/${recipeID}`, requestOptions)
+        return fetch(`${config.API_ENDPOINT}/recipes/${recipe.id}`, requestOptions)
             .then(response => response.json())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
