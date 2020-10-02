@@ -1,6 +1,8 @@
 import React from 'react'
 import StashContext from '../../StashContext'
 
+import './AddRecipe.css'
+
 class AddRecipe extends React.Component {
     static contextType = StashContext
 
@@ -50,12 +52,18 @@ class AddRecipe extends React.Component {
     }
 
     render() {
+        const { image_url } = this.state;
+        
         return(
             <div className="AddRecipe">
 
                     <h2>New Recipe</h2>
                     <div className="image-container">
-                        <img src="https://via.placeholder.com/100" alt="Recipe Pic" />
+                        <div className="edit-image">
+                            {image_url &&
+                                <img src={image_url} alt="Recipe Pic" />
+                            }
+                        </div>
                     </div>
                     <form className="FormFields" onSubmit={this.handleSubmit}>
     
