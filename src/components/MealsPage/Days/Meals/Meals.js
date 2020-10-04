@@ -77,7 +77,7 @@ class Meals extends React.Component {
                     />
                 }
 
-                <div className="Meals__info">
+                <div className="Meals__info" onClick={e => {this.setState({showModal: true})}}>
                     <div className="info_box left">
                         <div className="Meals__img">
                             <img src={recipeImageUrl} alt="Placeholder" />
@@ -91,9 +91,9 @@ class Meals extends React.Component {
                     </div>
                     <div className="info_box right">
                         <div className="Meals__options">
-                            <FontAwesomeIcon
+                            {/* <FontAwesomeIcon
                                 icon={faEye} 
-                                onClick={e => {this.setState({showModal: true})}} />
+                                onClick={e => {this.setState({showModal: true})}} /> */}
                             <FontAwesomeIcon 
                                 icon={faBackspace} 
                                 onClick={this.handleClickDelete} />

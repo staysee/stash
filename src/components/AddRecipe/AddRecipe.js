@@ -75,6 +75,7 @@ class AddRecipe extends React.Component {
                                 className="FormField__input" 
                                 placeholder="Enter Recipe Title" 
                                 name="title" 
+                                required
                                 value={this.state.title}
                                 onChange={this.handleChange}
                             />
@@ -86,7 +87,8 @@ class AddRecipe extends React.Component {
                                 id="ingredients" 
                                 className="FormField__input" 
                                 placeholder="Recipe Ingredients" 
-                                name="ingredients" 
+                                name="ingredients"
+                                required
                                 value={this.state.ingredients}
                                 onChange={this.handleChange}
                             />
@@ -99,7 +101,8 @@ class AddRecipe extends React.Component {
                                 id="instructions" 
                                 className="FormField__input" 
                                 placeholder="Recipe Instructions" 
-                                name="instructions" 
+                                name="instructions"
+                                required
                                 value={this.state.instructions}
                                 onChange={this.handleChange}
                             />
@@ -115,6 +118,7 @@ class AddRecipe extends React.Component {
                                 pattern="https://.*" 
                                 size="30"
                                 name="image_url" 
+                                required
                                 value={this.state.image_url}
                                 onChange={this.handleChange}
                             />
@@ -125,6 +129,7 @@ class AddRecipe extends React.Component {
                                 id="type" 
                                 className="FormField__select"
                                 name="meal_type"
+                                required
                                 value={this.state.meal_type}
                                 onChange={this.handleChange}
                                 >

@@ -13,6 +13,7 @@ class MealsPage extends React.Component {
         return (
             <div className="MealsPage">
                 <PageHeader title="Meal Plan" />
+                Delete Meals
                 {daysOfWeek.map( (aDay, key) => 
                     <Days 
                         key={key}

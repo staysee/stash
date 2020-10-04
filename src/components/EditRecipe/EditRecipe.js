@@ -68,7 +68,7 @@ class EditRecipe extends React.Component {
     }
 
     render() {
-        const { id, title, ingredients, instructions, meal_type, image_url } = this.state
+        const { title, ingredients, instructions, meal_type, image_url } = this.state
         
         return(
             <div className="EditRecipe">
@@ -88,7 +88,8 @@ class EditRecipe extends React.Component {
                                 id="title" 
                                 className="FormField__input" 
                                 placeholder="Enter Recipe Title" 
-                                name="title" 
+                                name="title"
+                                required
                                 value={title}
                                 onChange={this.handleChange}
                             />
@@ -100,7 +101,8 @@ class EditRecipe extends React.Component {
                                 id="ingredients" 
                                 className="FormField__input" 
                                 placeholder="Recipe Ingredients" 
-                                name="ingredients" 
+                                name="ingredients"
+                                required
                                 value={ingredients}
                                 onChange={this.handleChange}
                             />
@@ -113,7 +115,8 @@ class EditRecipe extends React.Component {
                                 id="instructions" 
                                 className="FormField__input" 
                                 placeholder="Recipe Instructions" 
-                                name="instructions" 
+                                name="instructions"
+                                required
                                 value={instructions}
                                 onChange={this.handleChange}
                             />
@@ -128,7 +131,8 @@ class EditRecipe extends React.Component {
                                 placeholder="https://www.image-url.jpg"
                                 pattern="https://.*" 
                                 size="30"
-                                name="image_url" 
+                                name="image_url"
+                                required
                                 value={image_url}
                                 onChange={this.handleChange}
                             />
@@ -139,6 +143,7 @@ class EditRecipe extends React.Component {
                                 id="type" 
                                 className="FormField__select"
                                 name="meal_type"
+                                required
                                 value={meal_type}
                                 onChange={this.handleChange}
                                 >
