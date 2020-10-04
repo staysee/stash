@@ -48,7 +48,7 @@ class AddRecipe extends React.Component {
 
 
     handleClickCancel = () => {
-        this.props.history.push('/rrecipes')
+        this.props.history.push('/recipes')
     }
 
     render() {
@@ -111,7 +111,7 @@ class AddRecipe extends React.Component {
                                 id="imageURL" 
                                 type="url" 
                                 className="FormField__input" 
-                                placeholder="https://example.com"
+                                placeholder="https://www.image-url.jpg"
                                 pattern="https://.*" 
                                 size="30"
                                 name="image_url" 

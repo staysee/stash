@@ -47,7 +47,7 @@ class LoginPage extends React.Component {
     render() {
         return (
             <div className="LoginPage">
-                <form className="FormFields" onSubmit={this.handleSubmitBasicAuth}>
+                <form className="FormFields">
     
                     <div className="FormField">
                         <label className="FormField__label" htmlFor="username">Username</label>

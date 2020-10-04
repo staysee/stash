@@ -87,7 +87,7 @@ class RegistrationForm extends React.Component {
         const repeatPasswordError = this.validateRepeatPassword()
 
         return (
-            <form className="RegistrationForm FormFields" onSubmit={this.handleSubmit}>
+            <form className="RegistrationForm FormFields">
 
                 <div className="FormField">
                     <label className="FormField__label" htmlFor="firstName">First Name</label>

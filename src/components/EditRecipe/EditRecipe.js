@@ -63,6 +63,10 @@ class EditRecipe extends React.Component {
         this.props.history.push(`/recipes`)
     }
 
+    handleClickCancel = () => {
+        this.props.history.push('/recipes')
+    }
+
     render() {
         const { id, title, ingredients, instructions, meal_type, image_url } = this.state
         
@@ -121,7 +125,7 @@ class EditRecipe extends React.Component {
                                 id="imageURL" 
                                 type="url" 
                                 className="FormField__input" 
-                                placeholder="https://example.com"
+                                placeholder="https://www.image-url.jpg"
                                 pattern="https://.*" 
                                 size="30"
                                 name="image_url" 
@@ -147,7 +151,7 @@ class EditRecipe extends React.Component {
                         </div>
                     
                     <button type="submit">Stash My Recipe</button>
-                    <button>Cancel</button>
+                    <button onClick={this.handleClickCancel}>Cancel</button>
                 </form>
             </div>
         )
