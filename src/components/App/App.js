@@ -121,7 +121,7 @@ class App extends React.Component {
 		}
 	}
 
-	addMeal = meal => {
+	addMeal = async meal => {
 		this.setState(prevState => ({
 			// copy existing state
 			...prevState,
@@ -133,9 +133,16 @@ class App extends React.Component {
 				[meal.day]: [...prevState.meals[meal.day], meal]
 			}
 		}));
+
+		try {
+			const resolve = await mealsService.addMeal(meal)
+			console.log(`resolve`, resolve)
+		} catch (error) {
+			console.log(`add meal failed: `, error)
+		}
 	}
 
-	deleteMeal = (day, mealId) => {
+	deleteMeal = async (day, mealId) => {
 		this.setState(prevState => ({
 			// copy existing state
 			...prevState,
@@ -147,6 +154,13 @@ class App extends React.Component {
 			[day]: prevState.meals[day].filter( ({ id }) => id !== mealId) ,
 			},
 		}));
+
+		try {
+			const resolve = await mealsService.deleteMeal(day, mealId)
+			console.log(`resolve`, resolve)
+		} catch (error) {
+			console.log(`delete meal failed: `, error)
+		}
 	}
 
 	render() {
