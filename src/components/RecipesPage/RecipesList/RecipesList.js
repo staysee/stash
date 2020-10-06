@@ -1,7 +1,7 @@
 import React from 'react'
 import RecipeItem from './RecipeItem/RecipeItem'
 import DisplayModal from '../../DisplayModal/DisplayModal'
-
+import PropTypes from 'prop-types'
 import './RecipesList.css'
 
 class RecipesList extends React.Component{
@@ -97,3 +97,9 @@ class RecipesList extends React.Component{
 }
 
 export default RecipesList
+
+RecipesList.propTypes = {
+    searchTerm: PropTypes.string , 
+    filterType: PropTypes.oneOf(['All', 'Breakfast', 'Lunch', 'Dinner', 'Snack']),
+    recipes: PropTypes.array
+}

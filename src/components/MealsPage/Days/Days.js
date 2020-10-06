@@ -1,6 +1,6 @@
 import React from 'react'
 import Meals from './Meals/Meals'
-// import StashContext from '../../StashContext'
+import PropTypes from 'prop-types'
 
 import './Days.css'
 
@@ -31,3 +31,8 @@ class Days extends React.Component{
 }
 
 export default Days
+
+Days.propTypes = {
+    meals: PropTypes.object,
+    days: PropTypes.oneOf(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import StashContext from '../../StashContext'
-
+import PropTypes from 'prop-types'
 import './RecipeCardModal.css'
 
 
@@ -65,8 +65,6 @@ class RecipeCardModal extends React.Component {
         this.context.addMeal(newMeal)
         this.resetFields()
     }
-
-
 
     render() {
         const { id, title, ingredients, instructions, type, imageURL, addMeal=true, editRecipe=true, deleteRecipe=true } = this.props
@@ -142,3 +140,16 @@ class RecipeCardModal extends React.Component {
 }
 
 export default RecipeCardModal
+
+RecipeCardModal.propTypes = {
+    closeModal: PropTypes.func,
+    id: PropTypes.number,
+    title: PropTypes.string,
+    ingredients: PropTypes.string,
+    instructions: PropTypes.string,
+    type: PropTypes.oneOf(['All', 'Breakfast', 'Lunch', 'Dinner', 'Snack']),
+    imageUrl: PropTypes.string,
+    addMeal: PropTypes.bool,
+    editRecipe: PropTypes.bool,
+    deleteRecipe: PropTypes.bool
+}

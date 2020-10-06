@@ -1,6 +1,6 @@
 import React from 'react'
 import StashContext from '../../StashContext'
-
+import PropTypes from 'prop-types'
 import './EditRecipe.css'
 
 class EditRecipe extends React.Component {
@@ -155,3 +155,8 @@ class EditRecipe extends React.Component {
 }
 
 export default EditRecipe
+
+EditRecipe.propTypes = {
+    match: PropTypes.object,
+    history: PropTypes.object
+}

@@ -3,6 +3,7 @@ import StashContext from '../../../../StashContext'
 import DisplayModal from '../../../DisplayModal/DisplayModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faBackspace } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types'
 import './Meals.css'
 
 class Meals extends React.Component {
@@ -107,3 +108,7 @@ class Meals extends React.Component {
 
 export default Meals
 
+Meals.propTypes = {
+    meals: PropTypes.object,
+    day: PropTypes.string
+}

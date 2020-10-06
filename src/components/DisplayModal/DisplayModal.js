@@ -2,7 +2,7 @@ import React from 'react'
 import Modal from 'react-modal'
 import RecipeCardModal from '../RecipeCardModal/RecipeCardModal'
 import StashContext from '../../StashContext'
-
+import PropTypes from 'prop-types'
 
 class DisplayModal extends React.Component {
     static contextType = StashContext
@@ -54,7 +54,7 @@ class DisplayModal extends React.Component {
                             addMeal={permissions.add}
                             editRecipe={permissions.edit}
                             deleteRecipe={permissions.delete}
-                            closeModal={this.props.closeModal} />
+                            closeModal={closeModal} />
                     </Modal>}
                 }
             </>
@@ -64,3 +64,11 @@ class DisplayModal extends React.Component {
 }
 
 export default DisplayModal
+
+DisplayModal.propTypes = {
+    customStyles: PropTypes.object,
+    label: PropTypes.string,
+    showModal: PropTypes.bool,
+    closeModal: PropTypes.func,
+    permissions: PropTypes.object
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import StashContext from '../../StashContext'
+import PropTypes from 'prop-types'
 
 class AddRecipe extends React.Component {
     static contextType = StashContext
@@ -46,7 +47,7 @@ class AddRecipe extends React.Component {
 
 
     handleClickCancel = () => {
-        this.props.history.push('/rrecipes')
+        this.props.history.push('/recipes')
     }
 
     render() {
@@ -137,3 +138,7 @@ class AddRecipe extends React.Component {
 }
 
 export default AddRecipe
+
+AddRecipe.propTypes = {
+    history: PropTypes.object
+}
