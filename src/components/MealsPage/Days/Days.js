@@ -34,5 +34,5 @@ export default Days
 
 Days.propTypes = {
     meals: PropTypes.object,
-    days: PropTypes.oneOf(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+    day: PropTypes.string
 }
