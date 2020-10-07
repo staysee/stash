@@ -6,6 +6,10 @@ import './RecipeCardModal.css'
 
 
 class RecipeCardModal extends React.Component {
+    static defaultProps = {
+        closeModal: () => {},
+        
+    }
     static contextType = StashContext;
 
     constructor(props) {

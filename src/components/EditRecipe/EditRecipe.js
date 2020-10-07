@@ -4,6 +4,14 @@ import PropTypes from 'prop-types'
 import './EditRecipe.css'
 
 class EditRecipe extends React.Component {
+    static defaultProps = {
+        match: {
+            params: {}
+        },
+        history: {
+            push: () => {}
+        }
+    }
     static contextType = StashContext;
 
     state = {

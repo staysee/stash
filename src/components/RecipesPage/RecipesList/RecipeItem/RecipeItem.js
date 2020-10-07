@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import './RecipeItem.css'
 
 function RecipeItem({id, title, ingredients, instructions, imageURL, handleOpenModal}){
+
     return (
         <>
             <li 

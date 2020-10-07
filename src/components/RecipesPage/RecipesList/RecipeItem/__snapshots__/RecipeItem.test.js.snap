@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recipe Item component renders the UI as expected 1`] = `
+<li
+  className="RecipeItem"
+>
+  <div
+    className="item_image"
+  >
+    <img
+      alt="Title"
+    />
+  </div>
+  <p>
+    Title
+  </p>
+</li>
+`;

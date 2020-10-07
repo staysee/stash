@@ -3,6 +3,11 @@ import StashContext from '../../StashContext'
 import PropTypes from 'prop-types'
 
 class AddRecipe extends React.Component {
+    static defaultProps = {
+        history: {
+            push: () => {}
+        }
+    }
     static contextType = StashContext
 
     constructor(props) {

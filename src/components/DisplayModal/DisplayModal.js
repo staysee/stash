@@ -5,6 +5,10 @@ import StashContext from '../../StashContext'
 import PropTypes from 'prop-types'
 
 class DisplayModal extends React.Component {
+    static defaultProps = {
+        showModal: false,
+        closeModal: () => {}
+    }
     static contextType = StashContext
 
     state = {
