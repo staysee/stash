@@ -5,6 +5,11 @@ import PropTypes from 'prop-types'
 import './Days.css'
 
 class Days extends React.Component{
+    static defaultProps = {
+        meals: {},
+        day: ''
+    }
+    
     render() {
         const { day, meals } = this.props
         let mealsList;

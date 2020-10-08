@@ -5,6 +5,11 @@ import PropTypes from 'prop-types'
 import './RecipesList.css'
 
 class RecipesList extends React.Component{
+    static defaultProps ={
+        searchTerm: '', 
+        filterType: 'All',
+        recipes: []
+    }
     constructor(){
         super()
         this.state = {

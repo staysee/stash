@@ -7,8 +7,16 @@ import PropTypes from 'prop-types'
 class DisplayModal extends React.Component {
     static defaultProps = {
         showModal: false,
-        closeModal: () => {}
+        closeModal: () => {},
+        customStyles: {},
+        label: '',
+        permissions: {
+            add: true,
+            edit: false,
+            delete: false,
+        }
     }
+
     static contextType = StashContext
 
     state = {

@@ -7,6 +7,11 @@ import PropTypes from 'prop-types'
 import './Meals.css'
 
 class Meals extends React.Component {
+    static defaultProps = {
+        meal: { recipe_id: 1},
+        day: ''
+    }
+
     static contextType = StashContext;
 
     state = {
@@ -109,6 +114,6 @@ class Meals extends React.Component {
 export default Meals
 
 Meals.propTypes = {
-    meals: PropTypes.object,
+    meal: PropTypes.object,
     day: PropTypes.string
 }
