@@ -1,9 +1,11 @@
 import config from '../config'
+import TokenService from './token-service';
 
 const recipesService = {
     getAllRecipes: () => {
         const requestOptions = {
             method: 'GET',
+            "authorization": `basic ${TokenService.getAuthToken()}`
           };
           
           return fetch(`${config.API_ENDPOINT}/recipes`, requestOptions)
@@ -15,7 +17,8 @@ const recipesService = {
         const requestOptions = {
             method: 'GET',
             headers: {
-                "Content-Type": 'application/json'
+                "Content-Type": 'application/json',
+                "authorization": `basic ${TokenService.getAuthToken()}`
             }
         }
 
@@ -31,7 +34,8 @@ const recipesService = {
             method: 'POST',
             body: serializeRecipe,
             headers: {
-                "Content-Type": 'application/json'
+                "Content-Type": 'application/json',
+                "authorization": `basic ${TokenService.getAuthToken()}`
             }
         }
 
@@ -43,6 +47,9 @@ const recipesService = {
     deleteRecipe: (recipeID) => {
         const requestOptions = {
             method: 'DELETE',
+            headers: {
+                "authorization": `basic ${TokenService.getAuthToken()}`
+            }
         }
 
         return fetch(`${config.API_ENDPOINT}/recipes/${recipeID}`, requestOptions)
@@ -58,7 +65,8 @@ const recipesService = {
             method: 'PATCH',
             body: serializeRecipe,
             headers: {
-                "Content-Type": 'application/json'
+                "Content-Type": 'application/json',
+                "authorization": `basic ${TokenService.getAuthToken()}`
             },
         }
 

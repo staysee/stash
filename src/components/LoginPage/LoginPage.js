@@ -1,5 +1,5 @@
 import React from 'react'
-import TokenService from '../../service/token-service'
+import TokenService from '../../services/token-service'
 import { Link } from 'react-router-dom'
 
 import './LoginPage.css'
@@ -37,7 +37,6 @@ class LoginPage extends React.Component {
         TokenService.saveAuthToken(
             TokenService.makeBasicAuthToken(username.value, password.value)
         )
-
         username.value = ''
         password.value = ''
     }

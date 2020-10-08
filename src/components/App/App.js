@@ -11,9 +11,9 @@ import EditRecipe from '../EditRecipe/EditRecipe'
 import MealsPage from '../MealsPage/MealsPage'
 import NotFoundPage from '../../NotFoundPage'
 // import store from '../../store'
-import recipesService from '../../service/recipe-service'
-import mealsService from '../../service/meal-service'
-import usersService from '../../service/user-service'
+import recipesService from '../../services/recipe-service'
+import mealsService from '../../services/meal-service'
+import usersService from '../../services/user-service'
 
 import './App.css'
 

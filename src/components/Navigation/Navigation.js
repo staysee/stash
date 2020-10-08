@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 import './Navigation.css'
-import TokenService from '../../service/token-service'
+import TokenService from '../../services/token-service'
 
 class Navigation extends React.Component {
     handleLogoutClick = () => {
