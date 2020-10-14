@@ -9,7 +9,10 @@ import RecipesPage from '../RecipesPage/RecipesPage'
 import AddRecipe from '../AddRecipe/AddRecipe'
 import EditRecipe from '../EditRecipe/EditRecipe'
 import MealsPage from '../MealsPage/MealsPage'
+import PrivateRoute from '../Utils/PrivateRoute'
+import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
 import NotFoundPage from '../../NotFoundPage'
+
 // import store from '../../store'
 import recipesService from '../../services/recipe-service'
 import mealsService from '../../services/meal-service'
@@ -180,13 +183,13 @@ class App extends React.Component {
 					<Logo />
 					<Navigation />
 					<Switch>
-						<Route exact path='/' component={LandingPage} />
-						<Route path='/login' component={LoginPage} />
-						<Route path='/recipes' component={RecipesPage} />
-						<Route path='/meals' component={MealsPage} />
-						<Route path='/new-recipe' component={AddRecipe} />
-						<Route path='/edit-recipe/:recipe_id' component={EditRecipe} />
-						<Route component={NotFoundPage} />
+						<PublicOnlyRoute exact path='/' component={LandingPage} />
+						<PublicOnlyRoute path='/login' component={LoginPage} />
+						<PrivateRoute path='/recipes' component={RecipesPage} />
+						<PrivateRoute path='/meals' component={MealsPage} />
+						<PrivateRoute path='/new-recipe' component={AddRecipe} />
+						<PrivateRoute path='/edit-recipe/:recipe_id' component={EditRecipe} />
+						<PublicOnlyRoute component={NotFoundPage} />
 					</Switch>
 				</main>
 			</StashContext.Provider>

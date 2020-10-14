@@ -1,5 +1,6 @@
 import React from 'react'
 import TokenService from '../../services/token-service'
+import AuthApiService from '../../services/auth-api-service'
 import { Link } from 'react-router-dom'
 
 import './LoginPage.css'
@@ -41,10 +42,37 @@ class LoginPage extends React.Component {
         password.value = ''
     }
 
+    handleSubmitJwtAuth = ev => {
+        ev.preventDefault()
+        this.setState({ error: null })
+        const { username, password } = ev.target
+
+        AuthApiService.postLogin({
+            username: username.value,
+            password: password.value
+        })
+            .then(res => {
+                username.value = ''
+                password.value = ''
+                TokenService.saveAuthToken(res.authToken)
+                this.handleLoginSuccess()
+            })
+            .catch(res => {
+                this.setState({ error: res.error})
+            })
+    }
+
+    handleLoginSuccess = () => {
+        const { location, history } = this.props
+        const destination = (location.state || {}).from || '/'
+        // history.push(destination)
+        console.log('LOG IN SUCCES!')
+    }
+
     render() {
         return (
             <div className="LoginPage">
-                <form className="FormFields" onSubmit={this.handleSubmitBasicAuth}>
+                <form className="FormFields" onSubmit={this.handleSubmitJwtAuth}>
     
                     <div className="FormField">
                         <label className="FormField__label" htmlFor="username">Username</label>
