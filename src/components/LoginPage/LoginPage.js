@@ -32,10 +32,10 @@ class LoginPage extends React.Component {
     }
 
     handleLoginSuccess = () => {
-        // const { location, history } = this.props
-        // const destination = (location.state || {}).from || '/'
-        // history.push(destination)
         console.log('LOG IN SUCCES!')
+        const { location, history } = this.props
+        const destination = (location.state || {}).from || '/recipes'
+        history.push(destination)
     }
     
     handleSubmitBasicAuth = e => {
@@ -104,7 +104,7 @@ class LoginPage extends React.Component {
 
                     <div className="FormField">
                         <button className="FormField__button">
-                            <Link to='/recipes'>Log In</Link>
+                            Log In
                         </button>
                         <Link to='/'>Create an Account</Link>
                     </div>
