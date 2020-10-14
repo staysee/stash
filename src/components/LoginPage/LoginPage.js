@@ -30,6 +30,13 @@ class LoginPage extends React.Component {
         console.log('The log in form was submitted with the following data:');
         console.log(this.state);
     }
+
+    handleLoginSuccess = () => {
+        // const { location, history } = this.props
+        // const destination = (location.state || {}).from || '/'
+        // history.push(destination)
+        console.log('LOG IN SUCCES!')
+    }
     
     handleSubmitBasicAuth = e => {
         e.preventDefault()
@@ -62,12 +69,7 @@ class LoginPage extends React.Component {
             })
     }
 
-    handleLoginSuccess = () => {
-        const { location, history } = this.props
-        const destination = (location.state || {}).from || '/'
-        // history.push(destination)
-        console.log('LOG IN SUCCES!')
-    }
+
 
     render() {
         return (
