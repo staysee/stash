@@ -1,9 +1,13 @@
 import config from '../config'
+import TokenService from '../services/token-service'
 
-const mealService = {
+const MealService = {
     getAllMeals: () => {
         const requestOptions = {
             method: 'GET',
+            headers: {
+                "authorization": `bearer ${TokenService.getAuthToken()}`
+            }
           };
           
           return fetch(`${config.API_ENDPOINT}/meals`, requestOptions)
@@ -14,6 +18,9 @@ const mealService = {
     getMeal: (mealID) => {
         const requestOptions = {
             method: 'GET',
+            headers: {
+                "authorization": `bearer ${TokenService.getAuthToken()}`
+            }
         }
 
         return fetch(`${config.API_ENDPOINT}/meals/${mealID}`, requestOptions)
@@ -27,7 +34,8 @@ const mealService = {
             method: 'POST',
             body: serializeMeal,
             headers: {
-                "Content-Type": 'application/json'
+                "Content-Type": 'application/json',
+                "authorization": `bearer ${TokenService.getAuthToken()}`
             }
         }
 
@@ -39,6 +47,9 @@ const mealService = {
     deleteMeal: mealID => {
         const requestOptions = {
             method: 'DELETE',
+            headers: {
+                "authorization": `bearer ${TokenService.getAuthToken()}`
+            }
         }
 
         return fetch(`${config.API_ENDPOINT}/meals/${mealID}`, requestOptions)
@@ -48,4 +59,4 @@ const mealService = {
     },
 }
 
-export default mealService
+export default MealService

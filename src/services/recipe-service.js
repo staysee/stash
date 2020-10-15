@@ -1,11 +1,13 @@
 import config from '../config'
 import TokenService from './token-service';
 
-const recipesService = {
+const RecipesService = {
     getAllRecipes: () => {
         const requestOptions = {
             method: 'GET',
-            "authorization": `bearer ${TokenService.getAuthToken()}`
+            headers: {
+                "authorization": `bearer ${TokenService.getAuthToken()}`
+            }
           };
           
           return fetch(`${config.API_ENDPOINT}/recipes`, requestOptions)
@@ -77,4 +79,4 @@ const recipesService = {
     }
 }
 
-export default recipesService
+export default RecipesService

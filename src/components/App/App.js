@@ -14,9 +14,10 @@ import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
 import NotFoundPage from '../../NotFoundPage'
 
 // import store from '../../store'
-import recipesService from '../../services/recipe-service'
-import mealsService from '../../services/meal-service'
-import usersService from '../../services/user-service'
+import RecipesService from '../../services/recipe-service'
+import MealsService from '../../services/meal-service'
+import UsersService from '../../services/user-service'
+import TokenService from '../../services/token-service'
 
 import './App.css'
 
@@ -37,23 +38,23 @@ class App extends React.Component {
 	}
 
 	async componentDidMount(){
-		// this.setState(store)
-		await Promise.all([
-			await this.fetchAllRecipes(),
-			await this.fetchAllMeals(),
-			await this.fetchAllUsers()
-		])
+			await Promise.all([
+				await this.fetchAllRecipes(),
+				await this.fetchAllMeals(),
+				await this.fetchAllUsers()
+			])
+		
 	}
 
 	fetchAllRecipes = async () => {
-		const recipes = await recipesService.getAllRecipes()
+		const recipes = await RecipesService.getAllRecipes()
 		this.setState({
 			recipes
 		})
 	}
 
 	fetchAllMeals = async () => {
-		const meals = await mealsService.getAllMeals()
+		const meals = await MealsService.getAllMeals()
 		const days = Object.keys(meals)
 
 		days.forEach( day => {
@@ -71,7 +72,7 @@ class App extends React.Component {
 	}
 
 	fetchAllUsers = async () => {
-		const users = await usersService.getAllUsers()
+		const users = await UsersService.getAllUsers()
 		this.setState({
 			users
 		})
@@ -87,7 +88,7 @@ class App extends React.Component {
 
 		console.log('addRecipe', recipe)
 		try {
-			const resolve = await recipesService.insertNewRecipe({...recipe, user_id: 1})
+			const resolve = await RecipesService.insertNewRecipe({...recipe, user_id: 1})
 			console.log(`resolve`, resolve)
 		} catch (error) {
 			console.log(`add recipe failed: `,error)
@@ -101,7 +102,7 @@ class App extends React.Component {
 		})
 		
 		try {
-			const resolve = await recipesService.deleteRecipe(recipeId)
+			const resolve = await RecipesService.deleteRecipe(recipeId)
 			console.log(`resolve`, resolve)
 		} catch (error) {
 			console.log(`delete recipe failed: `, error)
@@ -117,7 +118,7 @@ class App extends React.Component {
 		})
 
 		try {
-			const resolve = await recipesService.updateRecipe(updatedRecipe)
+			const resolve = await RecipesService.updateRecipe(updatedRecipe)
 			console.log(`resolve`, resolve)
 		} catch (error) {
 			console.log(`update recipe failed: `, error)
@@ -138,7 +139,7 @@ class App extends React.Component {
 		}));
 
 		try {
-			const resolve = await mealsService.addMeal(meal)
+			const resolve = await MealsService.addMeal(meal)
 			console.log(`resolve`, resolve)
 		} catch (error) {
 			console.log(`add meal failed: `, error)
@@ -159,7 +160,7 @@ class App extends React.Component {
 		}));
 
 		try {
-			const resolve = await mealsService.deleteMeal(day, mealId)
+			const resolve = await MealsService.deleteMeal(day, mealId)
 			console.log(`resolve`, resolve)
 		} catch (error) {
 			console.log(`delete meal failed: `, error)
@@ -183,13 +184,13 @@ class App extends React.Component {
 					<Logo />
 					<Navigation />
 					<Switch>
-						<PublicOnlyRoute exact path='/' component={LandingPage} />
-						<PublicOnlyRoute path='/login' component={LoginPage} />
-						<PrivateRoute path='/recipes' component={RecipesPage} />
-						<PrivateRoute path='/meals' component={MealsPage} />
-						<PrivateRoute path='/new-recipe' component={AddRecipe} />
-						<PrivateRoute path='/edit-recipe/:recipe_id' component={EditRecipe} />
-						<PublicOnlyRoute component={NotFoundPage} />
+						<Route exact path='/' component={LandingPage} />
+						<Route path='/login' component={LoginPage} />
+						<Route path='/recipes' component={RecipesPage} />
+						<Route path='/meals' component={MealsPage} />
+						<Route path='/new-recipe' component={AddRecipe} />
+						<Route path='/edit-recipe/:recipe_id' component={EditRecipe} />
+						<Route component={NotFoundPage} />
 					</Switch>
 				</main>
 			</StashContext.Provider>

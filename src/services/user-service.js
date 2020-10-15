@@ -1,4 +1,4 @@
-const usersService = {
+const UsersService = {
     getAllUsers: () => {
         const requestOptions = {
             method: 'GET',
@@ -11,4 +11,4 @@ const usersService = {
     },
 }
 
-export default usersService
+export default UsersService
