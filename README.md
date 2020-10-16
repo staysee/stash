@@ -3,6 +3,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 [logo](https://logomakr.com/07PGmC)
 
+Deploy to Vercel
+`vercel`
+
 ## Available Scripts
 
 In the project directory, you can run:

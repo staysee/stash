@@ -25,28 +25,11 @@ class LoginPage extends React.Component {
         })
     }
 
-    handleSubmit = e => {
-        e.preventDefault();
-        console.log('The log in form was submitted with the following data:');
-        console.log(this.state);
-    }
-
     handleLoginSuccess = () => {
         console.log('LOG IN SUCCES!')
         const { location, history } = this.props
         const destination = (location.state || {}).from || '/recipes'
         history.push(destination)
-    }
-    
-    handleSubmitBasicAuth = e => {
-        e.preventDefault()
-        const { username, password } = e.target
-
-        TokenService.saveAuthToken(
-            TokenService.makeBasicAuthToken(username.value, password.value)
-        )
-        username.value = ''
-        password.value = ''
     }
 
     handleSubmitJwtAuth = ev => {
