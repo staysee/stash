@@ -39,8 +39,8 @@ class App extends React.Component {
 
 	async componentDidMount(){
 			await Promise.all([
-				await this.fetchAllRecipes(),
-				await this.fetchAllMeals(),
+				await this.fetchUserRecipes(),
+				await this.fetchUserMeals(),
 				await this.fetchAllUsers()
 			])
 		
@@ -53,8 +53,33 @@ class App extends React.Component {
 		})
 	}
 
+	fetchUserRecipes = async () => {
+		const recipes = await RecipesService.getUserRecipes()
+		this.setState({
+			recipes
+		})
+	}
+
 	fetchAllMeals = async () => {
 		const meals = await MealsService.getAllMeals()
+		const days = Object.keys(meals)
+
+		days.forEach( day => {
+			this.setState({
+				meals: { 
+					...this.state.meals,
+					[day]: [...meals[day], ...this.state.meals[day]],
+				}
+			})
+
+		})
+
+		console.log(`days`, days)
+		console.log(`meals`, meals[days[0]])
+	}
+
+	fetchUserMeals = async () => {
+		const meals = await MealsService.getUserMeals()
 		const days = Object.keys(meals)
 
 		days.forEach( day => {

@@ -15,6 +15,19 @@ const MealService = {
             .then(result => result)
             .catch(error => console.log('error', error));
     },
+    getUserMeals: () => {
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                "authorization": `bearer ${TokenService.getAuthToken()}`
+            }
+          };
+          
+          return fetch(`${config.API_ENDPOINT}/meals/user`, requestOptions)
+            .then(response => response.json())
+            .then(result => result)
+            .catch(error => console.log('error', error));
+    },
     getMeal: (mealID) => {
         const requestOptions = {
             method: 'GET',

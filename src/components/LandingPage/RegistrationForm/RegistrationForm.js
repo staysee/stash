@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ValidationError from '../../ValidationError/ValidationError'
+import AuthApiService from '../../../services/auth-api-service'
 
 import './RegistrationForm.css'
 
@@ -32,6 +33,12 @@ class RegistrationForm extends React.Component {
         }
     }
 
+    handleRegistrationSuccess = user => {
+        // const { history } = this.props
+        // history.push('/login')
+        console.log('REGISTRATION SUCCESS')
+    }
+
     handleChange = e => {
         let target = e.target;
         let value = target.value;
@@ -47,10 +54,26 @@ class RegistrationForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        console.log('The registration form was submitted with the following data:');
-        console.log(this.state);
+        const { firstname, lastname, username, password } = e.target;
 
+        this.setState({ error: null })
         //POST to server
+        AuthApiService.postUser({
+            username: username.value,
+            password: password.value,
+            firstname: firstname.value,
+            lastname: lastname.value
+        })
+            .then(user => {
+                username.value = ''
+                password.value = ''
+                firstname.value = ''
+                lastname.value = ''
+                this.handleRegistrationSucces()
+            })
+            .catch(res => {
+                this.setState({ error: res.error })
+            })
     }
 
     validateUserName() {
@@ -162,7 +185,7 @@ class RegistrationForm extends React.Component {
                             this.validateRepeatPassword()
                         }
                     >
-                        <Link to="/stashed-recipes">Sign Up</Link>
+                        <button type="submit">Sign Up</button>
                     </button>
                     <Link to='/login'>Already have an account?</Link>
                 </div>

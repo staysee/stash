@@ -15,6 +15,19 @@ const RecipesService = {
             .then(result => result)
             .catch(error => console.log('error', error));
     },
+    getUserRecipes: () => {
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                "authorization": `bearer ${TokenService.getAuthToken()}`
+            }
+          };
+          
+          return fetch(`${config.API_ENDPOINT}/recipes`, requestOptions)
+            .then(response => response.json())
+            .then(result => result)
+            .catch(error => console.log('error', error));
+    },
     getRecipe: (recipeID) => {
         const requestOptions = {
             method: 'GET',
