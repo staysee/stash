@@ -37,14 +37,14 @@ class App extends React.Component {
 		}
 	}
 
-	async componentDidMount(){
-			await Promise.all([
-				await this.fetchUserRecipes(),
-				await this.fetchUserMeals(),
-				await this.fetchAllUsers()
-			])
+	// async componentDidMount(){
+	// 		await Promise.all([
+	// 			await this.fetchUserRecipes(),
+	// 			await this.fetchUserMeals(),
+	// 			await this.fetchAllUsers()
+	// 		])
 		
-	}
+	// }
 
 	fetchAllRecipes = async () => {
 		const recipes = await RecipesService.getAllRecipes()

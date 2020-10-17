@@ -54,21 +54,21 @@ class RegistrationForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        const { firstname, lastname, username, password } = e.target;
+        const { firstName, lastName, username, password } = e.target;
 
         this.setState({ error: null })
         //POST to server
         AuthApiService.postUser({
             username: username.value,
             password: password.value,
-            firstname: firstname.value,
-            lastname: lastname.value
+            firstName: firstName.value,
+            lastName: lastName.value
         })
             .then(user => {
                 username.value = ''
                 password.value = ''
-                firstname.value = ''
-                lastname.value = ''
+                firstName.value = ''
+                lastName.value = ''
                 this.handleRegistrationSucces()
             })
             .catch(res => {
