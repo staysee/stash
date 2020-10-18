@@ -16,6 +16,10 @@ const RecipesService = {
             .catch(error => console.log('error', error));
     },
     getUserRecipes: () => {
+        const token = TokenService.getAuthToken()
+        if (!token) {
+            return Promise.resolve([])
+        }
         const requestOptions = {
             method: 'GET',
             headers: {
@@ -23,7 +27,7 @@ const RecipesService = {
             }
           };
           
-          return fetch(`${config.API_ENDPOINT}/recipes`, requestOptions)
+          return fetch(`${config.API_ENDPOINT}/recipes/user`, requestOptions)
             .then(response => response.json())
             .then(result => result)
             .catch(error => console.log('error', error));

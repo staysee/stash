@@ -56,12 +56,11 @@ class RecipeCardModal extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        const { day, recipe_id } = this.state;
+        const { day } = this.state;
     
         const newMeal = {
-            id: this.getRandomInt(1, 500),
             day,
-            recipe_id
+            recipe_id: this.props.id
         }
         this.setState({
             message: `Meal added to ${newMeal.day}`

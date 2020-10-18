@@ -34,17 +34,23 @@ class App extends React.Component {
 			"Friday": [],
 			"Saturday": [],
 			"Sunday": []
-		}
+		},
+		loggedIn: false
 	}
 
-	// async componentDidMount(){
-	// 		await Promise.all([
-	// 			await this.fetchUserRecipes(),
-	// 			await this.fetchUserMeals(),
-	// 			await this.fetchAllUsers()
-	// 		])
-		
-	// }
+	async componentDidMount(){
+		if (TokenService.hasAuthToken()){
+			this.setState({
+				loggedIn: true
+			})
+			
+			await Promise.all([
+				await this.fetchUserRecipes(),
+				await this.fetchUserMeals(),
+				await this.fetchAllUsers()
+			])
+		}
+	}
 
 	fetchAllRecipes = async () => {
 		const recipes = await RecipesService.getAllRecipes()
@@ -83,10 +89,12 @@ class App extends React.Component {
 		const days = Object.keys(meals)
 
 		days.forEach( day => {
+			const existingDayMeals = this.state.meals[day] || []
+
 			this.setState({
 				meals: { 
 					...this.state.meals,
-					[day]: [...meals[day], ...this.state.meals[day]],
+					[day]: [...meals[day], ...existingDayMeals]
 				}
 			})
 
@@ -207,7 +215,7 @@ class App extends React.Component {
 			<StashContext.Provider value={contextValue}>
 				<main className='App'>
 					<Logo />
-					<Navigation />
+					{this.state.loggedIn && <Navigation loggedIn={this.state.loggedIn}/>}
 					<Switch>
 						<Route exact path='/' component={LandingPage} />
 						<Route path='/login' component={LoginPage} />

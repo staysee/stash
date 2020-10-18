@@ -5,6 +5,7 @@ import { Link, NavLink } from 'react-router-dom'
 import './Navigation.css'
 
 class Navigation extends React.Component {
+
     handleLogoutClick = () => {
         TokenService.clearAuthToken()
     }

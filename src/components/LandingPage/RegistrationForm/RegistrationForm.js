@@ -22,11 +22,11 @@ class RegistrationForm extends React.Component {
                 value: '',
                 touched: false
             },
-            firstName: {
+            firstname: {
                 value: '',
                 touched: false
             },
-            lastName: {
+            lastname: {
                 value: '',
                 touched: false
             },
@@ -54,21 +54,21 @@ class RegistrationForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        const { firstName, lastName, username, password } = e.target;
+        const { firstname, lastname, username, password } = e.target;
 
         this.setState({ error: null })
         //POST to server
         AuthApiService.postUser({
             username: username.value,
             password: password.value,
-            firstName: firstName.value,
-            lastName: lastName.value
+            firstname: firstname.value,
+            lastname: lastname.value
         })
             .then(user => {
                 username.value = ''
                 password.value = ''
-                firstName.value = ''
-                lastName.value = ''
+                firstname.value = ''
+                lastname.value = ''
                 this.handleRegistrationSucces()
             })
             .catch(res => {
@@ -114,25 +114,25 @@ class RegistrationForm extends React.Component {
             <form className="RegistrationForm FormFields" onSubmit={this.handleSubmit}>
 
                 <div className="FormField">
-                    <label className="FormField__label" htmlFor="firstName">First Name</label>
+                    <label className="FormField__label" htmlFor="firstname">First Name</label>
                     <input 
                         type="text" 
-                        id="firstName" 
+                        id="firstname" 
                         className="FormField__input" 
                         placeholder="Enter your First Name" 
-                        name="firstName" 
+                        name="firstname" 
                         onChange={this.handleChange}
                     />
                 </div>
 
                 <div className="FormField">
-                    <label className="FormField__label" htmlFor="lastName">Last Name</label>
+                    <label className="FormField__label" htmlFor="lastname">Last Name</label>
                     <input 
                         type="text" 
-                        id="lastName" 
+                        id="lastname" 
                         className="FormField__input" 
                         placeholder="Enter your Last Name" 
-                        name="lastName" 
+                        name="lastname" 
                         onChange={this.handleChange}
                     />
                 </div>
