@@ -185,7 +185,7 @@ class RegistrationForm extends React.Component {
                             this.validateRepeatPassword()
                         }
                     >
-                        <button type="submit">Sign Up</button>
+                        Sign Up
                     </button>
                     <Link to='/login'>Already have an account?</Link>
                 </div>

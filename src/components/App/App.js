@@ -35,21 +35,26 @@ class App extends React.Component {
 			"Saturday": [],
 			"Sunday": []
 		},
-		loggedIn: false
+		loggedIn: false	// Parent component needs to handle the logic for authtoken and whether to shw nav bar or not (not in the Nav component)
 	}
 
 	async componentDidMount(){
-		if (TokenService.hasAuthToken()){
-			this.setState({
-				loggedIn: true
-			})
+		// if (TokenService.hasAuthToken()){
+		// 	this.setState({
+		// 		loggedIn: true
+		// 	})
+		this.rehydrateApp()
 			
-			await Promise.all([
-				await this.fetchUserRecipes(),
-				await this.fetchUserMeals(),
-				await this.fetchAllUsers()
-			])
-		}
+		// }
+	}
+
+	rehydrateApp = async (location='App') => {
+		console.log(`location`, location)
+		await Promise.all([
+			await this.fetchUserRecipes(),
+			await this.fetchUserMeals(),
+			await this.fetchAllUsers()
+		])
 	}
 
 	fetchAllRecipes = async () => {
@@ -153,6 +158,7 @@ class App extends React.Component {
 		try {
 			const resolve = await RecipesService.updateRecipe(updatedRecipe)
 			console.log(`resolve`, resolve)
+			await this.fetchUserRecipes()
 		} catch (error) {
 			console.log(`update recipe failed: `, error)
 		}
@@ -180,6 +186,8 @@ class App extends React.Component {
 	}
 
 	deleteMeal = async (day, mealId) => {
+		console.log(`DAY`, day)
+		console.log(`MEALID`, mealId)
 		this.setState(prevState => ({
 			// copy existing state
 			...prevState,
@@ -193,7 +201,7 @@ class App extends React.Component {
 		}));
 
 		try {
-			const resolve = await MealsService.deleteMeal(day, mealId)
+			const resolve = await MealsService.deleteMeal(mealId)
 			console.log(`resolve`, resolve)
 		} catch (error) {
 			console.log(`delete meal failed: `, error)
@@ -208,14 +216,16 @@ class App extends React.Component {
 			deleteRecipe: this.deleteRecipe,
 			updateRecipe: this.updateRecipe,
 			addMeal: this.addMeal,
-			deleteMeal: this.deleteMeal
+			deleteMeal: this.deleteMeal,
+			rehydrateApp: this.rehydrateApp
 		}
 
 		return (
 			<StashContext.Provider value={contextValue}>
 				<main className='App'>
 					<Logo />
-					{this.state.loggedIn && <Navigation loggedIn={this.state.loggedIn}/>}
+					{/* {this.state.loggedIn && <Navigation loggedIn={this.state.loggedIn}/>} */}
+					<Navigation />
 					<Switch>
 						<Route exact path='/' component={LandingPage} />
 						<Route path='/login' component={LoginPage} />

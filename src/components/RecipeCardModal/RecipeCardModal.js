@@ -67,6 +67,8 @@ class RecipeCardModal extends React.Component {
         })
         this.context.addMeal(newMeal)
         this.resetFields()
+        this.props.closeModal()
+        
     }
 
     render() {
