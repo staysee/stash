@@ -54,7 +54,7 @@ class RegistrationForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        const { firstname, lastname, username, password } = e.target;
+        const { firstname, lastname, username, password, repeatpassword } = e.target;
 
         this.setState({ error: null })
         //POST to server
@@ -67,8 +67,10 @@ class RegistrationForm extends React.Component {
             .then(user => {
                 username.value = ''
                 password.value = ''
+                repeatpassword.value = ''
                 firstname.value = ''
                 lastname.value = ''
+
                 this.handleRegistrationSucces()
             })
             .catch(res => {
@@ -92,8 +94,9 @@ class RegistrationForm extends React.Component {
             return 'Password is required';
           } else if (password.length < 6 || password.length > 72) {
             return 'Password must be between 6 and 72 characters long';
-          } else if (!password.match(/[0-9]/)) {
-            return 'Password must contain at least one number';
+        //   } else if (!password.match(/[0-9]/)) {
+          } else if (!password.match(REGEX_UPPER_LOWER_NUMBER_SPECIAL)) {
+            return 'Password must contain 1 upper case, lower case, number and special character';
           }
     }
 
