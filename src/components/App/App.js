@@ -38,14 +38,8 @@ class App extends React.Component {
 		loggedIn: false	// Parent component needs to handle the logic for authtoken and whether to shw nav bar or not (not in the Nav component)
 	}
 
-	async componentDidMount(){
-		// if (TokenService.hasAuthToken()){
-		// 	this.setState({
-		// 		loggedIn: true
-		// 	})
+	componentDidMount(){
 		this.rehydrateApp()
-			
-		// }
 	}
 
 	rehydrateApp = async (location='App') => {
@@ -53,16 +47,16 @@ class App extends React.Component {
 		await Promise.all([
 			await this.fetchUserRecipes(),
 			await this.fetchUserMeals(),
-			await this.fetchAllUsers()
+			// await this.fetchAllUsers()
 		])
 	}
 
-	fetchAllRecipes = async () => {
-		const recipes = await RecipesService.getAllRecipes()
-		this.setState({
-			recipes
-		})
-	}
+	// fetchAllRecipes = async () => {
+	// 	const recipes = await RecipesService.getAllRecipes()
+	// 	this.setState({
+	// 		recipes
+	// 	})
+	// }
 
 	fetchUserRecipes = async () => {
 		const recipes = await RecipesService.getUserRecipes()
@@ -71,23 +65,23 @@ class App extends React.Component {
 		})
 	}
 
-	fetchAllMeals = async () => {
-		const meals = await MealsService.getAllMeals()
-		const days = Object.keys(meals)
+	// fetchAllMeals = async () => {
+	// 	const meals = await MealsService.getAllMeals()
+	// 	const days = Object.keys(meals)
 
-		days.forEach( day => {
-			this.setState({
-				meals: { 
-					...this.state.meals,
-					[day]: [...meals[day], ...this.state.meals[day]],
-				}
-			})
+	// 	days.forEach( day => {
+	// 		this.setState({
+	// 			meals: { 
+	// 				...this.state.meals,
+	// 				[day]: [...meals[day], ...this.state.meals[day]],
+	// 			}
+	// 		})
 
-		})
+	// 	})
 
-		console.log(`days`, days)
-		console.log(`meals`, meals[days[0]])
-	}
+	// 	console.log(`days`, days)
+	// 	console.log(`meals`, meals[days[0]])
+	// }
 
 	fetchUserMeals = async () => {
 		const meals = await MealsService.getUserMeals()
@@ -109,13 +103,13 @@ class App extends React.Component {
 		console.log(`meals`, meals[days[0]])
 	}
 
-	fetchAllUsers = async () => {
-		const users = await UsersService.getAllUsers()
-		this.setState({
-			users
-		})
-		console.log('users', users)
-	}
+	// fetchAllUsers = async () => {
+	// 	const users = await UsersService.getAllUsers()
+	// 	this.setState({
+	// 		users
+	// 	})
+	// 	console.log('users', users)
+	// }
 
 
 	addRecipe = async (recipe) => {

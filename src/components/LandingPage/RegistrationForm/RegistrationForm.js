@@ -35,7 +35,7 @@ class RegistrationForm extends React.Component {
 
     handleRegistrationSuccess = user => {
         // const { history } = this.props
-        // history.push('/login')
+        // this.props.history.push('/login')
         console.log('REGISTRATION SUCCESS')
     }
 
@@ -80,13 +80,14 @@ class RegistrationForm extends React.Component {
         const username = this.state.username.value.trim()
         if (username.length === 0) {
             return 'Username is required'
-        } else if (username.length < 5) {
+        } else if (username.length < 3) {
             return 'Username must be at least 3 characters long'
         }
     }
 
     validatePassword() {
         const password = this.state.password.value.trim()
+        const REGEX_UPPER_LOWER_NUMBER_SPECIAL = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&])[\S]+/
         if (password.length === 0) {
             return 'Password is required';
           } else if (password.length < 6 || password.length > 72) {
