@@ -233,8 +233,7 @@ class App extends React.Component {
 			<StashContext.Provider value={contextValue}>
 				<main className='App'>
 					<Logo />
-					{this.state.loggedIn && <Navigation loggedIn={this.state.loggedIn}/>}
-					{/* <Navigation /> */}
+					{this.state.loggedIn && <Navigation />}
 					<Switch>
 						<Route exact path='/' component={LandingPage} />
 						<Route path='/login' component={LoginPage} />
