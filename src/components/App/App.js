@@ -39,7 +39,9 @@ class App extends React.Component {
 	}
 
 	componentDidMount(){
-		this.rehydrateApp()
+		if (this.state.loggedIn) {
+			this.rehydrateApp()
+		}
 	}
 
 	rehydrateApp = async (location='App') => {
