@@ -42,18 +42,6 @@ class Navigation extends React.Component {
                 : this.renderLoggedOutLinks()}
             </div>
         )
-        // return (
-        //     <div className='Navigation__logged-in'>
-        //         <NavLink to='/recipes'>Recipes</NavLink>
-        //         <NavLink to='/meals'>Meals</NavLink>
-        //         <NavLink to='/new-recipe'>Stash Recipe</NavLink>
-        //         <Link 
-        //             onClick={this.handleLogoutClick}
-        //             to='/'>
-        //             Logout
-        //         </Link>
-        //     </div>
-        // )
     }
 }
 

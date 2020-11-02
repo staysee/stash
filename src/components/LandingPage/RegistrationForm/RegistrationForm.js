@@ -34,9 +34,9 @@ class RegistrationForm extends React.Component {
     }
 
     handleRegistrationSuccess = user => {
+        console.log('REGISTRATION SUCCESS')
         // const { history } = this.props
         // this.props.history.push('/login')
-        console.log('REGISTRATION SUCCESS')
     }
 
     handleChange = e => {

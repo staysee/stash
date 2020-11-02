@@ -29,9 +29,9 @@ class LoginPage extends React.Component {
     }
 
     handleLoginSuccess = () => {
-        console.log('LOG IN SUCCES!')
+        // console.log('LOG IN SUCCES!')
         this.context.userLogIn()
-        console.log(`context log in:`, this.context)
+        // console.log(`context log in:`, this.context)
         const { location, history } = this.props
         const destination = (location.state || {}).from || '/recipes'
         history.push(destination)

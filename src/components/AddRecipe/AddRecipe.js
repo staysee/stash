@@ -61,7 +61,7 @@ class AddRecipe extends React.Component {
 
                     <h2>New Recipe</h2>
                     <div className="image-container">
-                        <img src="https://via.placeholder.com/100" alt="Recipe Pic" />
+                        { this.state.image_url && <image src={this.state.image_url} alt="Food Image" />}
                     </div>
                     <form className="FormFields" onSubmit={this.handleSubmit}>
     
