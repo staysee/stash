@@ -2,10 +2,13 @@ import React from 'react'
 import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
 import { Link } from 'react-router-dom'
+import StashContext from '../../StashContext'
 
 import './LoginPage.css'
 
 class LoginPage extends React.Component {
+    static contextType = StashContext;
+
     constructor(props){
         super(props);
 
@@ -27,6 +30,8 @@ class LoginPage extends React.Component {
 
     handleLoginSuccess = () => {
         console.log('LOG IN SUCCES!')
+        this.context.userLogIn()
+        console.log(`context log in:`, this.context)
         const { location, history } = this.props
         const destination = (location.state || {}).from || '/recipes'
         history.push(destination)

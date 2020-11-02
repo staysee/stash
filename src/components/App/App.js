@@ -202,24 +202,39 @@ class App extends React.Component {
 		}
 	}
 
+	userLogIn = () => {
+		this.setState({
+			loggedIn: true
+		})
+	}
+
+	userLogOut = () => {
+		this.setState({
+			loggedIn: false
+		})
+	}
+
 	render() {
 		const contextValue = {
 			recipes: this.state.recipes,
 			meals: this.state.meals,
+			loggedIn: this.state.loggedIn,
 			addRecipe: this.addRecipe,
 			deleteRecipe: this.deleteRecipe,
 			updateRecipe: this.updateRecipe,
 			addMeal: this.addMeal,
 			deleteMeal: this.deleteMeal,
-			rehydrateApp: this.rehydrateApp
+			rehydrateApp: this.rehydrateApp,
+			userLogIn: this.userLogIn,
+			userLogOut: this.userLogOut
 		}
 
 		return (
 			<StashContext.Provider value={contextValue}>
 				<main className='App'>
 					<Logo />
-					{/* {this.state.loggedIn && <Navigation loggedIn={this.state.loggedIn}/>} */}
-					<Navigation />
+					{this.state.loggedIn && <Navigation loggedIn={this.state.loggedIn}/>}
+					{/* <Navigation /> */}
 					<Switch>
 						<Route exact path='/' component={LandingPage} />
 						<Route path='/login' component={LoginPage} />
