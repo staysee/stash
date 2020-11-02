@@ -4,9 +4,9 @@ import AuthApiService from '../../services/auth-api-service'
 import { Link } from 'react-router-dom'
 import StashContext from '../../StashContext'
 
-import './LoginPage.css'
+import './LoginForm.css'
 
-class LoginPage extends React.Component {
+class LoginForm extends React.Component {
     static contextType = StashContext;
 
     constructor(props){
@@ -31,6 +31,7 @@ class LoginPage extends React.Component {
     handleLoginSuccess = () => {
         // console.log('LOG IN SUCCES!')
         this.context.userLogIn()
+        
         // console.log(`context log in:`, this.context)
         const { location, history } = this.props
         const destination = (location.state || {}).from || '/recipes'
@@ -61,7 +62,7 @@ class LoginPage extends React.Component {
 
     render() {
         return (
-            <div className="LoginPage">
+            <div className="LoginForm">
                 <form className="FormFields" onSubmit={this.handleSubmitJwtAuth}>
     
                     <div className="FormField">
@@ -103,4 +104,4 @@ class LoginPage extends React.Component {
     }
 }
 
-export default LoginPage
+export default LoginForm

@@ -191,7 +191,6 @@ class RegistrationForm extends React.Component {
                     >
                         Sign Up
                     </button>
-                    <Link to='/login'>Already have an account?</Link>
                 </div>
             </form>
         )

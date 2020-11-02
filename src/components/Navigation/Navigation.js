@@ -16,8 +16,8 @@ class Navigation extends React.Component {
         return (
             <div className='Navigation__logged-in'>
                 <NavLink to='/recipes'>Recipes</NavLink>
-                <NavLink to='/meals'>Meals</NavLink>
-                <NavLink to='/new-recipe'>Stash Recipe</NavLink>
+                <NavLink to='/recipes/meals'>Meals</NavLink>
+                <NavLink to='/recipes/new-recipe'>Stash Recipe</NavLink>
                 <Link 
                     onClick={this.handleLogoutClick}
                     to='/'>
@@ -36,10 +36,20 @@ class Navigation extends React.Component {
 
     render() {
         return (
-            <div className="Navigation">
-                {TokenService.hasAuthToken()
-                ? this.renderLoggedInLinks()
-                : this.renderLoggedOutLinks()}
+            // <div className="Navigation">
+            //     {TokenService.hasAuthToken()
+            //     ? this.renderLoggedInLinks()
+            //     : this.renderLoggedOutLinks()}
+            // </div>
+            <div className='Navigation'>
+                <NavLink to='/recipes'>Recipes</NavLink>
+                <NavLink to='/recipes/meals'>Meals</NavLink>
+                <NavLink to='/recipes/new-recipe'>Stash Recipe</NavLink>
+                <Link 
+                    onClick={this.handleLogoutClick}
+                    to='/'>
+                    Logout
+                </Link>
             </div>
         )
     }

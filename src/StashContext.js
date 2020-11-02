@@ -3,7 +3,7 @@ import React from 'react'
 const StashContext = React.createContext({
     recipes: [],
     meals: [],
-    loggedIn: Boolean,
+    loggedIn: localStorage.getItem('userLoggedIn'),
     addRecipe: () => {},
     deleteRecipe: () => {},
     updateRecipe: () => {},
