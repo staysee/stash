@@ -4,7 +4,6 @@ import App from '../App/App'
 import LandingPage from '../LandingPage/LandingPage'
 import NotFoundPage from '../../NotFoundPage'
 import Logo from '../Logo/Logo'
-// import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
 import PrivateRoute from '../Utils/PrivateRoute'
 
 import './Main.css'

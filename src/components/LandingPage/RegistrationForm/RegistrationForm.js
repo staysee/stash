@@ -1,9 +1,9 @@
 import React from 'react'
 import ValidationError from '../../ValidationError/ValidationError'
 import AuthApiService from '../../../services/auth-api-service'
+import TokenService from '../../../services/token-service'
 
 import './RegistrationForm.css'
-import TokenService from '../../../services/token-service'
 
 class RegistrationForm extends React.Component {
     static defaultProps = {
@@ -81,42 +81,6 @@ class RegistrationForm extends React.Component {
         }
     }
 
-    // handleSubmitJwtAuth = ev => {
-    //     ev.preventDefault()
-    //     this.setState({ error: null })
-    //     const { username, password } = ev.target
-
-    //     AuthApiService.postLogin({
-    //         username: username.value,
-    //         password: password.value
-    //     })
-    //         .then(res => {
-    //             username.value = ''
-    //             password.value = ''
-    //             TokenService.saveAuthToken(res.authToken)
-    //             this.props.onLoginSuccess()
-    //             // this.handleLoginSuccess()
-    //         })
-    //         .catch(res => {
-    //             this.setState({ error: res.error})
-    //             console.log(`ERROR:`, this.state.error)
-    //         })
-    // }
-
-    // handleJWTLogin = (username, password) => {
-    //     AuthApiService.postLogin({
-    //         username: username,
-    //         password: password
-    //     })
-    //         .then(res => {
-    //             TokenService.saveAuthToken(res.authToken)
-    //             console.log(`NEW REGISTERED USER IS LOGGED IN`)
-    //         })
-    //         .catch(res => {
-    //             this.setState({ error: res.error})
-    //             console.log(`ERROR: `, this.state.error)
-    //         })
-    // }
     clearFields = () => {
         this.setState({
             username: {
@@ -161,6 +125,7 @@ class RegistrationForm extends React.Component {
             })
             .catch(res => {
                 this.setState({ error: res.error })
+                console.log(`ERROR:`, this.state.error)
             })
     }
 

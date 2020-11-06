@@ -9,7 +9,6 @@ class LandingPage extends React.Component {
         accountExist: false
     }
 
-    //move all log in function to this landing page
     handleSuccess = () => {
         console.log(`SUCCESS LOGGING IN/REGISTRATION`)
         const { location, history } = this.props
