@@ -1,23 +1,23 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import StashContext from '../../StashContext'
-import LandingPage from '../LandingPage/LandingPage'
-import LoginForm from '../LandingPage/LoginForm/LoginForm'
-import Logo from '../Logo/Logo'
+// import LandingPage from '../LandingPage/LandingPage'
+// import LoginForm from '../LandingPage/LoginForm/LoginForm'
+// import Logo from '../Logo/Logo'
 import Navigation from '../Navigation/Navigation'
 import RecipesPage from '../RecipesPage/RecipesPage'
 import AddRecipe from '../AddRecipe/AddRecipe'
 import EditRecipe from '../EditRecipe/EditRecipe'
 import MealsPage from '../MealsPage/MealsPage'
-import PrivateRoute from '../Utils/PrivateRoute'
-import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
-import NotFoundPage from '../../NotFoundPage'
+// import PrivateRoute from '../Utils/PrivateRoute'
+// import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
+// import NotFoundPage from '../../NotFoundPage'
 
 // import store from '../../store'
 import RecipesService from '../../services/recipe-service'
 import MealsService from '../../services/meal-service'
-import UsersService from '../../services/user-service'
-import TokenService from '../../services/token-service'
+// import UsersService from '../../services/user-service'
+// import TokenService from '../../services/token-service'
 
 import './App.css'
 
@@ -43,7 +43,7 @@ class App extends React.Component {
 	}
 
 	rehydrateApp = async (location='App') => {
-		console.log(`location`, location)
+		// console.log(`location`, location)
 		await Promise.all([
 			await this.fetchUserRecipes(),
 			await this.fetchUserMeals(),
@@ -224,8 +224,8 @@ class App extends React.Component {
 			userLogOut: this.userLogOut
 		}
 
-		console.log(`state`, this.state.loggedIn)
-		console.log(`context`, this.context.loggedIn)
+		// console.log(`state`, this.state.loggedIn)
+		// console.log(`context`, this.context.loggedIn)
 		return (
 			<StashContext.Provider value={contextValue}>
 				<main className='App'>

@@ -1,11 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import ValidationError from '../../ValidationError/ValidationError'
 import AuthApiService from '../../../services/auth-api-service'
 
 import './RegistrationForm.css'
+import TokenService from '../../../services/token-service'
 
 class RegistrationForm extends React.Component {
+    static defaultProps = {
+        onRegistrationSuccess: () => {}
+    }
+
     constructor(props){
         super(props);
 
@@ -33,12 +37,6 @@ class RegistrationForm extends React.Component {
         }
     }
 
-    handleRegistrationSuccess = user => {
-        console.log('REGISTRATION SUCCESS')
-        // const { history } = this.props
-        // this.props.history.push('/login')
-    }
-
     handleChange = e => {
         let target = e.target;
         let value = target.value;
@@ -50,32 +48,6 @@ class RegistrationForm extends React.Component {
                 touched: true
             } 
         })
-    }
-
-    handleSubmit = e => {
-        e.preventDefault();
-        const { firstname, lastname, username, password, repeatpassword } = e.target;
-
-        this.setState({ error: null })
-        //POST to server
-        AuthApiService.postUser({
-            username: username.value,
-            password: password.value,
-            firstname: firstname.value,
-            lastname: lastname.value
-        })
-            .then(user => {
-                username.value = ''
-                password.value = ''
-                repeatpassword.value = ''
-                firstname.value = ''
-                lastname.value = ''
-
-                this.handleRegistrationSucces()
-            })
-            .catch(res => {
-                this.setState({ error: res.error })
-            })
     }
 
     validateUserName() {
@@ -107,7 +79,90 @@ class RegistrationForm extends React.Component {
         if (repeatPassword !== password) {
           return 'Passwords do not match';
         }
-      }
+    }
+
+    // handleSubmitJwtAuth = ev => {
+    //     ev.preventDefault()
+    //     this.setState({ error: null })
+    //     const { username, password } = ev.target
+
+    //     AuthApiService.postLogin({
+    //         username: username.value,
+    //         password: password.value
+    //     })
+    //         .then(res => {
+    //             username.value = ''
+    //             password.value = ''
+    //             TokenService.saveAuthToken(res.authToken)
+    //             this.props.onLoginSuccess()
+    //             // this.handleLoginSuccess()
+    //         })
+    //         .catch(res => {
+    //             this.setState({ error: res.error})
+    //             console.log(`ERROR:`, this.state.error)
+    //         })
+    // }
+
+    // handleJWTLogin = (username, password) => {
+    //     AuthApiService.postLogin({
+    //         username: username,
+    //         password: password
+    //     })
+    //         .then(res => {
+    //             TokenService.saveAuthToken(res.authToken)
+    //             console.log(`NEW REGISTERED USER IS LOGGED IN`)
+    //         })
+    //         .catch(res => {
+    //             this.setState({ error: res.error})
+    //             console.log(`ERROR: `, this.state.error)
+    //         })
+    // }
+    clearFields = () => {
+        this.setState({
+            username: {
+                value: '',
+                touched: false
+            },
+            password: {
+                value: '',
+                touched: false
+            },
+            repeatPassword: {
+                value: '',
+                touched: false
+            },
+            firstname: {
+                value: '',
+                touched: false
+            },
+            lastname: {
+                value: '',
+                touched: false
+            },
+        })
+    }
+
+    handleSubmit = e => {
+        e.preventDefault();
+        const { firstname, lastname, username, password } = e.target;
+
+        this.setState({ error: null })
+        //POST to server
+        AuthApiService.postUser({
+            firstname: firstname.value,
+            lastname: lastname.value,
+            username: username.value,
+            password: password.value,
+        })
+            .then(user => {
+                this.clearFields()
+                TokenService.saveAuthToken(user.authToken)
+                this.props.onRegistrationSuccess()
+            })
+            .catch(res => {
+                this.setState({ error: res.error })
+            })
+    }
 
     render() {
         const usernameError = this.validateUserName()
@@ -170,7 +225,7 @@ class RegistrationForm extends React.Component {
                     <label className="FormField__label" htmlFor="repeatPassword">Repeat Password</label>
                     <input 
                         type="password" 
-                        id="repeat-password" 
+                        id="repeatpassword" 
                         className="FormField__input" 
                         placeholder="Repeat password to confirm" 
                         name="repeatPassword" 
@@ -178,6 +233,8 @@ class RegistrationForm extends React.Component {
                     />
                     {this.state.repeatPassword.touched && (<ValidationError message={repeatPasswordError} />)}
                 </div>
+
+                {this.state.error && <ValidationError message={this.state.error} />}
 
                 <div className="FormField">
                     <button 

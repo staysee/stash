@@ -10,7 +10,13 @@ class LandingPage extends React.Component {
     }
 
     //move all log in function to this landing page
-    
+    handleSuccess = () => {
+        console.log(`SUCCESS LOGGING IN/REGISTRATION`)
+        const { location, history } = this.props
+        const destination = (location.state || {}).from || '/recipes'
+        history.push(destination)
+    }
+
     render() {
         return (
             <div className="LandingPage">
@@ -20,12 +26,12 @@ class LandingPage extends React.Component {
     
                 {this.state.accountExist
                     ?   <div>
-                            <LoginForm />
+                            <LoginForm onLoginSuccess={this.handleSuccess} />
                             <button onClick={ e => {this.setState({accountExist: false})}}>Create a new account</button>
                         </div>
                         
                     :   <div>
-                            <RegistrationForm />
+                            <RegistrationForm onRegistrationSuccess={this.handleSuccess} />
                             <button onClick={ e => {this.setState({accountExist: true})}}>Already have an account?</button>
                         </div>
                     }

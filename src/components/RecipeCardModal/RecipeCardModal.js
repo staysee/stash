@@ -123,7 +123,7 @@ class RecipeCardModal extends React.Component {
                     {editRecipe &&
                         <Link 
                             className="edit-recipe"
-                            to={`/edit-recipe/${id}`}
+                            to={`/recipes/edit-recipe/${id}`}
                         >
                             Edit Recipe
                         </Link>

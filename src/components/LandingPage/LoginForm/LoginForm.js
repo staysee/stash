@@ -1,13 +1,14 @@
 import React from 'react'
-import TokenService from '../../services/token-service'
-import AuthApiService from '../../services/auth-api-service'
-import { Link } from 'react-router-dom'
-import StashContext from '../../StashContext'
+import ValidationError from '../../ValidationError/ValidationError'
+import TokenService from '../../../services/token-service'
+import AuthApiService from '../../../services/auth-api-service'
 
 import './LoginForm.css'
 
 class LoginForm extends React.Component {
-    static contextType = StashContext;
+    static defaultProps = {
+        onLoginSucces: () => {}
+    }
 
     constructor(props){
         super(props);
@@ -28,37 +29,32 @@ class LoginForm extends React.Component {
         })
     }
 
-    handleLoginSuccess = () => {
-        // console.log('LOG IN SUCCES!')
-        this.context.userLogIn()
-        
-        // console.log(`context log in:`, this.context)
-        const { location, history } = this.props
-        const destination = (location.state || {}).from || '/recipes'
-        history.push(destination)
+    clearFields = () => {
+        this.setState({
+            username: '',
+            password: ''
+        })
     }
 
     handleSubmitJwtAuth = ev => {
         ev.preventDefault()
         this.setState({ error: null })
-        const { username, password } = ev.target
+        const { username, password } = this.state
 
         AuthApiService.postLogin({
-            username: username.value,
-            password: password.value
+            username,
+            password
         })
             .then(res => {
-                username.value = ''
-                password.value = ''
+                this.clearFields()
                 TokenService.saveAuthToken(res.authToken)
-                this.handleLoginSuccess()
+                this.props.onLoginSuccess()
             })
             .catch(res => {
                 this.setState({ error: res.error})
+                console.log(`ERROR:`, this.state.error)
             })
     }
-
-
 
     render() {
         return (
@@ -91,11 +87,15 @@ class LoginForm extends React.Component {
                         />
                     </div>
 
+                    {this.state.error && <ValidationError message={this.state.error}/>}
+
                     <div className="FormField">
-                        <button className="FormField__button">
+                        <button
+                            className="FormField__button"
+                            type="submit"
+                        >
                             Log In
                         </button>
-                        <Link to='/'>Create an Account</Link>
                     </div>
                 </form>
             </div>
