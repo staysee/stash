@@ -1,8 +1,8 @@
-.LoginPage__image {
+.LoginForm__image {
     margin-bottom: 25px;
 }
 
-.LoginPage__image img {
+.LoginForm__image img {
     display: block;
     width: 80%;
     margin: 0 auto;

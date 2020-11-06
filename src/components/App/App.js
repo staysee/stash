@@ -1,23 +1,23 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import StashContext from '../../StashContext'
-import LandingPage from '../LandingPage/LandingPage'
-import LoginPage from '../LoginPage/LoginPage'
-import Logo from '../Logo/Logo'
+// import LandingPage from '../LandingPage/LandingPage'
+// import LoginForm from '../LandingPage/LoginForm/LoginForm'
+// import Logo from '../Logo/Logo'
 import Navigation from '../Navigation/Navigation'
 import RecipesPage from '../RecipesPage/RecipesPage'
 import AddRecipe from '../AddRecipe/AddRecipe'
 import EditRecipe from '../EditRecipe/EditRecipe'
 import MealsPage from '../MealsPage/MealsPage'
-import PrivateRoute from '../Utils/PrivateRoute'
-import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
-import NotFoundPage from '../../NotFoundPage'
+// import PrivateRoute from '../Utils/PrivateRoute'
+// import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
+// import NotFoundPage from '../../NotFoundPage'
 
 // import store from '../../store'
 import RecipesService from '../../services/recipe-service'
 import MealsService from '../../services/meal-service'
-import UsersService from '../../services/user-service'
-import TokenService from '../../services/token-service'
+// import UsersService from '../../services/user-service'
+// import TokenService from '../../services/token-service'
 
 import './App.css'
 
@@ -35,17 +35,15 @@ class App extends React.Component {
 			"Saturday": [],
 			"Sunday": []
 		},
-		loggedIn: false	// Parent component needs to handle the logic for authtoken and whether to shw nav bar or not (not in the Nav component)
+		// loggedIn: localStorage.getItem('userLoggedIn')
 	}
 
 	componentDidMount(){
-		if (this.state.loggedIn) {
-			this.rehydrateApp()
-		}
+		this.rehydrateApp()
 	}
 
 	rehydrateApp = async (location='App') => {
-		console.log(`location`, location)
+		// console.log(`location`, location)
 		await Promise.all([
 			await this.fetchUserRecipes(),
 			await this.fetchUserMeals(),
@@ -205,22 +203,17 @@ class App extends React.Component {
 	}
 
 	userLogIn = () => {
-		this.setState({
-			loggedIn: true
-		})
+		localStorage.setItem('userLoggedIn', true)
 	}
 
 	userLogOut = () => {
-		this.setState({
-			loggedIn: false
-		})
+		localStorage.clear()
 	}
 
 	render() {
 		const contextValue = {
 			recipes: this.state.recipes,
 			meals: this.state.meals,
-			loggedIn: this.state.loggedIn,
 			addRecipe: this.addRecipe,
 			deleteRecipe: this.deleteRecipe,
 			updateRecipe: this.updateRecipe,
@@ -231,19 +224,18 @@ class App extends React.Component {
 			userLogOut: this.userLogOut
 		}
 
+		// console.log(`state`, this.state.loggedIn)
+		// console.log(`context`, this.context.loggedIn)
 		return (
 			<StashContext.Provider value={contextValue}>
 				<main className='App'>
-					<Logo />
-					{this.state.loggedIn && <Navigation />}
+				
+					<Navigation />
 					<Switch>
-						<Route exact path='/' component={LandingPage} />
-						<Route path='/login' component={LoginPage} />
-						<Route path='/recipes' component={RecipesPage} />
-						<Route path='/meals' component={MealsPage} />
-						<Route path='/new-recipe' component={AddRecipe} />
-						<Route path='/edit-recipe/:recipe_id' component={EditRecipe} />
-						<Route component={NotFoundPage} />
+						<Route exact path='/recipes/' component={RecipesPage} />
+						<Route exact path='/recipes/meals' component={MealsPage} />
+						<Route exact path='/recipes/new-recipe' component={AddRecipe} />
+						<Route exact path='/recipes/edit-recipe/:recipe_id' component={EditRecipe} />
 					</Switch>
 				</main>
 			</StashContext.Provider>

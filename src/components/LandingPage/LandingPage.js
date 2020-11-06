@@ -1,18 +1,42 @@
 import React from 'react'
 import RegistrationForm from './RegistrationForm/RegistrationForm'
+import LoginForm from './LoginForm/LoginForm'
 
 import './LandingPage.css'
 
-function LandingPage () {
-    return (
-        <div className="LandingPage">
-            <div className="LandingPage__description">
-                Stash is a place where you can keep all of your recipes in one place for safekeeping. Anytime you're ready to start cooking up a meal, open up your drawer where you stashed away all of your delicious recipes and easily find what you're looking for! Stash can also help you plan out your meals for the week so you don't have to waste time thinking of your next meal!
-            </div>
+class LandingPage extends React.Component {
+    state = {
+        accountExist: false
+    }
 
-            <RegistrationForm />
-        </div>
-    )
+    handleSuccess = () => {
+        console.log(`SUCCESS LOGGING IN/REGISTRATION`)
+        const { location, history } = this.props
+        const destination = (location.state || {}).from || '/recipes'
+        history.push(destination)
+    }
+
+    render() {
+        return (
+            <div className="LandingPage">
+                <div className="LandingPage__description">
+                    Stash is a place where you can keep all of your recipes in one place for safekeeping. Anytime you're ready to start cooking up a meal, open up your drawer where you stashed away all of your delicious recipes and easily find what you're looking for! Stash can also help you plan out your meals for the week so you don't have to waste time thinking of your next meal!
+                </div>
+    
+                {this.state.accountExist
+                    ?   <div>
+                            <LoginForm onLoginSuccess={this.handleSuccess} />
+                            <button onClick={ e => {this.setState({accountExist: false})}}>Create a new account</button>
+                        </div>
+                        
+                    :   <div>
+                            <RegistrationForm onRegistrationSuccess={this.handleSuccess} />
+                            <button onClick={ e => {this.setState({accountExist: true})}}>Already have an account?</button>
+                        </div>
+                    }
+            </div>
+        )
+    }
 
 }
 
