@@ -55,14 +55,14 @@ class AddRecipe extends React.Component {
   validateTitle = () => {
     const title = this.state.title.value.trim();
     if (!title) {
-      return `Missing Recipe Title`;
+      return `Recipe title required`;
     }
   };
 
   validateIngredients = () => {
     const ingredients = this.state.ingredients.value.trim();
     if (!ingredients) {
-      return `Missing Ingredients`;
+      return `Ingredients required`;
     }
   };
 
@@ -70,7 +70,7 @@ class AddRecipe extends React.Component {
     const instructions = this.state.instructions.value.trim();
 
     if (!instructions) {
-      return `Missing Recipe Instructions`;
+      return `Instructions required`;
     }
   };
 
@@ -126,7 +126,11 @@ class AddRecipe extends React.Component {
     const {
       image_url: { value: image_urlVal },
     } = this.state;
+    const titleError = this.validateTitle();
+    const ingredientsError = this.validateIngredients();
+    const instructionsError = this.validateInstructions();
     const imageUrlError = this.validateImageURL();
+    const mealTypeError = this.validateMealType();
 
     return (
       <div className="AddRecipe">
@@ -148,6 +152,7 @@ class AddRecipe extends React.Component {
               value={this.state.title.value}
               onChange={this.handleChange}
             />
+            {this.state.title.touched && <ValidationError message={titleError} />}
           </div>
           <div className="FormField">
             <label className="FormField__label" htmlFor="ingredients">
@@ -162,6 +167,7 @@ class AddRecipe extends React.Component {
               value={this.state.ingredients.value}
               onChange={this.handleChange}
             />
+            {this.state.ingredients.touched && <ValidationError message={ingredientsError} />}
           </div>
 
           <div className="FormField">
@@ -177,6 +183,7 @@ class AddRecipe extends React.Component {
               value={this.state.instructions.value}
               onChange={this.handleChange}
             />
+            {this.state.instructions.touched && <ValidationError message={instructionsError} />}
           </div>
 
           <div className="FormField">
@@ -213,6 +220,7 @@ class AddRecipe extends React.Component {
               <option value="Dinner">Dinner</option>
               <option value="Snack">Snack</option>
             </select>
+            {this.state.meal_type.touched && <ValidationError message={mealTypeError} />}
           </div>
 
           {this.state.error && <ValidationError message={this.state.error} />}
