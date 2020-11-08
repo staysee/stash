@@ -2,6 +2,7 @@ import React from 'react';
 import PageHeader from '../PageHeader/PageHeader';
 import RecipesList from './RecipesList/RecipesList';
 import Search from './Search/Search';
+import Placeholder from '../Placeholder/Placeholder';
 import StashContext from '../../StashContext';
 
 class RecipesPage extends React.Component {
@@ -39,7 +40,12 @@ class RecipesPage extends React.Component {
           updateSearchTerm={this.updateSearchTerm}
           updateFilterType={this.updateFilterType}
         />
-        <RecipesList recipes={recipes} searchTerm={searchTerm} filterType={filterType} />
+
+        {recipes ? (
+          <Placeholder message={'No recipes yet'} verb={'Stash'} item={'recipe'} />
+        ) : (
+          <RecipesList recipes={recipes} searchTerm={searchTerm} filterType={filterType} />
+        )}
       </div>
     );
   }
