@@ -50,16 +50,16 @@ class RegistrationForm extends React.Component {
     });
   };
 
-  validateUserName() {
+  validateUserName = () => {
     const username = this.state.username.value.trim();
     if (username.length === 0) {
       return 'Username is required';
     } else if (username.length < 3) {
       return 'Username must be at least 3 characters long';
     }
-  }
+  };
 
-  validatePassword() {
+  validatePassword = () => {
     const password = this.state.password.value.trim();
     const REGEX_UPPER_LOWER_NUMBER_SPECIAL = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&])[\S]+/;
     if (password.length === 0) {
@@ -70,16 +70,16 @@ class RegistrationForm extends React.Component {
     } else if (!password.match(REGEX_UPPER_LOWER_NUMBER_SPECIAL)) {
       return 'Password must contain 1 upper case, lower case, number and special character';
     }
-  }
+  };
 
-  validateRepeatPassword() {
+  validateRepeatPassword = () => {
     const repeatPassword = this.state.repeatPassword.value.trim();
     const password = this.state.password.value.trim();
 
     if (repeatPassword !== password) {
       return 'Passwords do not match';
     }
-  }
+  };
 
   clearFields = () => {
     this.setState({
@@ -108,6 +108,8 @@ class RegistrationForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.setState({ error: null });
+
     const {
       firstname: { value: firstnameVal },
       lastname: { value: lastnameVal },
@@ -115,7 +117,6 @@ class RegistrationForm extends React.Component {
       password: { value: passwordVal },
     } = this.state;
 
-    this.setState({ error: null });
     //POST to server
     AuthApiService.postUser({
       firstname: firstnameVal,
