@@ -22,39 +22,6 @@ class AddRecipe extends React.Component {
     };
   }
 
-  handleChange = (e) => {
-    let target = e.target;
-    let value = target.value;
-    let name = target.name;
-
-    this.setState({
-      [name]: value,
-    });
-  };
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-
-    const { title, ingredients, instructions, meal_type, image_url } = this.state;
-
-    const newRecipe = {
-      title,
-      ingredients,
-      instructions,
-      meal_type,
-      image_url,
-    };
-    console.log(`The new recipe:`, newRecipe);
-
-    this.context.addRecipe(newRecipe);
-    //return to
-    this.props.history.push(`/recipes`);
-  };
-
-  handleClickCancel = () => {
-    this.props.history.push('/recipes');
-  };
-
   validateTitle = () => {
     const { title } = this.state;
 
@@ -96,6 +63,37 @@ class AddRecipe extends React.Component {
     if (!meal_type) {
       return `Missing Meal Type`;
     }
+  };
+
+  handleChange = (e) => {
+    let target = e.target;
+    let value = target.value;
+    let name = target.name;
+
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { title, ingredients, instructions, meal_type, image_url } = this.state;
+    const newRecipe = {
+      title,
+      ingredients,
+      instructions,
+      meal_type,
+      image_url,
+    };
+    console.log(`The new recipe:`, newRecipe);
+
+    this.context.addRecipe(newRecipe);
+    //return to
+    this.props.history.push(`/recipes`);
+  };
+
+  handleClickCancel = () => {
+    this.props.history.push('/recipes');
   };
 
   render() {
