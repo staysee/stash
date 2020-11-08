@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types';
 import './Placeholder.css';
 
 function Placeholder(props) {
@@ -17,3 +18,9 @@ function Placeholder(props) {
 }
 
 export default Placeholder;
+
+Placeholder.propTypes = {
+  // icon: PropTypes.instanceOf,
+  message: PropTypes.string,
+  verb: PropTypes.string,
+};
