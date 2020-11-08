@@ -3,6 +3,7 @@ import PageHeader from '../PageHeader/PageHeader';
 import RecipesList from './RecipesList/RecipesList';
 import Search from './Search/Search';
 import Placeholder from '../Placeholder/Placeholder';
+import { faImages } from '@fortawesome/free-solid-svg-icons';
 import StashContext from '../../StashContext';
 
 class RecipesPage extends React.Component {
@@ -44,7 +45,7 @@ class RecipesPage extends React.Component {
         {recipes ? (
           <RecipesList recipes={recipes} searchTerm={searchTerm} filterType={filterType} />
         ) : (
-          <Placeholder message={'No recipes yet'} verb={'Stash'} item={'recipe'} />
+          <Placeholder message={'No recipes yet'} verb={'Stash'} item={'recipe'} icon={faImages} />
         )}
       </div>
     );

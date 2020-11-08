@@ -1,13 +1,11 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImages } from '@fortawesome/free-solid-svg-icons';
-
 import './Placeholder.css';
 
 function Placeholder(props) {
   return (
     <div className="Placeholder">
-      <FontAwesomeIcon className="images-icon" icon={faImages} />
+      <FontAwesomeIcon className="images-icon" icon={props.icon} />
       <div className="placeholder-msg">
         <p>{props.message}</p>
         <p>
