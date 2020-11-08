@@ -79,7 +79,7 @@ class AddRecipe extends React.Component {
     const REGEX_IMAGE_URL = /(https?:\/\/.*\.(?:png|jpg|jpeg|gif))/i;
 
     if (!image_url) {
-      return `Missing Image URL`;
+      return `Image URL required`;
     } else if (!image_url.match(REGEX_IMAGE_URL)) {
       return `Image URL must start with http(s) and end with png, jpg, jpeg, gif`;
     }
@@ -88,7 +88,7 @@ class AddRecipe extends React.Component {
   validateMealType = () => {
     const meal_type = this.state.meal_type.value.trim();
     if (!meal_type) {
-      return `Missing Meal Type`;
+      return `Meal Type required`;
     }
   };
 
