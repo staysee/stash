@@ -1,6 +1,7 @@
 import React from 'react';
-import StashContext from '../../StashContext';
+import ValidationError from '../ValidationError/ValidationError';
 import PropTypes from 'prop-types';
+import StashContext from '../../StashContext';
 
 class AddRecipe extends React.Component {
   static defaultProps = {
@@ -52,6 +53,49 @@ class AddRecipe extends React.Component {
 
   handleClickCancel = () => {
     this.props.history.push('/recipes');
+  };
+
+  validateTitle = () => {
+    const { title } = this.state;
+
+    if (!title) {
+      return `Missing Recipe Title`;
+    }
+  };
+
+  validateIngredients = () => {
+    const { ingredients } = this.state;
+
+    if (!ingredients) {
+      return `Missing Ingredients`;
+    }
+  };
+
+  validateInstructions = () => {
+    const { instructions } = this.state;
+
+    if (!instructions) {
+      return `Missing Recipe Instructions`;
+    }
+  };
+
+  validateImageURL = () => {
+    const { image_url } = this.state;
+    const REGEX_IMAGE_URL = /(https?:\/\/.*\.(?:png|jpg|jpeg|gif))/i;
+
+    if (!image_url) {
+      return `Missing Image URL`;
+    } else if (!image_url.match(REGEX_IMAGE_URL)) {
+      return `Image URL must end with png, jpg, jpeg, gif`;
+    }
+  };
+
+  validateMealType = () => {
+    const { meal_type } = this.state;
+
+    if (!meal_type) {
+      return `Missing Meal Type`;
+    }
   };
 
   render() {
@@ -141,7 +185,20 @@ class AddRecipe extends React.Component {
             </select>
           </div>
 
-          <button type="submit">Stash My Recipe</button>
+          {this.state.error && <ValidationError message={this.state.error} />}
+
+          <button
+            type="submit"
+            disabled={
+              this.validateTitle() ||
+              this.validateIngredients() ||
+              this.validateInstructions() ||
+              this.validateImageURL() ||
+              this.validateMealType()
+            }
+          >
+            Stash My Recipe
+          </button>
           <button onClick={this.handleClickCancel}>Cancel</button>
         </form>
       </div>
