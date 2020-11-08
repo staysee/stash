@@ -42,9 +42,9 @@ class RecipesPage extends React.Component {
         />
 
         {recipes ? (
-          <Placeholder message={'No recipes yet'} verb={'Stash'} item={'recipe'} />
-        ) : (
           <RecipesList recipes={recipes} searchTerm={searchTerm} filterType={filterType} />
+        ) : (
+          <Placeholder message={'No recipes yet'} verb={'Stash'} item={'recipe'} />
         )}
       </div>
     );
