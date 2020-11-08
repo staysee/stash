@@ -1,13 +1,13 @@
 .App {
-    width: 90%;
-    margin: 0 auto;
-    padding-top: 20px;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 20px;
 }
 
 .App h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .App a {
-    text-decoration: none;
+  text-decoration: none;
 }

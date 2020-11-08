@@ -1,9 +1,9 @@
 .LandingPage {
-    display: flex;
-    flex-direction: column;   
+  display: flex;
+  flex-direction: column;
 }
 
 .LandingPage__description {
-    margin: 20px 0;
-    line-height: 1.7;
+  margin: 20px 0;
+  line-height: 1.7;
 }

@@ -1,8 +1,8 @@
 .Logo {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .Logo img {
-    width: 250px;
+  width: 250px;
 }

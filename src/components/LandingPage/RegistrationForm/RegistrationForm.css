@@ -1,34 +1,33 @@
 .RegistrationForm {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .FormField {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .FormField a {
-    display: block;
-    text-align: center;
+  display: block;
+  text-align: center;
 }
 
 .FormField__label {
-    display: block;
-    text-transform: uppercase;
-    font-size: 0.9em;
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.9em;
 }
 
 .FormField__input {
-    border: none;
-    border-bottom: 1px solid #445366;
-    font-size: 0.5em;
-    line-height: 2;
-    outline: none;
-    width: 100%;
+  border: none;
+  border-bottom: 1px solid #445366;
+  font-size: 0.5em;
+  line-height: 2;
+  outline: none;
+  width: 100%;
 }
 
 .FormField__button {
-    display: block;
-    width: 100%;
-
+  display: block;
+  width: 100%;
 }

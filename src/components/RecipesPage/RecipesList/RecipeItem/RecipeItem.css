@@ -1,35 +1,35 @@
 .RecipeItem {
-    border: 1px solid gray;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-    padding: 5px;
-    width: 45%;
+  border: 1px solid gray;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  padding: 5px;
+  width: 45%;
 }
 
 .RecipeItem:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    cursor: pointer;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
 }
 
 .RecipeItem .item_image {
-    background-color: #ebebeb;
-    border: 2px solid #ffffff;
-    display: flex;
-    height: 200px;
+  background-color: #ebebeb;
+  border: 2px solid #ffffff;
+  display: flex;
+  height: 200px;
 }
 
 .RecipeItem img {
-    max-height: 100%;
-    max-width: 100%;
-    margin: 0 auto;
+  max-height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .RecipeItem p {
-    margin: 0;
-    padding: 10px;
-    text-transform: uppercase;
+  margin: 0;
+  padding: 10px;
+  text-transform: uppercase;
 }

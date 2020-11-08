@@ -1,13 +1,13 @@
 .Main {
-    width: 90%;
-    margin: 0 auto;
-    padding-top: 20px;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 20px;
 }
 
 .Main h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .Main a {
-    text-decoration: none;
+  text-decoration: none;
 }

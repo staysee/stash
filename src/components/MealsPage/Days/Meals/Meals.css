@@ -1,66 +1,66 @@
 .Meals {
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid #bdb2b2;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #bdb2b2;
 }
 
 .Meals__info {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .Meals__info .info_box {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .left {
-    width: 20%;
+  width: 20%;
 }
 
 .middle {
-    width: 75%;
+  width: 75%;
 }
 
 .right {
-    width: 5%;
+  width: 5%;
 }
 
 .Meals__img {
-    width: 100px;
-    height: 50px;
+  width: 100px;
+  height: 50px;
 }
 
 .Meals__img img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .Meals__recipe-title {
-    display: flex;
-    align-self: center;
-    font-size: 1.5em;
-    text-transform: uppercase;
+  display: flex;
+  align-self: center;
+  font-size: 1.5em;
+  text-transform: uppercase;
 }
 
 .Meals__options {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .Meals svg {
-    color: gray;
-    height: 20px;
-    width: 20px;
-    padding: 0;
+  color: gray;
+  height: 20px;
+  width: 20px;
+  padding: 0;
 }
 
 .Meals svg:hover {
-    cursor: pointer;
-    color: green;
+  cursor: pointer;
+  color: green;
 }
 
 .Meals svg:nth-child(2):hover {
-    cursor: pointer;
-    color: red;
+  cursor: pointer;
+  color: red;
 }

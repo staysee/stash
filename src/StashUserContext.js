@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-const StashUserContext = React.createContext({
-    
-})
+const StashUserContext = React.createContext({});
 
-export default StashUserContext
+export default StashUserContext;

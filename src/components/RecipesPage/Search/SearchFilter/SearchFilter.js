@@ -1,30 +1,29 @@
-import React from 'react'
+import React from 'react';
 
-import './SearchFilter.css'
+import './SearchFilter.css';
 
 class SearchFilter extends React.Component {
-    
-    render() {
-        const { filterType } = this.props;
+  render() {
+    const { filterType } = this.props;
 
-        return (
-            <div className="SearchFilter">
-                <div className="FormField">
-                    <select 
-                        className="FormField__select"
-                        value={filterType}
-                        onChange={ e => this.props.updateFilterType(e.target.value)}
-                    >
-                        <option value="All">All</option>
-                        <option value="Breakfast">Breakfast</option>
-                        <option value="Lunch">Lunch</option>
-                        <option value="Dinner">Dinner</option>
-                        <option value="Snack">Snack</option>
-                    </select>
-                </div>
-            </div>
-        )
-    }
+    return (
+      <div className="SearchFilter">
+        <div className="FormField">
+          <select
+            className="FormField__select"
+            value={filterType}
+            onChange={(e) => this.props.updateFilterType(e.target.value)}
+          >
+            <option value="All">All</option>
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+            <option value="Snack">Snack</option>
+          </select>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default SearchFilter
+export default SearchFilter;
