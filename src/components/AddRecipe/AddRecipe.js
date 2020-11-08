@@ -2,6 +2,7 @@ import React from 'react';
 import ValidationError from '../ValidationError/ValidationError';
 import PropTypes from 'prop-types';
 import StashContext from '../../StashContext';
+import './AddRecipe.css';
 
 class AddRecipe extends React.Component {
   static defaultProps = {
@@ -97,11 +98,13 @@ class AddRecipe extends React.Component {
   };
 
   render() {
+    const { image_url } = this.state;
+
     return (
       <div className="AddRecipe">
         <h2>New Recipe</h2>
         <div className="image-container">
-          {this.state.image_url && <image src={this.state.image_url} alt="Food Image" />}
+          {image_url && <img src={image_url} alt="Food Image" />}
         </div>
         <form className="FormFields" onSubmit={this.handleSubmit}>
           <div className="FormField">

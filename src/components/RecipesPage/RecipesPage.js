@@ -42,10 +42,10 @@ class RecipesPage extends React.Component {
           updateFilterType={this.updateFilterType}
         />
 
-        {recipes ? (
-          <RecipesList recipes={recipes} searchTerm={searchTerm} filterType={filterType} />
-        ) : (
+        {recipes.length === 0 ? (
           <Placeholder message={'No recipes yet'} verb={'Stash'} item={'recipe'} icon={faImages} />
+        ) : (
+          <RecipesList recipes={recipes} searchTerm={searchTerm} filterType={filterType} />
         )}
       </div>
     );
