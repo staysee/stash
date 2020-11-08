@@ -51,6 +51,13 @@ class RecipeCardModal extends React.Component {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
 
+  validateMealDay = () => {
+    const { day } = this.state;
+    if (day === null || day === '') {
+      return 'Day required to add to meal.';
+    }
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
     const { day } = this.state;
@@ -126,7 +133,7 @@ class RecipeCardModal extends React.Component {
                 <option value="Sunday">Sunday</option>
               </select>
 
-              <button type="submit" className="add-meal">
+              <button type="submit" className="add-meal" disabled={this.validateMealDay()}>
                 Add This Meal
               </button>
             </form>
