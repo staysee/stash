@@ -1,14 +1,13 @@
-import React from 'react'
-import logo from '../../assets/logo-stash.png'
-import './Logo.css'
+import React from 'react';
+import logo from '../../assets/logo-stash.png';
+import './Logo.css';
 
-
-function Logo () {
-    return (
-        <div className="Logo">
-            <img src={logo} alt="Stash logo" />
-        </div>
-    )
+function Logo() {
+  return (
+    <div className="Logo">
+      <img src={logo} alt="Stash logo" />
+    </div>
+  );
 }
 
-export default Logo
+export default Logo;

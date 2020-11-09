@@ -1,9 +1,9 @@
 .LoginForm__image {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 .LoginForm__image img {
-    display: block;
-    width: 80%;
-    margin: 0 auto;
+  display: block;
+  width: 80%;
+  margin: 0 auto;
 }

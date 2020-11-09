@@ -1,13 +1,13 @@
 .SearchBox {
-    display: flex;
+  display: flex;
 }
 
 .SearchBox .search-icon {
-    height: initial;
+  height: initial;
 }
 
 .SearchBox .FormField {
-    margin: 10px;
-    height: inherit;
-    width: 100%;
+  margin: 10px;
+  height: inherit;
+  width: 100%;
 }

@@ -1,14 +1,15 @@
 .Navigation {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
 }
 
 .Navigation a {
-    padding: 0 10px;
-    margin: 5px;
-    border-right: 1px solid grey;
+  padding: 0 10px;
+  margin: 5px;
+  border-right: 1px solid grey;
 }
 
 .Navigation a:last-child {
-    border-right: none;
+  border-right: none;
 }

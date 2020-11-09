@@ -1,0 +1,21 @@
+.Placeholder {
+    color: #808080;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 0;
+}
+
+.images-icon {
+    display: block;
+    font-size: 3em;
+    margin: 0 auto;
+}
+
+.placeholder-msg {
+    text-align: center;
+}
+
+.placeholder-msg p {
+    font-size: 1.25em;
+    margin: 0.5em 0;
+}

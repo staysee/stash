@@ -1,43 +1,35 @@
-import React from 'react'
-import Meals from './Meals/Meals'
-import PropTypes from 'prop-types'
+import React from 'react';
+import Meals from './Meals/Meals';
+import PropTypes from 'prop-types';
 
-import './Days.css'
+import './Days.css';
 
-class Days extends React.Component{
-    static defaultProps = {
-        meals: {},
-        day: ''
+class Days extends React.Component {
+  static defaultProps = {
+    meals: {},
+    day: '',
+  };
+
+  render() {
+    const { day, meals } = this.props;
+    let mealsList;
+
+    if (meals[day]) {
+      mealsList = meals[day].map((meal, key) => <Meals key={key} day={day} meal={meal} />);
     }
-    
-    render() {
-        const { day, meals } = this.props
-        let mealsList;
 
-        if (meals[day]) {
-            mealsList = meals[day]
-                .map((meal, key) => 
-                    <Meals 
-                        key={key}
-                        day={day}
-                        meal={meal}
-                    />
-            )
-        }
-        
-        return(
-            <div className="Days">
-                <h3>{day}</h3>
-                {meals && meals[day] && mealsList}
-            </div>
-        )
-
-    }
+    return (
+      <div className="Days">
+        <h3>{day}</h3>
+        {meals && meals[day] && mealsList}
+      </div>
+    );
+  }
 }
 
-export default Days
+export default Days;
 
 Days.propTypes = {
-    meals: PropTypes.object,
-    day: PropTypes.string
-}
+  meals: PropTypes.object,
+  day: PropTypes.string,
+};

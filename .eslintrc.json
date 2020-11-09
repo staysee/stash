@@ -1,0 +1,8 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "extends": ["plugin:prettier/recommended"],
+  "env": { "browser": true, "jest": true }
+}
