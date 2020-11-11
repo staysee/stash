@@ -125,6 +125,7 @@ class RegistrationForm extends React.Component {
       password: passwordVal,
     })
       .then((user) => {
+        // this.setState({ loading: false });
         this.clearFields();
         TokenService.saveAuthToken(user.authToken);
         this.props.onRegistrationSuccess();

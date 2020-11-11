@@ -105,11 +105,11 @@ class AddRecipe extends React.Component {
     } = this.state;
 
     const newRecipe = {
-      title,
-      ingredients,
-      instructions,
-      meal_type,
-      image_url,
+      title: titleVal,
+      ingredients: ingredientsVal,
+      instructions: instructionsVal,
+      meal_type: meal_typeVal,
+      image_url: image_urlVal,
     };
     console.log(`The new recipe:`, newRecipe);
 

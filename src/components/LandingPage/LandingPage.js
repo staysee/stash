@@ -1,10 +1,14 @@
 import React from 'react';
 import RegistrationForm from './RegistrationForm/RegistrationForm';
 import LoginForm from './LoginForm/LoginForm';
+import Loader from 'react-loader-spinner';
+import MainContext from '../../MainContext';
 
 import './LandingPage.css';
 
 class LandingPage extends React.Component {
+  static contextType = MainContext;
+
   state = {
     accountExist: false,
   };
@@ -26,6 +30,12 @@ class LandingPage extends React.Component {
           help you plan out your meals for the week so you don't have to waste time thinking of your
           next meal!
         </div>
+
+        {this.context.loading ? (
+          <Loader type="Grid" color="#00BFFF" height={80} width={80} />
+        ) : (
+          <></>
+        )}
 
         {this.state.accountExist ? (
           <div>

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import StashContext from '../../StashContext';
 import Navigation from '../Navigation/Navigation';
 import RecipesPage from '../RecipesPage/RecipesPage';
 import AddRecipe from '../AddRecipe/AddRecipe';
 import EditRecipe from '../EditRecipe/EditRecipe';
 import MealsPage from '../MealsPage/MealsPage';
+import StashContext from '../../StashContext';
 import RecipesService from '../../services/recipe-service';
 import MealsService from '../../services/meal-service';
 // import store from '../../store'
@@ -30,6 +30,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.rehydrateApp();
+    this.setState({ loading: false });
   }
 
   rehydrateApp = async (location = 'App') => {
