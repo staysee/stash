@@ -65,6 +65,11 @@ class LandingPage extends React.Component {
           help you plan out your meals for the week so you don't have to waste time thinking of your
           next meal!
         </div>
+        <div className="demo">
+          <p>Demo Account</p>
+          <p>Username: demouser</p>
+          <p>Password: P@ssword1!</p>
+        </div>
 
         {loading ? (
           <Loader className="loader-grid" type="Grid" color="#43BA73" height={80} width={80} />
