@@ -1,5 +1,4 @@
 .Main {
-  width: 70%;
   max-width: 960px;
   min-width: 320px;
   margin: 0 auto;
@@ -16,29 +15,31 @@
 
 
 /* ------- DESKTOP/LARGE DEVICE -------- */
-@media only screen 
-and (min-device-width: 768px) 
-and (max-device-width: 1024px) {
+@media only screen and (min-device-width: 768px) {
   .Logo {
     display: initial;
-    margin: 0px;
+    margin: 0 0 0 20px;
     float: left;
   }
 
   .Logo img {
     width: 150px;
   }
+
+  .LandingPage {
+    clear: both;
+  }
+
+  .RegistrationForm, .LoginForm {
+    width: 70%;
+  }
 }
 
 /* ------- PHONE LANDSCAPE -------- */
 @media screen and (orientation: landscape)
 and (min-device-width: 320px) 
-and (max-device-width: 812px) 
+/* and (max-device-width: 812px)  */
 and (-webkit-device-pixel-ratio: 3) {
-  .Main {
-    width: 70%;
-  }
-
   .Logo {
     display: flex;
     margin: 0px;
@@ -54,7 +55,17 @@ and (-webkit-device-pixel-ratio: 3) {
     float: none;
   }
 
-  .ReciptItem {
+  .LandingPage__description {
+    width: 70%;
+    margin: 20px auto;
+  }
+
+  .RegistrationForm, .LoginForm {
+    width: 70%;
+    margin: 10px auto;
+  }
+
+  .RecipeItem {
     width: 22%;
   }
 }

@@ -4,8 +4,10 @@
 }
 
 .LandingPage__description {
-  margin: 20px 0;
+  margin: 20px auto;
   line-height: 1.7;
+  text-align: justify;
+  width: 90%;
 }
 
 .LandingPage .account-link {
