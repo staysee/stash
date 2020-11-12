@@ -227,7 +227,7 @@ class RegistrationForm extends React.Component {
         <div className="FormField">
           <button
             type="submit"
-            className="FormField__registration-button"
+            className="FormField__button"
             disabled={
               this.validateUserName() || this.validatePassword() || this.validateRepeatPassword()
             }

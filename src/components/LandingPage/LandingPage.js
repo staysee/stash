@@ -29,6 +29,7 @@ class LandingPage extends React.Component {
           <div>
             <LoginForm onLoginSuccess={this.handleSuccess} />
             <button
+              className="account-link"
               onClick={(e) => {
                 this.setState({ accountExist: false });
               }}
@@ -42,6 +43,7 @@ class LandingPage extends React.Component {
           <div>
             <RegistrationForm onRegistrationSuccess={this.handleSuccess} />
             <button
+              className="account-link"
               onClick={(e) => {
                 this.setState({ accountExist: true });
               }}

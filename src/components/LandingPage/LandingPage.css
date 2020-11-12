@@ -8,6 +8,14 @@
   line-height: 1.7;
 }
 
+.LandingPage .account-link {
+  background-color: white;
+  border: none;
+  color: rgba(6, 104, 71, 0.932);
+  display: block;
+  margin: 0 auto;
+}
+
 .loader-grid {
   text-align: center;
 }
