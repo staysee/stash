@@ -16,6 +16,7 @@ class App extends React.Component {
   static contextType = StashContext;
 
   state = {
+    loading: false,
     recipes: [],
     meals: {
       Monday: [],
@@ -30,7 +31,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.rehydrateApp();
-    this.setState({ loading: false });
   }
 
   rehydrateApp = async (location = 'App') => {
@@ -40,6 +40,12 @@ class App extends React.Component {
       await this.fetchUserMeals(),
       // await this.fetchAllUsers()
     ]);
+  };
+
+  setLoading = (status) => {
+    this.setState({
+      loading: status,
+    });
   };
 
   // fetchAllRecipes = async () => {
@@ -201,6 +207,8 @@ class App extends React.Component {
 
   render() {
     const contextValue = {
+      loading: this.state.loading,
+      setLoading: this.setLoading,
       recipes: this.state.recipes,
       meals: this.state.meals,
       addRecipe: this.addRecipe,
@@ -213,8 +221,6 @@ class App extends React.Component {
       userLogOut: this.userLogOut,
     };
 
-    // console.log(`state`, this.state.loggedIn)
-    // console.log(`context`, this.context.loggedIn)
     return (
       <StashContext.Provider value={contextValue}>
         <main className="App">
