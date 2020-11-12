@@ -73,11 +73,14 @@ class LoginForm extends React.Component {
     ev.preventDefault();
     this.setState({ error: null });
     this.context.setLoading(true);
-    const { username, password } = this.state;
+    const {
+      username: { value: usernameVal },
+      password: { value: passwordVal },
+    } = this.state;
 
     AuthApiService.postLogin({
-      username,
-      password,
+      username: usernameVal,
+      password: passwordVal,
     })
       .then((res) => {
         // setTimeout(() => {
