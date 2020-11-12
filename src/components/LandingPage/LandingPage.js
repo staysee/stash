@@ -63,7 +63,7 @@ class LandingPage extends React.Component {
           next meal!
         </div>
 
-        {loading ? <Loader type="Grid" color="#00BFFF" height={40} width={40} /> : showForms()}
+        {loading ? <Loader type="Grid" color="#FF917A" height={40} width={40} /> : showForms()}
       </div>
     );
   }

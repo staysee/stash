@@ -234,7 +234,7 @@ class AddRecipe extends React.Component {
             <Loader
               className="loader-dots"
               type="ThreeDots"
-              color="#ff917a"
+              color="#FF917A"
               height={20}
               width={20}
             />
