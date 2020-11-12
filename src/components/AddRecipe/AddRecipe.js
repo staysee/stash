@@ -1,5 +1,6 @@
 import React from 'react';
 import ValidationError from '../ValidationError/ValidationError';
+import Loader from 'react-loader-spinner';
 import PropTypes from 'prop-types';
 import StashContext from '../../StashContext';
 import './AddRecipe.css';
@@ -95,6 +96,7 @@ class AddRecipe extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState({ error: null });
+    this.context.setLoading(true);
 
     const {
       title: { value: titleVal },
@@ -114,7 +116,8 @@ class AddRecipe extends React.Component {
     console.log(`The new recipe:`, newRecipe);
 
     this.context.addRecipe(newRecipe);
-    //return to
+    this.context.setLoading(false);
+    // return to
     this.props.history.push(`/recipes`);
   };
 
@@ -136,7 +139,9 @@ class AddRecipe extends React.Component {
       <div className="AddRecipe">
         <h2>New Recipe</h2>
         <div className="image-container">
-          {image_urlVal && imageUrlError && <img src={image_urlVal} alt="Food Image" />}
+          {image_urlVal && !imageUrlError && (
+            <img src={image_urlVal} className="new-recipe-image" alt="Food Image" />
+          )}
         </div>
         <form className="FormFields" onSubmit={this.handleSubmit}>
           <div className="FormField">
@@ -224,6 +229,16 @@ class AddRecipe extends React.Component {
           </div>
 
           {this.state.error && <ValidationError message={this.state.error} />}
+
+          {this.context.loading && (
+            <Loader
+              className="loader-dots"
+              type="ThreeDots"
+              color="#FF917A"
+              height={20}
+              width={20}
+            />
+          )}
 
           <button
             type="submit"
