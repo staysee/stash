@@ -13,12 +13,19 @@ class Main extends React.Component {
   static contextType = MainContext;
 
   state = {
-    loading: true,
+    loading: false,
+  };
+
+  setLoading = (status) => {
+    this.setState({
+      loading: status,
+    });
   };
 
   render() {
     const contextValue = {
       loading: this.state.loading,
+      setLoading: this.setLoading,
     };
 
     return (

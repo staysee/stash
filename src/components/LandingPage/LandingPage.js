@@ -21,23 +21,11 @@ class LandingPage extends React.Component {
   };
 
   render() {
-    return (
-      <div className="LandingPage">
-        <div className="LandingPage__description">
-          Stash is a place where you can keep all of your recipes in one place for safekeeping.
-          Anytime you're ready to start cooking up a meal, open up your drawer where you stashed
-          away all of your delicious recipes and easily find what you're looking for! Stash can also
-          help you plan out your meals for the week so you don't have to waste time thinking of your
-          next meal!
-        </div>
-
-        {this.context.loading ? (
-          <Loader type="Grid" color="#00BFFF" height={80} width={80} />
-        ) : (
-          <></>
-        )}
-
-        {this.state.accountExist ? (
+    const { accountExist } = this.state;
+    const { loading } = this.context;
+    const showForms = () => {
+      if (accountExist) {
+        return (
           <div>
             <LoginForm onLoginSuccess={this.handleSuccess} />
             <button
@@ -48,7 +36,9 @@ class LandingPage extends React.Component {
               Create a new account
             </button>
           </div>
-        ) : (
+        );
+      } else {
+        return (
           <div>
             <RegistrationForm onRegistrationSuccess={this.handleSuccess} />
             <button
@@ -59,7 +49,21 @@ class LandingPage extends React.Component {
               Already have an account?
             </button>
           </div>
-        )}
+        );
+      }
+    };
+
+    return (
+      <div className="LandingPage">
+        <div className="LandingPage__description">
+          Stash is a place where you can keep all of your recipes in one place for safekeeping.
+          Anytime you're ready to start cooking up a meal, open up your drawer where you stashed
+          away all of your delicious recipes and easily find what you're looking for! Stash can also
+          help you plan out your meals for the week so you don't have to waste time thinking of your
+          next meal!
+        </div>
+
+        {loading ? <Loader type="Grid" color="#00BFFF" height={40} width={40} /> : showForms()}
       </div>
     );
   }
