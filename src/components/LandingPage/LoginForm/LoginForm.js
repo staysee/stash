@@ -2,10 +2,12 @@ import React from 'react';
 import ValidationError from '../../ValidationError/ValidationError';
 import TokenService from '../../../services/token-service';
 import AuthApiService from '../../../services/auth-api-service';
+import MainContext from '../../../MainContext';
 
 import './LoginForm.css';
 
 class LoginForm extends React.Component {
+  static contextType = MainContext;
   static defaultProps = {
     onLoginSucces: () => {},
   };
@@ -39,6 +41,7 @@ class LoginForm extends React.Component {
   handleSubmitJwtAuth = (ev) => {
     ev.preventDefault();
     this.setState({ error: null });
+    this.context.setLoading(true);
     const { username, password } = this.state;
 
     AuthApiService.postLogin({
@@ -46,11 +49,15 @@ class LoginForm extends React.Component {
       password,
     })
       .then((res) => {
+        // setTimeout(() => {
         this.clearFields();
         TokenService.saveAuthToken(res.authToken);
+        this.context.setLoading(false);
         this.props.onLoginSuccess();
+        // }, 3000);
       })
       .catch((res) => {
+        this.context.setLoading(false);
         this.setState({ error: res.error });
         console.log(`ERROR:`, this.state.error);
       });

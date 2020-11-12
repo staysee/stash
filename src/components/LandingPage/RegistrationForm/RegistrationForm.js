@@ -2,10 +2,13 @@ import React from 'react';
 import ValidationError from '../../ValidationError/ValidationError';
 import AuthApiService from '../../../services/auth-api-service';
 import TokenService from '../../../services/token-service';
+import MainContext from '../../../MainContext';
 
 import './RegistrationForm.css';
 
 class RegistrationForm extends React.Component {
+  static contextType = MainContext;
+
   static defaultProps = {
     onRegistrationSuccess: () => {},
   };
@@ -109,11 +112,12 @@ class RegistrationForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({ error: null });
+    this.context.setLoading(true);
 
     const {
       firstname: { value: firstnameVal },
       lastname: { value: lastnameVal },
-      username: { value: userNameVal },
+      username: { value: usernameVal },
       password: { value: passwordVal },
     } = this.state;
 
@@ -125,11 +129,15 @@ class RegistrationForm extends React.Component {
       password: passwordVal,
     })
       .then((user) => {
+        // setTimeout(() => {
         this.clearFields();
         TokenService.saveAuthToken(user.authToken);
+        this.context.setLoading(false);
         this.props.onRegistrationSuccess();
+        // }, 1000);
       })
       .catch((res) => {
+        this.context.setLoading(false);
         this.setState({ error: res.error });
         console.log(`ERROR:`, this.state.error);
       });
