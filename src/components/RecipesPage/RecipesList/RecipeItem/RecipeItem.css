@@ -16,14 +16,13 @@
 }
 
 .RecipeItem .item_image {
-  background-color: #ebebeb;
   border: 2px solid #ffffff;
   display: flex;
   height: 100px;
 }
 
 .RecipeItem img {
-  max-height: 100%;
+  /* max-height: 100%; */
   max-width: 100%;
   margin: 0 auto;
   object-fit: cover;
@@ -33,22 +32,4 @@
   margin: 0;
   padding: 5px;
   text-transform: uppercase;
-}
-
-/* ------- TABLETS -------- */
-@media (min-width: 600px) {
-  .RecipeItem {
-    width: 30%;
-  }
-
-  .RecipeItem .item_image {
-    height: 200px;
-  }
-}
-
-/* ------- DESKTOP/LARGE DEVICE -------- */
-@media (min-width: 768px) {
-  .RecipeItem {
-    width: 23%;
-  }
 }

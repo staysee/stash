@@ -6,6 +6,8 @@ import Placeholder from '../Placeholder/Placeholder';
 import { faImages } from '@fortawesome/free-solid-svg-icons';
 import StashContext from '../../StashContext';
 
+import './RecipesPage.css';
+
 class RecipesPage extends React.Component {
   static contextType = StashContext;
 

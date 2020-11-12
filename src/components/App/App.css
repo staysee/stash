@@ -30,7 +30,6 @@
 
 /* APP COMPONENT */
 .App {
-  /* width: 90%; */
   margin: 0 auto;
 }
 
@@ -42,3 +41,36 @@
   text-decoration: none;
 }
 
+
+/* ------- TABLETS -------- */
+@media only screen and (min-width: 600px) {
+  .RecipeItem {
+    width: 30%;
+  }
+
+  .RecipeItem .item_image {
+    height: 200px;
+  }
+}
+
+/* ------- DESKTOP/LARGE DEVICE -------- */
+@media only screen and (min-width: 768px) {
+  .Navigation {
+    display: initial;
+    float: right;
+    margin-top: 15px;
+  }
+
+  .RecipesPage, .MealsPage {
+    clear: both;
+  }
+
+  .RecipeItem {
+    width: 23%;
+  }
+
+  .Meals__info .info_box {
+    justify-content: normal;
+  }
+
+}

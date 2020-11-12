@@ -1,5 +1,5 @@
 .Main {
-  width: 90%;
+  width: 70%;
   max-width: 960px;
   min-width: 320px;
   margin: 0 auto;
@@ -12,4 +12,49 @@
 
 .Main a {
   text-decoration: none;
+}
+
+
+/* ------- DESKTOP/LARGE DEVICE -------- */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) {
+  .Logo {
+    display: initial;
+    margin: 0px;
+    float: left;
+  }
+
+  .Logo img {
+    width: 150px;
+  }
+}
+
+/* ------- PHONE LANDSCAPE -------- */
+@media screen and (orientation: landscape)
+and (min-device-width: 320px) 
+and (max-device-width: 812px) 
+and (-webkit-device-pixel-ratio: 3) {
+  .Main {
+    width: 70%;
+  }
+
+  .Logo {
+    display: flex;
+    margin: 0px;
+    float: none;
+  }
+
+  .Logo img {
+    width: 250px;
+  }
+
+  .Navigation {
+    display: flex;
+    float: none;
+  }
+
+  .ReciptItem {
+    width: 22%;
+  }
 }

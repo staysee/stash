@@ -2,7 +2,7 @@ import React from 'react';
 import StashContext from '../../../../StashContext';
 import DisplayModal from '../../../DisplayModal/DisplayModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faBackspace } from '@fortawesome/free-solid-svg-icons';
+import { faBackspace } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import './Meals.css';
 
@@ -51,6 +51,12 @@ class Meals extends React.Component {
     });
   };
 
+  handleShowModal = () => {
+    this.setState({
+      showModal: true,
+    });
+  };
+
   render() {
     const { recipeTitle, recipeImageUrl, showModal } = this.state;
     const { meal } = this.props;
@@ -83,7 +89,7 @@ class Meals extends React.Component {
           />
         )}
 
-        <div className="Meals__info">
+        <div className="Meals__info" onClick={this.handleShowModal}>
           <div className="info_box left">
             <div className="Meals__img">
               <img src={recipeImageUrl} alt="Placeholder" />
@@ -94,15 +100,7 @@ class Meals extends React.Component {
             <div className="Meals__recipe-title">{recipeTitle}</div>
           </div>
           <div className="info_box right">
-            <div className="Meals__options">
-              <FontAwesomeIcon
-                icon={faEye}
-                onClick={(e) => {
-                  this.setState({ showModal: true });
-                }}
-              />
-              <FontAwesomeIcon icon={faBackspace} onClick={this.handleClickDelete} />
-            </div>
+            <FontAwesomeIcon icon={faBackspace} onClick={this.handleClickDelete} />
           </div>
         </div>
       </div>
