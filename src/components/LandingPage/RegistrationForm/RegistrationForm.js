@@ -8,7 +8,6 @@ import './RegistrationForm.css';
 
 class RegistrationForm extends React.Component {
   static contextType = MainContext;
-
   static defaultProps = {
     onRegistrationSuccess: () => {},
   };
@@ -53,7 +52,7 @@ class RegistrationForm extends React.Component {
     });
   };
 
-  validateUserName = () => {
+  validateUsername = () => {
     const username = this.state.username.value.trim();
     if (username.length === 0) {
       return 'Username is required';
@@ -144,7 +143,7 @@ class RegistrationForm extends React.Component {
   };
 
   render() {
-    const usernameError = this.validateUserName();
+    const usernameError = this.validateUsername();
     const passwordError = this.validatePassword();
     const repeatPasswordError = this.validateRepeatPassword();
 
@@ -229,7 +228,7 @@ class RegistrationForm extends React.Component {
             type="submit"
             className="FormField__button"
             disabled={
-              this.validateUserName() || this.validatePassword() || this.validateRepeatPassword()
+              this.validateUsername() || this.validatePassword() || this.validateRepeatPassword()
             }
           >
             Sign Up

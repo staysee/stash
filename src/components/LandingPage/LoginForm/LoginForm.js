@@ -16,8 +16,14 @@ class LoginForm extends React.Component {
     super(props);
 
     this.state = {
-      username: '',
-      password: '',
+      username: {
+        value: '',
+        touched: false,
+      },
+      password: {
+        value: '',
+        touched: false,
+      },
     };
   }
 
@@ -27,14 +33,39 @@ class LoginForm extends React.Component {
     let name = target.name;
 
     this.setState({
-      [name]: value,
+      [name]: {
+        value: value,
+        touched: true,
+      },
     });
+  };
+
+  validateUsername = () => {
+    const username = this.state.username.value.trim();
+
+    if (username.length === 0) {
+      return 'Username is required';
+    }
+  };
+
+  validatePassword = () => {
+    const password = this.state.password.value.trim();
+
+    if (password.length === 0) {
+      return 'Password is required';
+    }
   };
 
   clearFields = () => {
     this.setState({
-      username: '',
-      password: '',
+      username: {
+        value: '',
+        touched: false,
+      },
+      password: {
+        value: '',
+        touched: false,
+      },
     });
   };
 
@@ -64,6 +95,9 @@ class LoginForm extends React.Component {
   };
 
   render() {
+    const usernameError = this.validateUsername();
+    const passwordError = this.validatePassword();
+
     return (
       <div className="LoginForm">
         <form className="FormFields" onSubmit={this.handleSubmitJwtAuth}>
@@ -77,9 +111,9 @@ class LoginForm extends React.Component {
               className="FormField__input"
               placeholder="Enter your username"
               name="username"
-              value={this.state.username}
               onChange={this.handleChange}
             />
+            {this.state.username.touched && <ValidationError message={usernameError} />}
           </div>
 
           <div className="FormField">
@@ -92,15 +126,19 @@ class LoginForm extends React.Component {
               className="FormField__input"
               placeholder="Enter password"
               name="password"
-              value={this.state.password}
               onChange={this.handleChange}
             />
+            {this.state.password.touched && <ValidationError message={passwordError} />}
           </div>
 
           {this.state.error && <ValidationError message={this.state.error} />}
 
           <div className="FormField">
-            <button className="FormField__button" type="submit">
+            <button
+              type="submit"
+              className="FormField__button"
+              disabled={this.validateUsername() || this.validatePassword()}
+            >
               Log In
             </button>
           </div>
