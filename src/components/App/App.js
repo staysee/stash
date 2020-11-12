@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Menu from '../Menu/Menu';
 import Navigation from '../Navigation/Navigation';
 import RecipesPage from '../RecipesPage/RecipesPage';
 import AddRecipe from '../AddRecipe/AddRecipe';
@@ -225,7 +224,6 @@ class App extends React.Component {
     return (
       <StashContext.Provider value={contextValue}>
         <main className="App">
-          {/* <Menu /> */}
           <Navigation />
           <Switch>
             <Route exact path="/recipes/" component={RecipesPage} />
