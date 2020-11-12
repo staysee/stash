@@ -5,6 +5,7 @@ import Loader from 'react-loader-spinner';
 import MainContext from '../../MainContext';
 
 import './LandingPage.css';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 class LandingPage extends React.Component {
   static contextType = MainContext;
@@ -66,7 +67,7 @@ class LandingPage extends React.Component {
         </div>
 
         {loading ? (
-          <Loader className="loader-grid" type="Grid" color="#43BA73" height={40} width={40} />
+          <Loader className="loader-grid" type="Grid" color="#43BA73" height={80} width={80} />
         ) : (
           showForms()
         )}

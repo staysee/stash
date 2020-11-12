@@ -57,6 +57,10 @@ class AddRecipe extends React.Component {
     const title = this.state.title.value.trim();
     if (!title) {
       return `Recipe title required`;
+    } else if (title.length > 30) {
+      return `Recipe title cannot be greater than 30 characters`;
+    } else if (title.length < 3) {
+      return `Recipe title must be greater than 3 characters`;
     }
   };
 
@@ -64,6 +68,8 @@ class AddRecipe extends React.Component {
     const ingredients = this.state.ingredients.value.trim();
     if (!ingredients) {
       return `Ingredients required`;
+    } else if (ingredients.length < 3) {
+      return `Ingredients must be greater than 3 characters`;
     }
   };
 
@@ -72,6 +78,10 @@ class AddRecipe extends React.Component {
 
     if (!instructions) {
       return `Instructions required`;
+    } else if (instructions.length < 10) {
+      return `Instructtions must be greater than 10 characters`;
+    } else if (instructions.length > 1000) {
+      return `Instructions cannot exceed 1000 characters`;
     }
   };
 

@@ -4,4 +4,11 @@
   flex-flow: row wrap;
   justify-content: space-between;
   padding-left: 0;
+  text-align: center;
+}
+
+.RecipesList ul::after {
+  content: '';
+  height: 0;
+  width: 30%;
 }

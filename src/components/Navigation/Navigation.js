@@ -12,35 +12,19 @@ class Navigation extends React.Component {
     this.context.userLogOut();
   };
 
-  renderLoggedInLinks() {
-    return (
-      <div className="Navigation__logged-in">
-        <NavLink to="/recipes">Recipes</NavLink>
-        <NavLink to="/recipes/meals">Meals</NavLink>
-        <NavLink to="/recipes/new-recipe">Stash Recipe</NavLink>
-        <Link onClick={this.handleLogoutClick} to="/">
-          Logout
-        </Link>
-      </div>
-    );
-  }
-
-  renderLoggedOutLinks() {
-    return <div className="Navigation__not-logged-in"></div>;
-  }
-
   render() {
     return (
-      // <div className="Navigation">
-      //     {TokenService.hasAuthToken()
-      //     ? this.renderLoggedInLinks()
-      //     : this.renderLoggedOutLinks()}
-      // </div>
       <div className="Navigation">
-        <NavLink to="/recipes">Recipes</NavLink>
-        <NavLink to="/recipes/meals">Meals</NavLink>
-        <NavLink to="/recipes/new-recipe">Stash Recipe</NavLink>
-        <Link onClick={this.handleLogoutClick} to="/">
+        <NavLink className="item" to="/recipes">
+          Recipes
+        </NavLink>
+        <NavLink className="item" to="/recipes/meals">
+          Meals
+        </NavLink>
+        <NavLink className="item" to="/recipes/new-recipe">
+          Stash Recipe
+        </NavLink>
+        <Link className="item" onClick={this.handleLogoutClick} to="/">
           Logout
         </Link>
       </div>
