@@ -4,11 +4,20 @@
   margin-bottom: 20px;
 }
 
+.LandingPage .container {
+  background-color: #00000038;
+    border-radius: 5px;
+    width: 95%;
+    margin: 0 auto;
+}
+
 .LandingPage__description {
   margin: 20px auto;
   line-height: 1.7;
   text-align: justify;
   width: 90%;
+  color: white;
+  font-weight: bolder;
 }
 
 .LandingPage .account-link {
@@ -24,10 +33,4 @@
 
 .loader-grid {
   margin: 0 auto;
-}
-
-.demo {
-  margin: 0 auto;
-  font-size: 10px;
-  text-align: center;
 }
