@@ -15,6 +15,7 @@
 }
 
 .FormField__input {
+  background: none;
   border: none;
   border-bottom: 1px solid #445366;
   font-size: 0.9em;

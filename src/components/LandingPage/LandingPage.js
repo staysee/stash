@@ -3,9 +3,7 @@ import RegistrationForm from './RegistrationForm/RegistrationForm';
 import LoginForm from './LoginForm/LoginForm';
 import Loader from 'react-loader-spinner';
 import MainContext from '../../MainContext';
-
 import './LandingPage.css';
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 class LandingPage extends React.Component {
   static contextType = MainContext;
@@ -64,11 +62,6 @@ class LandingPage extends React.Component {
           away all of your delicious recipes and easily find what you're looking for! Stash can also
           help you plan out your meals for the week so you don't have to waste time thinking of your
           next meal!
-        </div>
-        <div className="demo">
-          <p>Demo Account</p>
-          <p>Username: demouser</p>
-          <p>Password: P@ssword1!</p>
         </div>
 
         {loading ? (

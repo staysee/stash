@@ -103,6 +103,12 @@ class LoginForm extends React.Component {
 
     return (
       <div className="LoginForm">
+        <div className="demo">
+          <p>Demo Account</p>
+          <p>Username: demouser</p>
+          <p>Password: P@ssword1!</p>
+        </div>
+
         <form className="FormFields" onSubmit={this.handleSubmitJwtAuth}>
           <div className="FormField">
             <label className="FormField__label" htmlFor="username">

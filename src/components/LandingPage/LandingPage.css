@@ -12,9 +12,11 @@
 }
 
 .LandingPage .account-link {
-  background-color: white;
-  border: none;
-  color: rgba(6, 104, 71, 0.932);
+  cursor: pointer;
+  background-color: #ffffff00;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: #FFFFFF;
   display: block;
   margin: 0 auto;
   margin-bottom: 20px;
@@ -28,16 +30,4 @@
   margin: 0 auto;
   font-size: 10px;
   text-align: center;
-}
-
-.demo p:nth-child(1) {
-  font-weight: bold;
-}
-
-.demo p:nth-child(1)::before, .demo p:nth-child(1)::after {
-  content: '-';
-}
-
-.demo p:nth-child(2), .demo p:nth-child(3) {
-  font-style: italic;
 }
