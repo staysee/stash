@@ -3,11 +3,14 @@
   justify-content: center;
   align-items: center;
   padding: 10px 0;
+  background-color: #e67b61;
 }
 
 .Navigation a {
   padding: 0 10px;
-  border-right: 1px solid grey;
+  border-right: 1px solid white;
+  color: white;
+  font-weight: bolder;
 }
 
 .Navigation a:last-child {
