@@ -6,6 +6,7 @@
 }
 
 .Meals__info {
+  background-color: #ffffffe6;
   display: flex;
   justify-content: space-between;
 }

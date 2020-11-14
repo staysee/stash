@@ -1,7 +1,8 @@
 .PageHeader {
-  background-color: #a5f3c4;
-  text-transform: uppercase;
+  /* font-family: 'Pompiere', cursive; */
+  background-color: #f7cb95de;
+  margin: 0;
   padding: 10px;
   text-align: center;
-  margin: 0;
+  text-transform: uppercase;
 }
