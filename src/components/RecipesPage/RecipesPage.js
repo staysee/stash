@@ -1,9 +1,10 @@
 import React from 'react';
+import { faImages } from '@fortawesome/free-solid-svg-icons';
 import PageHeader from '../PageHeader/PageHeader';
 import RecipesList from './RecipesList/RecipesList';
 import Search from './Search/Search';
 import Placeholder from '../Placeholder/Placeholder';
-import { faImages } from '@fortawesome/free-solid-svg-icons';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import StashContext from '../../StashContext';
 
 import './RecipesPage.css';
@@ -47,7 +48,9 @@ class RecipesPage extends React.Component {
         {recipes.length === 0 ? (
           <Placeholder message={'No recipes yet'} verb={'Stash'} item={'recipe'} icon={faImages} />
         ) : (
-          <RecipesList recipes={recipes} searchTerm={searchTerm} filterType={filterType} />
+          <ErrorBoundary>
+            <RecipesList recipes={recipes} searchTerm={searchTerm} filterType={filterType} />
+          </ErrorBoundary>
         )}
       </div>
     );

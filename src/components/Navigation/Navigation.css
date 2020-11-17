@@ -16,3 +16,13 @@
 .Navigation a:last-child {
   border-right: none;
 }
+
+.Navigation .item {
+  display: flex;
+  flex-direction: column;
+}
+
+.Navigation .nav-icon{
+  margin: 0 auto;
+  font-size: 1.25em;
+}

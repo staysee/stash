@@ -1,7 +1,8 @@
 import React from 'react';
+import Loader from 'react-loader-spinner';
 import RegistrationForm from './RegistrationForm/RegistrationForm';
 import LoginForm from './LoginForm/LoginForm';
-import Loader from 'react-loader-spinner';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import MainContext from '../../MainContext';
 import './LandingPage.css';
 
@@ -25,31 +26,35 @@ class LandingPage extends React.Component {
     const showForms = () => {
       if (accountExist) {
         return (
-          <div>
-            <LoginForm onLoginSuccess={this.handleSuccess} />
-            <button
-              className="account-link"
-              onClick={(e) => {
-                this.setState({ accountExist: false });
-              }}
-            >
-              Create a new account
-            </button>
-          </div>
+          <ErrorBoundary>
+            <div>
+              <LoginForm onLoginSuccess={this.handleSuccess} />
+              <button
+                className="account-link"
+                onClick={(e) => {
+                  this.setState({ accountExist: false });
+                }}
+              >
+                Create a new account
+              </button>
+            </div>
+          </ErrorBoundary>
         );
       } else {
         return (
-          <div>
-            <RegistrationForm onRegistrationSuccess={this.handleSuccess} />
-            <button
-              className="account-link"
-              onClick={(e) => {
-                this.setState({ accountExist: true });
-              }}
-            >
-              Already have an account?
-            </button>
-          </div>
+          <ErrorBoundary>
+            <div>
+              <RegistrationForm onRegistrationSuccess={this.handleSuccess} />
+              <button
+                className="account-link"
+                onClick={(e) => {
+                  this.setState({ accountExist: true });
+                }}
+              >
+                Already have an account?
+              </button>
+            </div>
+          </ErrorBoundary>
         );
       }
     };

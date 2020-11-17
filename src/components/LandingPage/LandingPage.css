@@ -31,6 +31,7 @@
   margin-bottom: 20px;
 }
 
-.loader-grid {
-  margin: 0 auto;
+.LandingPage .loader-grid {
+  display: flex;
+  justify-content: center;
 }
