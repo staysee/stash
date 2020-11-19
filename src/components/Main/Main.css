@@ -9,14 +9,10 @@
   overflow: scroll;
 }
 
-.Main h1 {
-  text-align: center;
-}
-
 .Main a {
   text-decoration: none;
+  text-align: center;
 }
-
 
 /* ------- DESKTOP/LARGE DEVICE -------- */
 @media only screen and (min-device-width: 768px) {
@@ -34,16 +30,14 @@
     clear: both;
   }
 
-  .RegistrationForm, .LoginForm {
+  .RegistrationForm,
+  .LoginForm {
     width: 70%;
   }
 }
 
 /* ------- PHONE LANDSCAPE -------- */
-@media screen and (orientation: landscape)
-and (min-device-width: 320px) 
-/* and (max-device-width: 812px)  */
-and (-webkit-device-pixel-ratio: 3) {
+@media screen and (orientation: landscape) and (min-device-width: 320px) /* and (max-device-width: 812px) */ and (-webkit-device-pixel-ratio: 3) {
   .Logo {
     display: flex;
     margin: 0px;
@@ -64,7 +58,8 @@ and (-webkit-device-pixel-ratio: 3) {
     margin: 20px auto;
   }
 
-  .RegistrationForm, .LoginForm {
+  .RegistrationForm,
+  .LoginForm {
     width: 70%;
     margin: 10px auto;
   }

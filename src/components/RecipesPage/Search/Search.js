@@ -2,6 +2,8 @@ import React from 'react';
 import SearchBox from './SearchBox/SearchBox';
 import SearchFilter from './SearchFilter/SearchFilter';
 
+import './Search.css';
+
 class Search extends React.Component {
   render() {
     return (

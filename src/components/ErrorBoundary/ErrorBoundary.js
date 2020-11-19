@@ -6,19 +6,17 @@ class ErrorBoundary extends React.Component {
     return { hasError: true };
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      hasError: false,
-    };
+  state = {
+    hasError: false,
+  };
+
+  componentDidCatch(error, info) {
+    this.setState({ hasError: true });
+    reportError(error, info);
   }
 
   render() {
-    if (this.state.hasError) {
-      // Render any custom fallback UI
-      return <h1>Sorry! Something went wrong.</h1>;
-    }
-    return this.props.children;
+    return this.state.hasError ? <div>Oh no! There was a problem!</div> : this.props.children;
   }
 }
 

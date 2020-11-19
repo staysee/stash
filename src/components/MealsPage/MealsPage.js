@@ -1,8 +1,9 @@
 import React from 'react';
+import { faUtensils } from '@fortawesome/free-solid-svg-icons';
 import PageHeader from '../PageHeader/PageHeader';
 import Days from './Days/Days';
 import Placeholder from '../Placeholder/Placeholder';
-import { faUtensils } from '@fortawesome/free-solid-svg-icons';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import StashContext from '../../StashContext';
 
 class MealsPage extends React.Component {
