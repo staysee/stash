@@ -1,8 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './SearchFilter.css';
 
 class SearchFilter extends React.Component {
+  static defaultProps = {
+    filterType: '',
+    updateFilterType: () => {}
+  };
+
   render() {
     const { filterType } = this.props;
 
@@ -27,3 +33,8 @@ class SearchFilter extends React.Component {
 }
 
 export default SearchFilter;
+
+SearchFilter.propTypes = {
+  filterType: PropTypes.string,
+  updateFilterType: PropTypes.func
+};

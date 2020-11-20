@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import StashContext from '../../StashContext';
 import PropTypes from 'prop-types';
+import StashContext from '../../StashContext';
 import './RecipeCardModal.css';
 
 class RecipeCardModal extends React.Component {
   static defaultProps = {
+    imageUrl: '',
     closeModal: () => {},
   };
+
   static contextType = StashContext;
 
   constructor(props) {
@@ -23,14 +25,14 @@ class RecipeCardModal extends React.Component {
     event.preventDefault();
     this.context.deleteRecipe(recipeId);
     console.log('recipeId', recipeId);
-    //return to
+    // return to
     this.props.closeModal();
   };
 
   handleChange = (e) => {
-    let target = e.target;
-    let value = target.value;
-    let name = target.name;
+    const { target } = e;
+    const { value } = target;
+    const { name } = target;
     this.setState({
       recipe_id: this.props.id,
       [name]: value,
@@ -44,7 +46,7 @@ class RecipeCardModal extends React.Component {
     });
   };
 
-  //temporary to generate meal Id
+  // temporary to generate meal Id
   getRandomInt = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -81,7 +83,7 @@ class RecipeCardModal extends React.Component {
       ingredients,
       instructions,
       type,
-      imageURL,
+      imageUrl,
       addMeal = true,
       editRecipe = true,
       deleteRecipe = true,
@@ -94,7 +96,7 @@ class RecipeCardModal extends React.Component {
           <div className="recipe-information">
             <h2>{title}</h2>
             <div className="recipe-image">
-              <img src={imageURL} alt={title} />
+              <img src={imageUrl} alt={title} />
             </div>
             <div className="ingredients">
               <p className="label">Ingredients</p>
@@ -115,23 +117,23 @@ class RecipeCardModal extends React.Component {
               {message}
               <label className="FormField__label" htmlFor="mealPlanDay">
                 Add to Meal Plan
+                <select
+                  id="mealPlanDay"
+                  className="FormField__select"
+                  name="day"
+                  value={this.state.day}
+                  onChange={this.handleChange}
+                >
+                  <option value="null">- Select a Day -</option>
+                  <option value="Monday">Monday</option>
+                  <option value="Tuesday">Tuesday</option>
+                  <option value="Wednesday">Wednesday</option>
+                  <option value="Thursday">Thursday</option>
+                  <option value="Friday">Friday</option>
+                  <option value="Saturday">Saturday</option>
+                  <option value="Sunday">Sunday</option>
+                </select>
               </label>
-              <select
-                id="mealPlanDay"
-                className="FormField__select"
-                name="day"
-                value={this.state.day}
-                onChange={this.handleChange}
-              >
-                <option value="null">- Select a Day -</option>
-                <option value="Monday">Monday</option>
-                <option value="Tuesday">Tuesday</option>
-                <option value="Wednesday">Wednesday</option>
-                <option value="Thursday">Thursday</option>
-                <option value="Friday">Friday</option>
-                <option value="Saturday">Saturday</option>
-                <option value="Sunday">Sunday</option>
-              </select>
 
               <button type="submit" className="add-meal" disabled={this.validateMealDay()}>
                 Add This Meal
@@ -168,8 +170,8 @@ RecipeCardModal.propTypes = {
   title: PropTypes.string,
   ingredients: PropTypes.string,
   instructions: PropTypes.string,
-  type: PropTypes.oneOf(['All', 'Breakfast', 'Lunch', 'Dinner', 'Snack']),
   imageUrl: PropTypes.string,
+  type: PropTypes.oneOf(['All', 'Breakfast', 'Lunch', 'Dinner', 'Snack']),
   addMeal: PropTypes.bool,
   editRecipe: PropTypes.bool,
   deleteRecipe: PropTypes.bool,

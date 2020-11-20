@@ -1,7 +1,7 @@
 import React from 'react';
-import ValidationError from '../ValidationError/ValidationError';
 import Loader from 'react-loader-spinner';
 import PropTypes from 'prop-types';
+import ValidationError from '../ValidationError/ValidationError';
 import StashContext from '../../StashContext';
 import './AddRecipe.css';
 
@@ -11,6 +11,7 @@ class AddRecipe extends React.Component {
       push: () => {},
     },
   };
+
   static contextType = StashContext;
 
   constructor(props) {
@@ -41,13 +42,13 @@ class AddRecipe extends React.Component {
   }
 
   handleChange = (e) => {
-    let target = e.target;
-    let value = target.value;
-    let name = target.name;
+    const { target } = e;
+    const { value } = target;
+    const { name } = target;
 
     this.setState({
       [name]: {
-        value: value,
+        value,
         touched: true,
       },
     });
@@ -56,20 +57,20 @@ class AddRecipe extends React.Component {
   validateTitle = () => {
     const title = this.state.title.value.trim();
     if (!title) {
-      return `Recipe title required`;
-    } else if (title.length > 30) {
-      return `Recipe title cannot be greater than 30 characters`;
-    } else if (title.length < 3) {
-      return `Recipe title must be greater than 3 characters`;
+      return 'Recipe title required';
+    } if (title.length > 30) {
+      return 'Recipe title cannot be greater than 30 characters';
+    } if (title.length < 3) {
+      return 'Recipe title must be greater than 3 characters';
     }
   };
 
   validateIngredients = () => {
     const ingredients = this.state.ingredients.value.trim();
     if (!ingredients) {
-      return `Ingredients required`;
-    } else if (ingredients.length < 3) {
-      return `Ingredients must be greater than 3 characters`;
+      return 'Ingredients required';
+    } if (ingredients.length < 3) {
+      return 'Ingredients must be greater than 3 characters';
     }
   };
 
@@ -77,29 +78,29 @@ class AddRecipe extends React.Component {
     const instructions = this.state.instructions.value.trim();
 
     if (!instructions) {
-      return `Instructions required`;
-    } else if (instructions.length < 10) {
-      return `Instructtions must be greater than 10 characters`;
-    } else if (instructions.length > 1000) {
-      return `Instructions cannot exceed 1000 characters`;
+      return 'Instructions required';
+    } if (instructions.length < 10) {
+      return 'Instructtions must be greater than 10 characters';
+    } if (instructions.length > 1000) {
+      return 'Instructions cannot exceed 1000 characters';
     }
   };
 
-  validateImageURL = () => {
+  validateImageUrl = () => {
     const image_url = this.state.image_url.value.trim();
     const REGEX_IMAGE_URL = /(https?:\/\/.*\.(?:png|jpg|jpeg|gif))/i;
 
     if (!image_url) {
-      return `Image URL required`;
-    } else if (!image_url.match(REGEX_IMAGE_URL)) {
-      return `Image URL must start with http(s) and end with png, jpg, jpeg, gif`;
+      return 'Image URL required';
+    } if (!image_url.match(REGEX_IMAGE_URL)) {
+      return 'Image URL must start with http(s) and end with png, jpg, jpeg, gif';
     }
   };
 
   validateMealType = () => {
     const meal_type = this.state.meal_type.value.trim();
     if (!meal_type) {
-      return `Meal Type required`;
+      return 'Meal Type required';
     }
   };
 
@@ -123,12 +124,12 @@ class AddRecipe extends React.Component {
       meal_type: meal_typeVal,
       image_url: image_urlVal,
     };
-    console.log(`The new recipe:`, newRecipe);
+    console.log('The new recipe:', newRecipe);
 
     this.context.addRecipe(newRecipe);
     this.context.setLoading(false);
     // return to
-    this.props.history.push(`/recipes`);
+    this.props.history.push('/recipes');
   };
 
   handleClickCancel = () => {
@@ -150,91 +151,91 @@ class AddRecipe extends React.Component {
         <h2>New Recipe</h2>
         <div className="image-container">
           {image_urlVal && !imageUrlError && (
-            <img src={image_urlVal} className="new-recipe-image" alt="Food Image" />
+            <img src={image_urlVal} className="new-recipe-image" alt="Food" />
           )}
         </div>
         <form className="FormFields" onSubmit={this.handleSubmit}>
           <div className="FormField">
             <label className="FormField__label" htmlFor="title">
               Recipe Title
+              <input
+                type="text"
+                id="title"
+                className="FormField__input"
+                placeholder="Enter Recipe Title"
+                name="title"
+                value={this.state.title.value}
+                onChange={this.handleChange}
+              />
             </label>
-            <input
-              type="text"
-              id="title"
-              className="FormField__input"
-              placeholder="Enter Recipe Title"
-              name="title"
-              value={this.state.title.value}
-              onChange={this.handleChange}
-            />
             {this.state.title.touched && <ValidationError message={titleError} />}
           </div>
           <div className="FormField">
             <label className="FormField__label" htmlFor="ingredients">
               Ingredients
+              <input
+                type="text"
+                id="ingredients"
+                className="FormField__input"
+                placeholder="Recipe Ingredients"
+                name="ingredients"
+                value={this.state.ingredients.value}
+                onChange={this.handleChange}
+              />
             </label>
-            <input
-              type="text"
-              id="ingredients"
-              className="FormField__input"
-              placeholder="Recipe Ingredients"
-              name="ingredients"
-              value={this.state.ingredients.value}
-              onChange={this.handleChange}
-            />
             {this.state.ingredients.touched && <ValidationError message={ingredientsError} />}
           </div>
 
           <div className="FormField">
             <label className="FormField__label" htmlFor="instructions">
               Instructions
+              <input
+                type="text"
+                id="instructions"
+                className="FormField__input"
+                placeholder="Recipe Instructions"
+                name="instructions"
+                value={this.state.instructions.value}
+                onChange={this.handleChange}
+              />
             </label>
-            <input
-              type="text"
-              id="instructions"
-              className="FormField__input"
-              placeholder="Recipe Instructions"
-              name="instructions"
-              value={this.state.instructions.value}
-              onChange={this.handleChange}
-            />
             {this.state.instructions.touched && <ValidationError message={instructionsError} />}
           </div>
 
           <div className="FormField">
-            <label className="FormField__label" htmlFor="imageURL">
+            <label className="FormField__label" htmlFor="imageUrl">
               Image URL
+              <input
+                id="imageUrl"
+                type="url"
+                className="FormField__input"
+                placeholder="https://example.com"
+                pattern="https://.*"
+                size="30"
+                name="image_url"
+                value={this.state.image_url.value}
+                onChange={this.handleChange}
+              />
             </label>
-            <input
-              id="imageURL"
-              type="url"
-              className="FormField__input"
-              placeholder="https://example.com"
-              pattern="https://.*"
-              size="30"
-              name="image_url"
-              value={this.state.image_url.value}
-              onChange={this.handleChange}
-            />
             {this.state.image_url.touched && <ValidationError message={imageUrlError} />}
           </div>
           <div className="FormField">
             <label className="FormField__label" htmlFor="type">
               Meal Type
+              <select
+                id="type"
+                className="FormField__select"
+                name="meal_type"
+                value={this.state.meal_type.value}
+                onChange={this.handleChange}
+              >
+                <option value="">Select Type</option>
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+                <option value="Snack">Snack</option>
+              </select>
             </label>
-            <select
-              id="type"
-              className="FormField__select"
-              name="meal_type"
-              value={this.state.meal_type.value}
-              onChange={this.handleChange}
-            >
-              <option value="">Select Type</option>
-              <option value="Breakfast">Breakfast</option>
-              <option value="Lunch">Lunch</option>
-              <option value="Dinner">Dinner</option>
-              <option value="Snack">Snack</option>
-            </select>
             {this.state.meal_type.touched && <ValidationError message={mealTypeError} />}
           </div>
 
@@ -253,16 +254,16 @@ class AddRecipe extends React.Component {
           <button
             type="submit"
             disabled={
-              this.validateTitle() ||
-              this.validateIngredients() ||
-              this.validateInstructions() ||
-              this.validateImageURL() ||
-              this.validateMealType()
+              this.validateTitle()
+              || this.validateIngredients()
+              || this.validateInstructions()
+              || this.validateImageUrl()
+              || this.validateMealType()
             }
           >
             Stash My Recipe
           </button>
-          <button onClick={this.handleClickCancel}>Cancel</button>
+          <button type="submit" onClick={this.handleClickCancel}>Cancel</button>
         </form>
       </div>
     );

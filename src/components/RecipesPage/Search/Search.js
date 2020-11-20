@@ -5,16 +5,26 @@ import SearchFilter from './SearchFilter/SearchFilter';
 import './Search.css';
 
 class Search extends React.Component {
+  static defaultProps = {
+    searchTerm: '',
+    updateSearchTerm: () => {},
+    filterType: '',
+    updateFilterType: () => {}
+  };
+
   render() {
+    const {
+      searchTerm, updateSearchTerm, filterType, updateFilterType
+    } = this.props;
     return (
       <div className="Search">
         <SearchBox
-          searchTerm={this.props.searchTerm}
-          updateSearchTerm={this.props.updateSearchTerm}
+          searchTerm={searchTerm}
+          updateSearchTerm={updateSearchTerm}
         />
         <SearchFilter
-          filterType={this.props.filterType}
-          updateFilterType={this.props.updateFilterType}
+          filterType={filterType}
+          updateFilterType={updateFilterType}
         />
       </div>
     );
@@ -22,3 +32,10 @@ class Search extends React.Component {
 }
 
 export default Search;
+
+Search.propTypes = {
+  searchTerm: PropTypes.string,
+  updateSearchTerm: PropTypes.func,
+  filterType: PropTypes.string,
+  updateFilterType: PropTypes.func
+};

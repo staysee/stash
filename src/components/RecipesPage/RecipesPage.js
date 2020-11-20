@@ -46,7 +46,7 @@ class RecipesPage extends React.Component {
         />
 
         {recipes.length === 0 ? (
-          <Placeholder message={'No recipes yet'} verb={'Stash'} item={'recipe'} icon={faImages} />
+          <Placeholder message="No recipes yet" verb="Stash" item="recipe" icon={faImages} />
         ) : (
           <ErrorBoundary>
             <RecipesList recipes={recipes} searchTerm={searchTerm} filterType={filterType} />

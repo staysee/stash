@@ -12,6 +12,7 @@ class EditRecipe extends React.Component {
       push: () => {},
     },
   };
+
   static contextType = StashContext;
 
   state = {
@@ -24,7 +25,7 @@ class EditRecipe extends React.Component {
   };
 
   findRecipe = (recipeId, recipes) => {
-    const recipe = recipes.find((recipe) => recipe.id == recipeId);
+    const recipe = recipes.find((r) => r.id == recipeId);
 
     if (recipe) {
       this.setState({
@@ -44,9 +45,9 @@ class EditRecipe extends React.Component {
   }
 
   handleChange = (e) => {
-    let target = e.target;
-    let value = target.value;
-    let name = target.name;
+    const { target } = e;
+    const { value } = target;
+    const { name } = target;
 
     this.setState({
       [name]: value,
@@ -55,7 +56,9 @@ class EditRecipe extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { id, title, ingredients, instructions, meal_type, image_url } = this.state;
+    const {
+      id, title, ingredients, instructions, meal_type, image_url
+    } = this.state;
     const newRecipe = {
       id,
       title,
@@ -64,15 +67,17 @@ class EditRecipe extends React.Component {
       meal_type,
       image_url,
     };
-    console.log(`The new recipe:`, newRecipe);
+    console.log('The new recipe:', newRecipe);
 
     this.context.updateRecipe(newRecipe);
     // return to
-    this.props.history.push(`/recipes`);
+    this.props.history.push('/recipes');
   };
 
   render() {
-    const { id, title, ingredients, instructions, meal_type, image_url } = this.state;
+    const {
+      title, ingredients, instructions, meal_type, image_url
+    } = this.state;
 
     return (
       <div className="EditRecipe">
@@ -86,84 +91,84 @@ class EditRecipe extends React.Component {
           <div className="FormField">
             <label className="FormField__label" htmlFor="title">
               Recipe Title
+              <input
+                type="text"
+                id="title"
+                className="FormField__input"
+                placeholder="Enter Recipe Title"
+                name="title"
+                value={title}
+                onChange={this.handleChange}
+              />
             </label>
-            <input
-              type="text"
-              id="title"
-              className="FormField__input"
-              placeholder="Enter Recipe Title"
-              name="title"
-              value={title}
-              onChange={this.handleChange}
-            />
           </div>
           <div className="FormField">
             <label className="FormField__label" htmlFor="ingredients">
               Ingredients
+              <input
+                type="text"
+                id="ingredients"
+                className="FormField__input"
+                placeholder="Recipe Ingredients"
+                name="ingredients"
+                value={ingredients}
+                onChange={this.handleChange}
+              />
             </label>
-            <input
-              type="text"
-              id="ingredients"
-              className="FormField__input"
-              placeholder="Recipe Ingredients"
-              name="ingredients"
-              value={ingredients}
-              onChange={this.handleChange}
-            />
           </div>
 
           <div className="FormField">
             <label className="FormField__label" htmlFor="instructions">
               Instructions
+              <input
+                type="text"
+                id="instructions"
+                className="FormField__input"
+                placeholder="Recipe Instructions"
+                name="instructions"
+                value={instructions}
+                onChange={this.handleChange}
+              />
             </label>
-            <input
-              type="text"
-              id="instructions"
-              className="FormField__input"
-              placeholder="Recipe Instructions"
-              name="instructions"
-              value={instructions}
-              onChange={this.handleChange}
-            />
           </div>
 
           <div className="FormField">
-            <label className="FormField__label" htmlFor="imageURL">
+            <label className="FormField__label" htmlFor="imageUrl">
               Image URL
+              <input
+                id="imageUrl"
+                type="url"
+                className="FormField__input"
+                placeholder="https://example.com"
+                pattern="https://.*"
+                size="30"
+                name="image_url"
+                value={image_url}
+                onChange={this.handleChange}
+              />
             </label>
-            <input
-              id="imageURL"
-              type="url"
-              className="FormField__input"
-              placeholder="https://example.com"
-              pattern="https://.*"
-              size="30"
-              name="image_url"
-              value={image_url}
-              onChange={this.handleChange}
-            />
           </div>
           <div className="FormField">
             <label className="FormField__label" htmlFor="type">
               Meal Type
+              <select
+                id="type"
+                className="FormField__select"
+                name="meal_type"
+                value={meal_type}
+                onChange={this.handleChange}
+              >
+                <option value="">Select Type</option>
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+                <option value="Snack">Snack</option>
+              </select>
             </label>
-            <select
-              id="type"
-              className="FormField__select"
-              name="meal_type"
-              value={meal_type}
-              onChange={this.handleChange}
-            >
-              <option value="">Select Type</option>
-              <option value="Breakfast">Breakfast</option>
-              <option value="Lunch">Lunch</option>
-              <option value="Dinner">Dinner</option>
-              <option value="Snack">Snack</option>
-            </select>
           </div>
 
           <button type="submit">Stash My Recipe</button>
-          <button>Cancel</button>
+          <button type="button">Cancel</button>
         </form>
       </div>
     );

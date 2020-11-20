@@ -34,7 +34,7 @@ class App extends React.Component {
   }
 
   rehydrateApp = async (location = 'App') => {
-    // console.log(`location`, location)
+    console.log('location', location);
     await Promise.all([
       await this.fetchUserRecipes(),
       await this.fetchUserMeals(),
@@ -49,10 +49,10 @@ class App extends React.Component {
   };
 
   // fetchAllRecipes = async () => {
-  // 	const recipes = await RecipesService.getAllRecipes()
-  // 	this.setState({
-  // 		recipes
-  // 	})
+  // const recipes = await RecipesService.getAllRecipes()
+  // this.setState({
+  // recipes
+  // })
   // }
 
   fetchUserRecipes = async () => {
@@ -63,21 +63,21 @@ class App extends React.Component {
   };
 
   // fetchAllMeals = async () => {
-  // 	const meals = await MealsService.getAllMeals()
-  // 	const days = Object.keys(meals)
+  // const meals = await MealsService.getAllMeals()
+  // const days = Object.keys(meals)
 
-  // 	days.forEach( day => {
-  // 		this.setState({
-  // 			meals: {
-  // 				...this.state.meals,
-  // 				[day]: [...meals[day], ...this.state.meals[day]],
-  // 			}
-  // 		})
+  // days.forEach( day => {
+  // this.setState({
+  // meals: {
+  // ...this.state.meals,
+  // [day]: [...meals[day], ...this.state.meals[day]],
+  // }
+  // })
 
-  // 	})
+  // })
 
-  // 	console.log(`days`, days)
-  // 	console.log(`meals`, meals[days[0]])
+  // console.log(`days`, days)
+  // console.log(`meals`, meals[days[0]])
   // }
 
   fetchUserMeals = async () => {
@@ -95,16 +95,16 @@ class App extends React.Component {
       });
     });
 
-    console.log(`days`, days);
-    console.log(`meals`, meals[days[0]]);
+    console.log('days', days);
+    console.log('meals', meals[days[0]]);
   };
 
   // fetchAllUsers = async () => {
-  // 	const users = await UsersService.getAllUsers()
-  // 	this.setState({
-  // 		users
-  // 	})
-  // 	console.log('users', users)
+  // const users = await UsersService.getAllUsers()
+  // this.setState({
+  // users
+  // })
+  // console.log('users', users)
   // }
 
   addRecipe = async (recipe) => {
@@ -116,9 +116,9 @@ class App extends React.Component {
     console.log('addRecipe', recipe);
     try {
       const resolve = await RecipesService.insertNewRecipe({ ...recipe, user_id: 1 });
-      console.log(`resolve`, resolve);
+      console.log('resolve', resolve);
     } catch (error) {
-      console.log(`add recipe failed: `, error);
+      console.log('add recipe failed: ', error);
     }
   };
 
@@ -130,26 +130,25 @@ class App extends React.Component {
 
     try {
       const resolve = await RecipesService.deleteRecipe(recipeId);
-      console.log(`resolve`, resolve);
+      console.log('resolve', resolve);
     } catch (error) {
-      console.log(`delete recipe failed: `, error);
+      console.log('delete recipe failed: ', error);
     }
   };
 
   updateRecipe = async (updatedRecipe) => {
     console.log('update this recipe');
     this.setState({
-      recipes: this.state.recipes.map((recipe) =>
-        recipe.id !== updatedRecipe.id ? recipe : updatedRecipe
-      ),
+      recipes: this.state.recipes.map((recipe) => (
+        recipe.id !== updatedRecipe.id ? recipe : updatedRecipe)),
     });
 
     try {
       const resolve = await RecipesService.updateRecipe(updatedRecipe);
-      console.log(`resolve`, resolve);
+      console.log('resolve', resolve);
       await this.fetchUserRecipes();
     } catch (error) {
-      console.log(`update recipe failed: `, error);
+      console.log('update recipe failed: ', error);
     }
   };
 
@@ -168,15 +167,15 @@ class App extends React.Component {
 
     try {
       const resolve = await MealsService.addMeal(meal);
-      console.log(`resolve`, resolve);
+      console.log('resolve', resolve);
     } catch (error) {
-      console.log(`add meal failed: `, error);
+      console.log('add meal failed: ', error);
     }
   };
 
   deleteMeal = async (day, mealId) => {
-    console.log(`DAY`, day);
-    console.log(`MEALID`, mealId);
+    console.log('DAY', day);
+    console.log('MEALID', mealId);
     this.setState((prevState) => ({
       // copy existing state
       ...prevState,
@@ -191,9 +190,9 @@ class App extends React.Component {
 
     try {
       const resolve = await MealsService.deleteMeal(mealId);
-      console.log(`resolve`, resolve);
+      console.log('resolve', resolve);
     } catch (error) {
-      console.log(`delete meal failed: `, error);
+      console.log('delete meal failed: ', error);
     }
   };
 

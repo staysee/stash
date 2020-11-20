@@ -1,6 +1,6 @@
 import React from 'react';
-import Meals from './Meals/Meals';
 import PropTypes from 'prop-types';
+import Meals from './Meals/Meals';
 
 import './Days.css';
 

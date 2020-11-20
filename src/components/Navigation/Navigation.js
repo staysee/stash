@@ -1,8 +1,4 @@
 import React from 'react';
-import TokenService from '../../services/token-service';
-import { Link, NavLink } from 'react-router-dom';
-import StashContext from '../../StashContext';
-import './Navigation.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faArchive,
@@ -10,6 +6,10 @@ import {
   faSignOutAlt,
   faUtensils,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link, NavLink } from 'react-router-dom';
+import TokenService from '../../services/token-service';
+import StashContext from '../../StashContext';
+import './Navigation.css';
 
 class Navigation extends React.Component {
   static contextType = StashContext;

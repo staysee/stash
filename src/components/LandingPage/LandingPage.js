@@ -1,5 +1,6 @@
 import React from 'react';
 import Loader from 'react-loader-spinner';
+import PropTypes from 'prop-types';
 import RegistrationForm from './RegistrationForm/RegistrationForm';
 import LoginForm from './LoginForm/LoginForm';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
@@ -7,6 +8,15 @@ import MainContext from '../../MainContext';
 import './LandingPage.css';
 
 class LandingPage extends React.Component {
+  static defaultProps = {
+    history: {
+      push: () => {},
+    },
+    location: {
+      state: () => {},
+    }
+  };
+
   static contextType = MainContext;
 
   state = {
@@ -14,7 +24,7 @@ class LandingPage extends React.Component {
   };
 
   handleSuccess = () => {
-    console.log(`SUCCESS LOGGING IN/REGISTRATION`);
+    console.log('SUCCESS LOGGING IN/REGISTRATION');
     const { location, history } = this.props;
     const destination = (location.state || {}).from || '/recipes';
     history.push(destination);
@@ -30,8 +40,9 @@ class LandingPage extends React.Component {
             <div>
               <LoginForm onLoginSuccess={this.handleSuccess} />
               <button
+                type="button"
                 className="account-link"
-                onClick={(e) => {
+                onClick={() => {
                   this.setState({ accountExist: false });
                 }}
               >
@@ -40,23 +51,23 @@ class LandingPage extends React.Component {
             </div>
           </ErrorBoundary>
         );
-      } else {
-        return (
-          <ErrorBoundary>
-            <div>
-              <RegistrationForm onRegistrationSuccess={this.handleSuccess} />
-              <button
-                className="account-link"
-                onClick={(e) => {
-                  this.setState({ accountExist: true });
-                }}
-              >
-                Already have an account?
-              </button>
-            </div>
-          </ErrorBoundary>
-        );
       }
+      return (
+        <ErrorBoundary>
+          <div>
+            <RegistrationForm onRegistrationSuccess={this.handleSuccess} />
+            <button
+              type="button"
+              className="account-link"
+              onClick={() => {
+                this.setState({ accountExist: true });
+              }}
+            >
+              Already have an account?
+            </button>
+          </div>
+        </ErrorBoundary>
+      );
     };
 
     return (
@@ -64,10 +75,10 @@ class LandingPage extends React.Component {
         <div className="container">
           <div className="LandingPage__description">
             Stash is a place where you can keep all of your recipes in one place for safekeeping.
-            Anytime you're ready to start cooking up a meal, open up your drawer where you stashed
-            away all of your delicious recipes and easily find what you're looking for! Stash can
-            also help you plan out your meals for the week so you don't have to waste time thinking
-            of your next meal!
+            Anytime you&apos;re ready to start cooking up a meal, open up your drawer where you
+            stashed away all of your delicious recipes and easily find what you&apos;re looking for!
+            Stash can also help you plan out your meals for the week so you don&apos;t have to
+            waste time thinking of your next meal!
           </div>
 
           {loading ? (
@@ -82,3 +93,8 @@ class LandingPage extends React.Component {
 }
 
 export default LandingPage;
+
+LandingPage.propTypes = {
+  history: PropTypes.object,
+  location: PropTypes.object
+};

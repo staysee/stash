@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ValidationError from '../../ValidationError/ValidationError';
 import AuthApiService from '../../../services/auth-api-service';
 import TokenService from '../../../services/token-service';
@@ -8,6 +9,7 @@ import './RegistrationForm.css';
 
 class RegistrationForm extends React.Component {
   static contextType = MainContext;
+
   static defaultProps = {
     onRegistrationSuccess: () => {},
   };
@@ -40,13 +42,13 @@ class RegistrationForm extends React.Component {
   }
 
   handleChange = (e) => {
-    let target = e.target;
-    let value = target.value;
-    let name = target.name;
+    const { target } = e;
+    const { value } = target;
+    const { name } = target;
 
     this.setState({
       [name]: {
-        value: value,
+        value,
         touched: true,
       },
     });
@@ -56,20 +58,21 @@ class RegistrationForm extends React.Component {
     const username = this.state.username.value.trim();
     if (username.length === 0) {
       return 'Username is required';
-    } else if (username.length < 3) {
+    } if (username.length < 3) {
       return 'Username must be at least 3 characters long';
     }
   };
 
   validatePassword = () => {
     const password = this.state.password.value.trim();
-    const REGEX_UPPER_LOWER_NUMBER_SPECIAL = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&])[\S]+/;
+    // eslint-disable-next-line max-len
+    const REGEX_UPPER_LOWER_NUMBER_SPECIAL = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&])[\S]+/;
     if (password.length === 0) {
       return 'Password is required';
-    } else if (password.length < 6 || password.length > 72) {
+    } if (password.length < 6 || password.length > 72) {
       return 'Password must be between 6 and 72 characters long';
       //   } else if (!password.match(/[0-9]/)) {
-    } else if (!password.match(REGEX_UPPER_LOWER_NUMBER_SPECIAL)) {
+    } if (!password.match(REGEX_UPPER_LOWER_NUMBER_SPECIAL)) {
       return 'Password must contain 1 upper case, lower case, number and special character';
     }
   };
@@ -120,7 +123,7 @@ class RegistrationForm extends React.Component {
       password: { value: passwordVal },
     } = this.state;
 
-    //POST to server
+    // POST to server
     AuthApiService.postUser({
       firstname: firstnameVal,
       lastname: lastnameVal,
@@ -138,7 +141,7 @@ class RegistrationForm extends React.Component {
       .catch((res) => {
         this.context.setLoading(false);
         this.setState({ error: res.error });
-        console.log(`ERROR:`, this.state.error);
+        console.log('ERROR:', this.state.error);
       });
   };
 
@@ -151,73 +154,73 @@ class RegistrationForm extends React.Component {
       <form className="RegistrationForm FormFields" onSubmit={this.handleSubmit}>
         <div className="FormField">
           <label className="FormField__label" htmlFor="firstname">
+            <input
+              type="text"
+              id="firstname"
+              className="FormField__input"
+              placeholder="Enter your First Name"
+              name="firstname"
+              onChange={this.handleChange}
+            />
             First Name
           </label>
-          <input
-            type="text"
-            id="firstname"
-            className="FormField__input"
-            placeholder="Enter your First Name"
-            name="firstname"
-            onChange={this.handleChange}
-          />
         </div>
 
         <div className="FormField">
           <label className="FormField__label" htmlFor="lastname">
             Last Name
+            <input
+              type="text"
+              id="lastname"
+              className="FormField__input"
+              placeholder="Enter your Last Name"
+              name="lastname"
+              onChange={this.handleChange}
+            />
           </label>
-          <input
-            type="text"
-            id="lastname"
-            className="FormField__input"
-            placeholder="Enter your Last Name"
-            name="lastname"
-            onChange={this.handleChange}
-          />
         </div>
 
         <div className="FormField">
           <label className="FormField__label" htmlFor="username">
             Username
+            <input
+              type="text"
+              id="username"
+              className="FormField__input"
+              placeholder="Enter your username"
+              name="username"
+              onChange={this.handleChange}
+            />
           </label>
-          <input
-            type="text"
-            id="username"
-            className="FormField__input"
-            placeholder="Enter your username"
-            name="username"
-            onChange={this.handleChange}
-          />
           {this.state.username.touched && <ValidationError message={usernameError} />}
         </div>
 
         <div className="FormField">
           <label className="FormField__label" htmlFor="password">
             Password
+            <input
+              type="password"
+              id="password"
+              className="FormField__input"
+              placeholder="Enter password"
+              name="password"
+              onChange={this.handleChange}
+            />
           </label>
-          <input
-            type="password"
-            id="password"
-            className="FormField__input"
-            placeholder="Enter password"
-            name="password"
-            onChange={this.handleChange}
-          />
           {this.state.password.touched && <ValidationError message={passwordError} />}
         </div>
         <div className="FormField">
           <label className="FormField__label" htmlFor="repeatPassword">
             Repeat Password
+            <input
+              type="password"
+              id="repeatpassword"
+              className="FormField__input"
+              placeholder="Repeat password to confirm"
+              name="repeatPassword"
+              onChange={this.handleChange}
+            />
           </label>
-          <input
-            type="password"
-            id="repeatpassword"
-            className="FormField__input"
-            placeholder="Repeat password to confirm"
-            name="repeatPassword"
-            onChange={this.handleChange}
-          />
           {this.state.repeatPassword.touched && <ValidationError message={repeatPasswordError} />}
         </div>
 
@@ -240,3 +243,7 @@ class RegistrationForm extends React.Component {
 }
 
 export default RegistrationForm;
+
+RegistrationForm.propTypes = {
+  onRegistrationSuccess: PropTypes.func
+};

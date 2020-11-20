@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ValidationError from '../../ValidationError/ValidationError';
 import TokenService from '../../../services/token-service';
 import AuthApiService from '../../../services/auth-api-service';
@@ -8,8 +9,9 @@ import './LoginForm.css';
 
 class LoginForm extends React.Component {
   static contextType = MainContext;
+
   static defaultProps = {
-    onLoginSucces: () => {},
+    onLoginSuccess: () => {},
   };
 
   constructor(props) {
@@ -28,13 +30,13 @@ class LoginForm extends React.Component {
   }
 
   handleChange = (e) => {
-    let target = e.target;
-    let value = target.value;
-    let name = target.name;
+    const { target } = e;
+    const { value } = target;
+    const { name } = target;
 
     this.setState({
       [name]: {
-        value: value,
+        value,
         touched: true,
       },
     });
@@ -93,7 +95,7 @@ class LoginForm extends React.Component {
       .catch((res) => {
         this.context.setLoading(false);
         this.setState({ error: res.error });
-        console.log(`ERROR:`, this.state.error);
+        console.log('ERROR:', this.state.error);
       });
   };
 
@@ -113,30 +115,30 @@ class LoginForm extends React.Component {
           <div className="FormField">
             <label className="FormField__label" htmlFor="username">
               Username
+              <input
+                type="text"
+                id="username"
+                className="FormField__input"
+                placeholder="Enter your username"
+                name="username"
+                onChange={this.handleChange}
+              />
             </label>
-            <input
-              type="text"
-              id="username"
-              className="FormField__input"
-              placeholder="Enter your username"
-              name="username"
-              onChange={this.handleChange}
-            />
             {this.state.username.touched && <ValidationError message={usernameError} />}
           </div>
 
           <div className="FormField">
             <label className="FormField__label" htmlFor="password">
               Password
+              <input
+                type="password"
+                id="password"
+                className="FormField__input"
+                placeholder="Enter password"
+                name="password"
+                onChange={this.handleChange}
+              />
             </label>
-            <input
-              type="password"
-              id="password"
-              className="FormField__input"
-              placeholder="Enter password"
-              name="password"
-              onChange={this.handleChange}
-            />
             {this.state.password.touched && <ValidationError message={passwordError} />}
           </div>
 
@@ -158,3 +160,7 @@ class LoginForm extends React.Component {
 }
 
 export default LoginForm;
+
+LoginForm.propTypes = {
+  onLoginSuccess: PropTypes.func
+};

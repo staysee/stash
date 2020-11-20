@@ -10,7 +10,12 @@ function Placeholder(props) {
       <div className="placeholder-msg">
         <p>{props.message}</p>
         <p>
-          {props.verb} a {props.item} to have it show up here!
+          {props.verb}
+          {' '}
+          a
+          {props.item}
+          {' '}
+          to have it show up here!
         </p>
       </div>
     </div>
@@ -20,7 +25,14 @@ function Placeholder(props) {
 export default Placeholder;
 
 Placeholder.propTypes = {
-  // icon: PropTypes.instanceOf,
+  icon: PropTypes.instanceOf,
   message: PropTypes.string,
   verb: PropTypes.string,
+  item: PropTypes.string
+};
+
+Placeholder.defaultProps = {
+  message: '',
+  verb: '',
+  item: ''
 };

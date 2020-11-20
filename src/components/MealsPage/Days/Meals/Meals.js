@@ -1,9 +1,9 @@
 import React from 'react';
-import StashContext from '../../../../StashContext';
-import DisplayModal from '../../../DisplayModal/DisplayModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBackspace } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
+import DisplayModal from '../../../DisplayModal/DisplayModal';
+import StashContext from '../../../../StashContext';
 import './Meals.css';
 
 class Meals extends React.Component {
@@ -21,7 +21,7 @@ class Meals extends React.Component {
   };
 
   findRecipe = (recipeId, recipes) => {
-    const recipe = recipes.find((recipe) => recipe.id == recipeId);
+    const recipe = recipes.find((r) => r.id == recipeId);
 
     if (recipe) {
       this.setState({
@@ -89,7 +89,7 @@ class Meals extends React.Component {
           />
         )}
 
-        <div className="Meals__info" onClick={this.handleShowModal}>
+        <div role="listitem" className="Meals__info" onClick={this.handleShowModal}>
           <div className="info_box left">
             <div className="Meals__img">
               <img src={recipeImageUrl} alt="Placeholder" />

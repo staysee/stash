@@ -1,11 +1,12 @@
 import React from 'react';
 import Modal from 'react-modal';
+import PropTypes from 'prop-types';
 import RecipeCardModal from '../RecipeCardModal/RecipeCardModal';
 import StashContext from '../../StashContext';
-import PropTypes from 'prop-types';
 
 class DisplayModal extends React.Component {
   static defaultProps = {
+    meal: {},
     showModal: false,
     closeModal: () => {},
     customStyles: {},
@@ -24,7 +25,7 @@ class DisplayModal extends React.Component {
   };
 
   findRecipe = (recipeId, recipes) => {
-    const recipe = recipes.find((recipe) => recipe.id == recipeId);
+    const recipe = recipes.find((r) => r.id == recipeId);
 
     if (recipe) {
       this.setState({
@@ -42,9 +43,13 @@ class DisplayModal extends React.Component {
   }
 
   render() {
-    const { customStyles, label, showModal, closeModal, permissions } = this.props;
+    const {
+      customStyles, label, showModal, closeModal, permissions
+    } = this.props;
     const { recipe } = this.state;
-    const { id, title, ingredients, instructions, meal_type, image_url } = recipe;
+    const {
+      id, title, ingredients, instructions, meal_type, image_url
+    } = recipe;
 
     return (
       <>
@@ -62,7 +67,7 @@ class DisplayModal extends React.Component {
               ingredients={ingredients}
               instructions={instructions}
               type={meal_type}
-              imageURL={image_url}
+              imageUrl={image_url}
               addMeal={permissions.add}
               editRecipe={permissions.edit}
               deleteRecipe={permissions.delete}
@@ -70,7 +75,6 @@ class DisplayModal extends React.Component {
             />
           </Modal>
         )}
-        }
       </>
     );
   }
@@ -79,6 +83,10 @@ class DisplayModal extends React.Component {
 export default DisplayModal;
 
 DisplayModal.propTypes = {
+  id: PropTypes.number,
+  meal: PropTypes.shape({
+    recipe_id: PropTypes.number
+  }),
   customStyles: PropTypes.object,
   label: PropTypes.string,
   showModal: PropTypes.bool,
