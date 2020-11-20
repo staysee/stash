@@ -6,7 +6,7 @@ import StashContext from '../../StashContext';
 
 class DisplayModal extends React.Component {
   static defaultProps = {
-    meal: {},
+    // meal: {},
     showModal: false,
     closeModal: () => {},
     customStyles: {},
@@ -25,7 +25,9 @@ class DisplayModal extends React.Component {
   };
 
   findRecipe = (recipeId, recipes) => {
-    const recipe = recipes.find((r) => r.id == recipeId);
+    const recipe = recipes.find((rec) => {
+      return rec.id == recipeId;
+    });
 
     if (recipe) {
       this.setState({

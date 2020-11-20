@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBox from './SearchBox/SearchBox';
 import SearchFilter from './SearchFilter/SearchFilter';
 
