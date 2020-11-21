@@ -21,14 +21,20 @@
 }
 
 .LandingPage .account-link {
-  cursor: pointer;
   background-color: #ffffff00;
   border: 1px solid white;
   border-radius: 5px;
   color: #ffffff;
+  cursor: pointer;
   display: block;
   margin: 0 auto;
   margin-bottom: 20px;
+  padding: 5px;
+}
+
+.LandingPage .account-link:hover {
+  background-color: white;
+  color: black;
 }
 
 .LandingPage .loader-grid {

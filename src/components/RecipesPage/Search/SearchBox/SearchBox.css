@@ -1,6 +1,5 @@
 .SearchBox {
   display: flex;
-  margin: 0 auto;
   width: 65%;
 }
 
@@ -9,7 +8,6 @@
 }
 
 .SearchBox .FormField {
-  margin: 10px;
-  height: inherit;
+  margin: 10px 5px;
   width: 100%;
 }

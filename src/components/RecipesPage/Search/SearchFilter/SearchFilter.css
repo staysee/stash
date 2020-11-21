@@ -1,13 +1,12 @@
-.FormField__select {
-  display: block;
-  margin: 0 auto;
-  padding: 5px;
-  width: 95%;
+.SearchFilter .FormField {
+  margin: 10px 5px;
 }
 
 .SearchFilter select {
+  background-color: #ffffff21;
   border: none;
   border-bottom: 1px solid black;
-  background-color: #ffffff21;
-  margin-top: 12px;
+  display: block;
+  padding: 5px;
+  width: 95%;
 }

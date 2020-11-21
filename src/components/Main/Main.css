@@ -6,7 +6,7 @@
   margin: 0 auto;
   padding-top: 20px;
   height: 100vh;
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 
 .Main a {

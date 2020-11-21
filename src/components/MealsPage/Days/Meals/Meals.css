@@ -6,7 +6,7 @@
 }
 
 .Meals__info {
-  background-color: #ffffffe6;
+  background-color: #ffffffbf;
   display: flex;
   justify-content: space-between;
 }
@@ -39,6 +39,7 @@
   display: flex;
   align-self: center;
   font-size: 1em;
+  font-weight: bold;
   text-transform: uppercase;
 }
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import StashContext from '../../StashContext';
 import './RecipeCardModal.css';
 
@@ -98,17 +100,19 @@ class RecipeCardModal extends React.Component {
             <div className="recipe-image">
               <img src={imageUrl} alt={title} />
             </div>
-            <div className="ingredients">
-              <p className="label">Ingredients</p>
-              <p>{ingredients}</p>
-            </div>
-            <div className="instructions">
-              <p className="label">Instructions</p>
-              <p>{instructions}</p>
-            </div>
-            <div className="meal-type">
-              <p className="label">Meal Type</p>
-              <p>{type}</p>
+            <div className="info-container">
+              <div className="ingredients">
+                <p className="label">Ingredients</p>
+                <p>{ingredients}</p>
+              </div>
+              <div className="instructions">
+                <p className="label">Instructions</p>
+                <p>{instructions}</p>
+              </div>
+              <div className="meal-type">
+                <p className="label">Meal Type</p>
+                <p>{type}</p>
+              </div>
             </div>
           </div>
 
@@ -135,27 +139,33 @@ class RecipeCardModal extends React.Component {
                 </select>
               </label>
 
-              <button type="submit" className="add-meal" disabled={this.validateMealDay()}>
+              <button type="submit" disabled={this.validateMealDay()}>
                 Add This Meal
               </button>
             </form>
           )}
 
-          {editRecipe && (
-            <Link className="edit-recipe" to={`/recipes/edit-recipe/${id}`}>
-              Edit Recipe
-            </Link>
-          )}
+          <div className="edit-delete">
+            {editRecipe && (
+              <Link className="edit-recipe" to={`/recipes/edit-recipe/${id}`}>
+                <FontAwesomeIcon icon={faEdit} />
+                {' '}
+                Edit
+              </Link>
+            )}
 
-          {deleteRecipe && (
-            <button
-              type="button"
-              className="delete-recipe"
-              onClick={(e) => this.handleClickDelete(e, id)}
-            >
-              Delete Recipe
-            </button>
-          )}
+            {deleteRecipe && (
+              <button
+                type="button"
+                className="delete-recipe"
+                onClick={(e) => this.handleClickDelete(e, id)}
+              >
+                <FontAwesomeIcon icon={faTrashAlt} />
+                {' '}
+                Delete
+              </button>
+            )}
+          </div>
         </div>
       </>
     );

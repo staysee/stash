@@ -18,3 +18,14 @@
 .RegistrationForm ::placeholder {
   color: grey;
 }
+
+.RegistrationForm button {
+  background-color: #ffffffab;
+  border: 1px solid pink;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.RegistrationForm button:hover {
+  background-color: #fcb401;
+}

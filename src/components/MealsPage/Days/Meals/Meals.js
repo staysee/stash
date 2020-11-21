@@ -66,7 +66,7 @@ class Meals extends React.Component {
         background: '#4c645682',
       },
       content: {
-        background: 'rgb(240 240 240)',
+        background: 'rgb(243 243 243)',
       },
     };
 

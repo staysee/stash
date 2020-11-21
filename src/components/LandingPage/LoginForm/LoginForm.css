@@ -44,3 +44,14 @@
 .demo p:nth-child(3) {
   font-style: italic;
 }
+
+.LoginForm button {
+  background-color: #ffffffab;
+  border: 1px solid rgb(243, 161, 116);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.LoginForm button:hover {
+  background-color: #fcb401;
+}

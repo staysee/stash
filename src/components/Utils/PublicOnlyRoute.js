@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import TokenService from '../../services/token-service';
 
 export default function PublicOnlyRoute({ component, ...props }) {
@@ -13,3 +14,7 @@ export default function PublicOnlyRoute({ component, ...props }) {
     />
   );
 }
+
+PublicOnlyRoute.propTypes = {
+  component: PropTypes.func
+};

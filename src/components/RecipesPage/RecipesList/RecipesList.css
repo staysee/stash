@@ -1,3 +1,10 @@
+.RecipesList {
+  height: 60vh;
+  margin: 20px 0;
+  overflow: auto;
+
+}
+
 .RecipesList ul {
   list-style: none;
   display: flex;

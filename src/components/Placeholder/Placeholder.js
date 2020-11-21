@@ -25,7 +25,7 @@ function Placeholder(props) {
 export default Placeholder;
 
 Placeholder.propTypes = {
-  icon: PropTypes.instanceOf,
+  icon: PropTypes.object,
   message: PropTypes.string,
   verb: PropTypes.string,
   item: PropTypes.string

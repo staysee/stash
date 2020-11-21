@@ -1,7 +1,13 @@
+.RecipeCardModal h2 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .RecipeCardModal .recipe-information {
   background-color: #ffffff;
   padding: 10px;
 }
+
 .RecipeCardModal .recipe-image {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   display: flex;
@@ -16,50 +22,35 @@
   max-width: 100%;
 }
 
-.RecipeCardModal h2 {
-  text-align: center;
-  text-transform: uppercase;
+.RecipeCardModal .info-container {
+  height: 250px;
+  overflow: auto;
 }
 
-.RecipeCardModal .label {
+.RecipeCardModal .label, .RecipeCardModal label {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 0.6em;
   border-bottom: 1px solid #d6cfcf;
 }
 
-.RecipeCardModal .add-meal {
-  width: 100%;
-  margin: 5px 0;
-  font-size: 0.8em;
-  background-color: #f7cb95;
-}
-
-.RecipeCardModal .delete-recipe {
-  background: none;
+.RecipeCardModal .recipeOptions select {
+  background: #e49d9dab;
   border: none;
-  color: #8c8888;
-  display: block;
-  margin: 0 auto;
-  font-size: 0.5em;
+  text-align: center;
+  text-align-last: center;
 }
 
-.RecipeCardModal .edit-recipe {
-  display: flex;
-  justify-content: center;
-  font-size: 0.5em;
-  text-decoration: none;
-  margin-bottom: 0.5rem;
+.RecipeCardModal .recipeOptions option {
+  text-align: center;
 }
 
-.RecipeCardModal .delete-recipe:hover {
-  cursor: pointer;
-  color: rgb(141, 19, 19);
-}
-
-.RecipeCardModal .edit-recipe:hover {
-  cursor: pointer;
-  color: rgb(240, 183, 61);
+.RecipeCardModal .recipeOptions button {
+  background-color: #f7cb95;
+  border: none;
+  font-size: 12px;
+  padding: 5px;
+  width: 100%;
 }
 
 .RecipeCardModal .FormFields {
@@ -68,5 +59,42 @@
 }
 
 .RecipeCardModal .FormField__select {
-  font-size: 0.5em;
+  display: block;
+  font-size: 1rem;
+  height: 2rem;
+  margin: 5px 0;
+  width: 100%;
 }
+
+.RecipeCardModal .edit-delete {
+  display: flex;
+  
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.RecipeCardModal .edit-recipe {
+  color: #504949;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.RecipeCardModal .edit-recipe:hover {
+  cursor: pointer;
+  color: #e67e45;
+}
+
+.RecipeCardModal .delete-recipe {
+  background: none;
+  border: none;
+  color: #504949;
+  display: block;
+  font-size: 1em;
+}
+
+.RecipeCardModal .delete-recipe:hover {
+  cursor: pointer;
+  color: #b30000;
+}
+
+

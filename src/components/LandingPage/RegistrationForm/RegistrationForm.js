@@ -154,6 +154,7 @@ class RegistrationForm extends React.Component {
       <form className="RegistrationForm FormFields" onSubmit={this.handleSubmit}>
         <div className="FormField">
           <label className="FormField__label" htmlFor="firstname">
+            First Name
             <input
               type="text"
               id="firstname"
@@ -162,7 +163,6 @@ class RegistrationForm extends React.Component {
               name="firstname"
               onChange={this.handleChange}
             />
-            First Name
           </label>
         </div>
 

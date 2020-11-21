@@ -3,6 +3,7 @@ import Loader from 'react-loader-spinner';
 import PropTypes from 'prop-types';
 import ValidationError from '../ValidationError/ValidationError';
 import StashContext from '../../StashContext';
+import Citrus from '../../assets/bruna-branco-7r1HxvVC7AY-unsplash.jpg';
 import './AddRecipe.css';
 
 class AddRecipe extends React.Component {
@@ -143,16 +144,23 @@ class AddRecipe extends React.Component {
     const titleError = this.validateTitle();
     const ingredientsError = this.validateIngredients();
     const instructionsError = this.validateInstructions();
-    const imageUrlError = this.validateImageURL();
+    const imageUrlError = this.validateImageUrl();
     const mealTypeError = this.validateMealType();
 
     return (
       <div className="AddRecipe">
         <h2>New Recipe</h2>
         <div className="image-container">
-          {image_urlVal && !imageUrlError && (
-            <img src={image_urlVal} className="new-recipe-image" alt="Food" />
-          )}
+          {image_urlVal && !imageUrlError
+            ? (
+              <img src={image_urlVal} className="new-recipe-image" alt="Food" />
+            )
+            : (
+              <img
+                src={Citrus}
+                className="placeholder-recipe-image"
+                alt="citrus" />
+            )}
         </div>
         <form className="FormFields" onSubmit={this.handleSubmit}>
           <div className="FormField">
@@ -251,19 +259,27 @@ class AddRecipe extends React.Component {
             />
           )}
 
-          <button
-            type="submit"
-            disabled={
-              this.validateTitle()
-              || this.validateIngredients()
-              || this.validateInstructions()
-              || this.validateImageUrl()
-              || this.validateMealType()
-            }
-          >
-            Stash My Recipe
-          </button>
-          <button type="submit" onClick={this.handleClickCancel}>Cancel</button>
+          <div className="button-container">
+            <button
+              type="submit"
+              className="add-new"
+              disabled={
+                this.validateTitle()
+                || this.validateIngredients()
+                || this.validateInstructions()
+                || this.validateImageUrl()
+                || this.validateMealType()
+              }
+            >
+              Stash My Recipe
+            </button>
+            <button
+              type="submit"
+              className="cancel-new"
+              onClick={this.handleClickCancel}>
+              Cancel
+            </button>
+          </div>
         </form>
       </div>
     );
