@@ -1,12 +1,11 @@
 .Main {
-  background: url(../../assets/kristen-kaethler-vaGL6AJkUb4-unsplash.jpg);
-  background-size: cover;
-  max-width: 960px;
+  /* background: url(../../assets/kristen-kaethler-vaGL6AJkUb4-unsplash.jpg); */
+  /* background-size: cover; */
+  /* max-width: 960px; */
   min-width: 320px;
   margin: 0 auto;
-  padding-top: 20px;
   height: 100vh;
-  /* overflow: scroll; */
+  padding-top: 20px;
 }
 
 .Main a {

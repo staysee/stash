@@ -1,6 +1,12 @@
 .AddRecipe {
-  background-color: #ffffffba;
+  background-color: #ffffffbf;
+  margin: 0 auto;
   padding: 20px;
+  width: 95%;
+}
+
+.AddRecipe form {
+  overflow: hidden;
 }
 
 .AddRecipe h2 {
@@ -8,7 +14,7 @@
 }
 
 .AddRecipe .image-container {
-  width: 150px;
+  width: 100px;
   margin: 0 auto;
 }
 
@@ -23,8 +29,21 @@
   transform: rotate(90deg);
 }
 
+.AddRecipe select {
+  background: none;
+  border: none;
+  border-bottom: 1px solid gray;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.AddRecipe input:focus {
+  background: none;
+}
+
 .AddRecipe .button-container {
   display: flex;
+  flex-direction: column;
 }
 
 .AddRecipe button {
@@ -33,11 +52,14 @@
 .AddRecipe button.add-new {
   padding: 10px;
   background-color: rgba(255, 215, 192, 1);
+  margin: 10px auto;
 }
 
 .AddRecipe button.cancel-new {
-  padding: 10px;
-  background-color: rgba(255, 215, 192, 1);
+  border: none;
+  background: none;
+  cursor: pointer;
+  
 }
 
 .loader-dots {

@@ -6,6 +6,8 @@ import Placeholder from '../Placeholder/Placeholder';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import StashContext from '../../StashContext';
 
+import './MealsPage.css';
+
 class MealsPage extends React.Component {
   static contextType = StashContext;
 
@@ -33,9 +35,11 @@ class MealsPage extends React.Component {
             />
           )}
 
-          {daysOfWeek.map((aDay, key) => (
-            <Days key={key} day={aDay} meals={meals} />
-          ))}
+          <div className="meal-container">
+            {daysOfWeek.map((aDay, key) => (
+              <Days key={key} day={aDay} meals={meals} />
+            ))}
+          </div>
         </ErrorBoundary>
       </div>
     );

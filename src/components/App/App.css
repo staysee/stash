@@ -46,6 +46,15 @@
 
 /* ------- TABLETS -------- */
 @media only screen and (min-width: 600px) {
+  .RecipesList {
+    margin: 20px auto;
+    width: 95%;
+  }
+
+  .RecipesList ul {
+    justify-content: space-between;
+  }
+
   .RecipeItem {
     width: 30%;
   }
@@ -53,6 +62,15 @@
   .RecipeItem .item_image {
     height: 200px;
   }
+
+  .RecipeCardModal .recipe-image {
+    box-shadow: none;
+  }
+
+  .AddRecipe {
+    clear: both;
+  }
+
 }
 
 /* ------- DESKTOP/LARGE DEVICE -------- */
