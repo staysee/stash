@@ -23,7 +23,7 @@
 }
 
 .RecipeCardModal .info-container {
-  height: 250px;
+  height: 275px;
   overflow: auto;
 }
 
@@ -48,6 +48,7 @@
 .RecipeCardModal .recipeOptions button {
   background-color: #f7cb95;
   border: none;
+  cursor: pointer;
   font-size: 12px;
   padding: 5px;
   width: 100%;

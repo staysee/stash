@@ -1,6 +1,10 @@
+
+.MealsPage {
+    width: 95%;
+    margin: 0 auto;
+}
+
 .meal-container {
     height: 70vh;
-    margin: 0 auto;
     overflow: auto;
-    width: 95%;
 }
