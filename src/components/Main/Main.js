@@ -13,7 +13,7 @@ class Main extends React.Component {
   static contextType = MainContext;
 
   state = {
-    loading: false,
+    loading: false
   };
 
   setLoading = (status) => {

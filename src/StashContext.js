@@ -2,7 +2,7 @@ import React from 'react';
 
 const StashContext = React.createContext({
   loading: false,
-  setLoadng: () => {},
+  setLoading: () => {},
   recipes: [],
   meals: [],
   loggedIn: localStorage.getItem('userLoggedIn'),

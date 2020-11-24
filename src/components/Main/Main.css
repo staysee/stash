@@ -1,7 +1,4 @@
 .Main {
-  /* background: url(../../assets/kristen-kaethler-vaGL6AJkUb4-unsplash.jpg); */
-  /* background-size: cover; */
-  /* max-width: 960px; */
   min-width: 320px;
   margin: 0 auto;
   height: 100vh;
@@ -11,6 +8,16 @@
 .Main a {
   text-decoration: none;
   text-align: center;
+}
+
+.html-bg {
+  /* background-color: red; */
+  background-image: url('../../assets/kristen-kaethler-vaGL6AJkUb4-unsplash.jpg'); 
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 /* ------- DESKTOP/LARGE DEVICE -------- */

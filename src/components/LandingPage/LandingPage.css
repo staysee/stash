@@ -4,27 +4,37 @@
   margin-bottom: 20px;
 }
 
-.LandingPage .container {
-  background-color: #00000038;
-  border-radius: 5px;
-  width: 95%;
-  margin: 0 auto;
+.LandingPage .header {
+    background-color: '#fff';
+    left: 50%;
+    top: 40%;
+    border-radius: 9px;
+    background-color: #ffffffde;
+    position: absolute;
+    width: 80%;
+    padding: 20px;
+    transform: translate(-50%, -50%);
 }
 
 .LandingPage__description {
-  margin: 20px auto;
+  background: linear-gradient(
+    0deg,
+    rgb(236 109 109) 0%,
+    rgb(228 157 157) 35%,
+    rgb(255 224 224) 100%
+  );
   line-height: 1.7;
-  text-align: justify;
-  width: 90%;
-  color: white;
-  font-weight: bolder;
+}
+
+.LandingPage__description p {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
 }
 
 .LandingPage .account-link {
-  background-color: #ffffff00;
-  border: 1px solid white;
-  border-radius: 5px;
-  color: #ffffff;
+  background-color: #f3a174;
+  border: 1px solid #f3a174;
   cursor: pointer;
   display: block;
   margin: 0 auto;
@@ -33,7 +43,6 @@
 }
 
 .LandingPage .account-link:hover {
-  background-color: white;
   color: black;
 }
 

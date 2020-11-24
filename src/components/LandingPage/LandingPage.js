@@ -2,10 +2,15 @@
 import React from 'react';
 import Loader from 'react-loader-spinner';
 import PropTypes from 'prop-types';
+import { Parallax } from 'react-parallax';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHamburger } from '@fortawesome/free-solid-svg-icons';
 import RegistrationForm from './RegistrationForm/RegistrationForm';
 import LoginForm from './LoginForm/LoginForm';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import MainContext from '../../MainContext';
+import bgImage1 from '../../assets/rayia-soderberg-ev_GpmUPOwo-unsplash.jpg';
+import bgImage2 from '../../assets/kristen-kaethler-vaGL6AJkUb4-unsplash.jpg';
 import './LandingPage.css';
 
 class LandingPage extends React.Component {
@@ -27,6 +32,7 @@ class LandingPage extends React.Component {
   handleSuccess = () => {
     const { location, history } = this.props;
     const destination = (location.state || {}).from || '/recipes';
+    document.body.classList.add('html-bg');
     history.push(destination);
   };
 
@@ -72,22 +78,28 @@ class LandingPage extends React.Component {
 
     return (
       <div className="LandingPage">
-        <div className="container">
-          <div className="LandingPage__description">
-            {/* Stash is a place where you can keep all of your recipes in one place for safekeeping.
-            Anytime you&apos;re ready to start cooking up a meal, open up your drawer where you
-            stashed away all of your delicious recipes and easily find what you&apos;re looking for!
-            Stash can also help you plan out your meals for the week so you don&apos;t have to
-            waste time thinking of your next meal! */}
-            Your Digital Recipe Drawer
+        <Parallax bgImage={bgImage1} strength={500}>
+          <div style={{ height: '100vh' }}>
+            <div className="header">
+              <p>Keep all of your recipes in one place for safekeeping. Stash can also help you plan out your meals for the week so you don&apos;t have to waste time thinking of your next meal!</p>
+            </div>
           </div>
+        </Parallax>
 
+        <div className="LandingPage__description">
+
+          <p>Ready to stash your recipes?</p>
           {loading ? (
             <Loader className="loader-grid" type="Grid" color="#43BA73" height={80} width={80} />
           ) : (
             showForms()
           )}
+
         </div>
+
+        <Parallax bgImage={bgImage2} strength={100}>
+          <div style={{ height: 100 }} />
+        </Parallax>
       </div>
     );
   }

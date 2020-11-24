@@ -22,7 +22,7 @@
   margin: 0 auto;
 }
 
-.demo {
+.LoginForm .demo {
   background-color: #f5f5f538;
   border-radius: 50%;
   font-size: 10px;
@@ -31,17 +31,22 @@
   text-align: center;
 }
 
-.demo p:nth-child(1) {
+.LoginForm .demo p {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.LoginForm .demo p:nth-child(1) {
   font-weight: bold;
 }
 
-.demo p:nth-child(1)::before,
-.demo p:nth-child(1)::after {
+.LoginForm .demo p:nth-child(1)::before,
+.LoginForm .demo p:nth-child(1)::after {
   content: '-';
 }
 
-.demo p:nth-child(2),
-.demo p:nth-child(3) {
+.LoginForm .demo p:nth-child(2),
+.LoginForm .demo p:nth-child(3) {
   font-style: italic;
 }
 
