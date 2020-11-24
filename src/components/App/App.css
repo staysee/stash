@@ -50,12 +50,8 @@
     margin: 20px auto;
   }
 
-  .RecipesList ul {
-    justify-content: space-between;
-  }
-
-  .RecipeItem {
-    width: 30%;
+  .RecipesList .recipes-container {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .RecipeItem .item_image {
@@ -75,7 +71,6 @@
 /* ------- DESKTOP/LARGE DEVICE -------- */
 @media only screen and (min-width: 768px) {
   .Navigation {
-    /* display: initial; */
     float: right;
     margin-top: 15px;
   }
@@ -84,9 +79,8 @@
   .MealsPage {
     clear: both;
   }
-
-  .RecipeItem {
-    width: 22%;
+  .RecipesList .recipes-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 
   .Meals__info .info_box {

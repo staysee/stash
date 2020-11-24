@@ -105,7 +105,7 @@ class RecipesList extends React.Component {
             permissions={permissions}
           />
         )}
-        <ul>{recipesList}</ul>
+        <ul className="recipes-container">{recipesList}</ul>
       </div>
     );
   }

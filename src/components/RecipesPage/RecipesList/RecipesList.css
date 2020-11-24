@@ -5,17 +5,11 @@
 
 }
 
-.RecipesList ul {
-  list-style: none;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+.RecipesList .recipes-container {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
   padding-left: 0;
+  margin: 0 auto;
   text-align: center;
-}
-
-.RecipesList ul::after {
-  content: '';
-  height: 0;
-  width: 30%;
 }

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import Loader from 'react-loader-spinner';
 import PropTypes from 'prop-types';
@@ -24,7 +25,6 @@ class LandingPage extends React.Component {
   };
 
   handleSuccess = () => {
-    console.log('SUCCESS LOGGING IN/REGISTRATION');
     const { location, history } = this.props;
     const destination = (location.state || {}).from || '/recipes';
     history.push(destination);
@@ -74,11 +74,12 @@ class LandingPage extends React.Component {
       <div className="LandingPage">
         <div className="container">
           <div className="LandingPage__description">
-            Stash is a place where you can keep all of your recipes in one place for safekeeping.
+            {/* Stash is a place where you can keep all of your recipes in one place for safekeeping.
             Anytime you&apos;re ready to start cooking up a meal, open up your drawer where you
             stashed away all of your delicious recipes and easily find what you&apos;re looking for!
             Stash can also help you plan out your meals for the week so you don&apos;t have to
-            waste time thinking of your next meal!
+            waste time thinking of your next meal! */}
+            Your Digital Recipe Drawer
           </div>
 
           {loading ? (
