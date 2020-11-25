@@ -11,13 +11,18 @@
 }
 
 .html-bg {
-  /* background-color: red; */
-  background-image: url('../../assets/kristen-kaethler-vaGL6AJkUb4-unsplash.jpg'); 
+  /* background-color: white; */
+  background-image: url('../../assets/kim-daniels-P2qImp_Mr2Y-unsplash.jpg'); 
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.gradient {
+  background: #ffc051f0;
+  background: linear-gradient(96deg, #fcb401 4%, #ffc379 30%, #fdf2e6 100%);
 }
 
 /* ------- DESKTOP/LARGE DEVICE -------- */

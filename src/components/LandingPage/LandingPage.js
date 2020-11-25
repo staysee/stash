@@ -36,6 +36,10 @@ class LandingPage extends React.Component {
     history.push(destination);
   };
 
+  goTo = (url) => {
+    window.location = url;
+  };
+
   render() {
     const { accountExist } = this.state;
     const { loading } = this.context;
@@ -81,7 +85,7 @@ class LandingPage extends React.Component {
         <Parallax bgImage={bgImage1} strength={500}>
           <div style={{ height: '100vh' }}>
             <div className="header">
-              <p>Keep all of your recipes in one place for safekeeping. Stash can also help you plan out your meals for the week so you don&apos;t have to waste time thinking of your next meal!</p>
+              <p>Keep your recipes stashed in this digital drawer. Plan meals for the week. No more wasting time thinking of what to cook!</p>
             </div>
           </div>
         </Parallax>

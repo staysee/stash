@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import StashIcon from '../../../assets/stash-icon.png';
 import ValidationError from '../../ValidationError/ValidationError';
 import TokenService from '../../../services/token-service';
 import AuthApiService from '../../../services/auth-api-service';
@@ -105,6 +106,7 @@ class LoginForm extends React.Component {
 
     return (
       <div className="LoginForm">
+        <img src={StashIcon} alt="stash logo icon" />
         <div className="demo">
           <p>Demo Account</p>
           <p>Username: demouser</p>

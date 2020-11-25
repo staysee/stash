@@ -14,8 +14,9 @@
 }
 
 .AddRecipe .image-container {
-  width: 100px;
+  width: 200px;
   margin: 0 auto;
+  margin-bottom: 15px;
 }
 
 .AddRecipe .image-container img {
@@ -26,7 +27,7 @@
 }
 
 .AddRecipe .placeholder-recipe-image {
-  transform: rotate(90deg);
+  /* transform: rotate(90deg); */
 }
 
 .AddRecipe select {

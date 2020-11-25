@@ -1,17 +1,17 @@
 .LoginForm {
-  background: rgb(230 126 69);
-  background: linear-gradient(
-    0deg,
-    rgb(230 126 69) 0%,
-    rgb(243 161 116) 35%,
-    rgb(255 215 192) 100%
-  );
-  border-radius: 10px;
+  background: #fffbfbd9;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  margin: 10px auto;
+  border-radius: 5px;margin: 10px auto;
   padding: 20px;
-  width: 75%;
+  width: 80%;
 }
+
+.LoginForm img {
+  display: block;
+  margin: 0 auto;
+  width: 80px;
+}
+
 .LoginForm__image {
   margin-bottom: 25px;
 }
@@ -51,12 +51,16 @@
 }
 
 .LoginForm button {
-  background-color: #ffffffab;
-  border: 1px solid rgb(243, 161, 116);
+  background-color: #ffc051;
+  border: none;
   border-radius: 5px;
   padding: 5px;
 }
 
 .LoginForm button:hover {
   background-color: #fcb401;
+}
+
+.LoginForm .FormField:last-child {
+  margin-bottom: 5px;
 }

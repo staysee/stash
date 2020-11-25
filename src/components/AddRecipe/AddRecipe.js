@@ -3,7 +3,7 @@ import Loader from 'react-loader-spinner';
 import PropTypes from 'prop-types';
 import ValidationError from '../ValidationError/ValidationError';
 import StashContext from '../../StashContext';
-import Citrus from '../../assets/bruna-branco-7r1HxvVC7AY-unsplash.jpg';
+import RecipePhoto from '../../assets/kara-eads-AemWnTSPxoE-unsplash.jpg';
 import './AddRecipe.css';
 
 class AddRecipe extends React.Component {
@@ -157,9 +157,9 @@ class AddRecipe extends React.Component {
             )
             : (
               <img
-                src={Citrus}
+                src={RecipePhoto}
                 className="placeholder-recipe-image"
-                alt="citrus" />
+                alt="blank recipe page" />
             )}
         </div>
         <form className="FormFields" onSubmit={this.handleSubmit}>

@@ -30,7 +30,7 @@ class Main extends React.Component {
 
     return (
       <MainContext.Provider value={contextValue}>
-        <div className="Main">
+        <div className="Main gradient">
           <Logo />
           <Switch>
             <Route exact path="/" component={LandingPage} />
