@@ -10,8 +10,7 @@
   text-align: center;
 }
 
-.html-bg {
-  /* background-color: white; */
+.app-background {
   background-image: url('../../assets/kim-daniels-P2qImp_Mr2Y-unsplash.jpg'); 
   background-size: cover;
   -webkit-background-size: cover;

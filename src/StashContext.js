@@ -5,13 +5,11 @@ const StashContext = React.createContext({
   setLoading: () => {},
   recipes: [],
   meals: [],
-  loggedIn: localStorage.getItem('userLoggedIn'),
   addRecipe: () => {},
   deleteRecipe: () => {},
   updateRecipe: () => {},
   addMeal: () => {},
   deleteMeal: () => {},
-  userLogIn: () => {},
   userLogOut: () => {},
 });
 

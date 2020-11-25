@@ -15,9 +15,8 @@ class Navigation extends React.Component {
   static contextType = StashContext;
 
   handleLogoutClick = () => {
-    document.body.classList.remove('html-bg');
-    TokenService.clearAuthToken();
     this.context.userLogOut();
+    TokenService.clearAuthToken();
   };
 
   render() {

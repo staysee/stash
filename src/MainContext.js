@@ -3,8 +3,7 @@ import React from 'react';
 const MainContext = React.createContext({
   loading: false,
   setLoading: () => {},
-  loggedIn: false,
-  setLoggedIn: () => {}
+  userLogIn: () => {}
 });
 
 export default MainContext;

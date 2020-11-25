@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import { Route, Switch } from 'react-router';
 import App from '../App/App';
@@ -16,21 +17,33 @@ class Main extends React.Component {
     loading: false
   };
 
+  componentDidMount() {
+    localStorage.setItem('userLoggedIn', false);
+  }
+
   setLoading = (status) => {
     this.setState({
       loading: status,
     });
   };
 
+  userLogIn = () => {
+    localStorage.setItem('userLoggedIn', true);
+  };
+
   render() {
     const contextValue = {
       loading: this.state.loading,
       setLoading: this.setLoading,
+      userLogIn: this.userLogIn,
     };
+
+    const userLoggedIn = localStorage.getItem('userLoggedIn');
+    console.log(userLoggedIn);
 
     return (
       <MainContext.Provider value={contextValue}>
-        <div className="Main gradient">
+        <div id="main" className={`Main ${userLoggedIn ? 'app-background' : 'gradient'}`}>
           <Logo />
           <Switch>
             <Route exact path="/" component={LandingPage} />

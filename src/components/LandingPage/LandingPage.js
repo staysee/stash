@@ -32,7 +32,8 @@ class LandingPage extends React.Component {
   handleSuccess = () => {
     const { location, history } = this.props;
     const destination = (location.state || {}).from || '/recipes';
-    document.body.classList.add('html-bg');
+    this.context.loggedIn = true;
+    this.context.userLogIn();
     history.push(destination);
   };
 
@@ -94,7 +95,7 @@ class LandingPage extends React.Component {
 
           <p>Ready to stash your recipes?</p>
           {loading ? (
-            <Loader className="loader-grid" type="Grid" color="#43BA73" height={80} width={80} />
+            <Loader className="loader-grid" type="Grid" color="#d84e44" height={90} width={90} />
           ) : (
             showForms()
           )}

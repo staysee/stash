@@ -38,7 +38,6 @@ class App extends React.Component {
     await Promise.all([
       await this.fetchUserRecipes(),
       await this.fetchUserMeals(),
-      // await this.fetchAllUsers()
     ]);
   };
 
@@ -48,37 +47,12 @@ class App extends React.Component {
     });
   };
 
-  // fetchAllRecipes = async () => {
-  // const recipes = await RecipesService.getAllRecipes()
-  // this.setState({
-  // recipes
-  // })
-  // }
-
   fetchUserRecipes = async () => {
     const recipes = await RecipesService.getUserRecipes();
     this.setState({
       recipes,
     });
   };
-
-  // fetchAllMeals = async () => {
-  // const meals = await MealsService.getAllMeals()
-  // const days = Object.keys(meals)
-
-  // days.forEach( day => {
-  // this.setState({
-  // meals: {
-  // ...this.state.meals,
-  // [day]: [...meals[day], ...this.state.meals[day]],
-  // }
-  // })
-
-  // })
-
-  // console.log(`days`, days)
-  // console.log(`meals`, meals[days[0]])
-  // }
 
   fetchUserMeals = async () => {
     const meals = await MealsService.getUserMeals();
@@ -94,18 +68,7 @@ class App extends React.Component {
         },
       });
     });
-
-    console.log('days', days);
-    console.log('meals', meals[days[0]]);
   };
-
-  // fetchAllUsers = async () => {
-  // const users = await UsersService.getAllUsers()
-  // this.setState({
-  // users
-  // })
-  // console.log('users', users)
-  // }
 
   addRecipe = async (recipe) => {
     const newRecipe = [...this.state.recipes, recipe];
@@ -196,12 +159,12 @@ class App extends React.Component {
     }
   };
 
-  userLogIn = () => {
-    localStorage.setItem('userLoggedIn', true);
-  };
+  // userLogIn = () => {
+  //   localStorage.setItem('userLoggedIn', true);
+  // };
 
   userLogOut = () => {
-    localStorage.clear();
+    localStorage.setItem('userLoggedIn', false);
   };
 
   render() {
@@ -216,7 +179,6 @@ class App extends React.Component {
       addMeal: this.addMeal,
       deleteMeal: this.deleteMeal,
       rehydrateApp: this.rehydrateApp,
-      userLogIn: this.userLogIn,
       userLogOut: this.userLogOut,
     };
 
