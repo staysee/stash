@@ -12,6 +12,7 @@ import RecipesService from '../../services/recipe-service';
 import MealsService from '../../services/meal-service';
 
 import './App.css';
+import '../../media-queries.css';
 
 class App extends React.Component {
   static contextType = StashContext;

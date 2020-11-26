@@ -7,6 +7,7 @@ import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import StashContext from '../../StashContext';
 
 import './MealsPage.css';
+import '../../media-queries.css';
 
 class MealsPage extends React.Component {
   static contextType = StashContext;

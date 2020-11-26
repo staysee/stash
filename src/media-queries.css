@@ -1,0 +1,102 @@
+
+/* ------- TABLETS -------- */
+@media only screen and (min-width: 600px) {
+    .RegistrationForm,
+    .LoginForm {
+      width: 70% !important;
+    }
+
+    .RecipesList {
+      margin: 20px auto;
+    }
+  
+    .RecipesList .recipes-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .RecipeItem .item_image {
+      height: 200px;
+    }
+  
+    .RecipeCardModal .recipe-image {
+      box-shadow: none;
+    }
+  
+    .AddRecipe {
+      clear: both;
+    }
+  
+  }
+  
+  /* ------- DESKTOP/LARGE DEVICE -------- */
+  @media only screen and (min-width: 768px) {
+    .Logo {
+        display: initial;
+        margin: 0 0 0 20px;
+        float: left;
+    }
+
+    .Logo img {
+        width: 150px;
+    }
+
+    .LandingPage {
+        clear: both;
+    }
+
+    .RegistrationForm,
+    .LoginForm {
+        width: 50% !important;
+        max-width: 400px;
+    }
+        
+    .Navigation {
+      float: right;
+      margin-top: 15px;
+    }
+  
+    .RecipesPage,
+    .MealsPage {
+      clear: both;
+    }
+    .RecipesList .recipes-container {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  
+    .Meals__info .info_box {
+      justify-content: normal;
+    }
+  }
+  
+/* ------- PHONE LANDSCAPE -------- */
+@media screen and (orientation: landscape) and (min-device-width: 320px) /* and (max-device-width: 812px) */ and (-webkit-device-pixel-ratio: 3) {
+    .Logo {
+        display: flex;
+        margin: 0px;
+        float: none;
+    }
+
+    .Logo img {
+        width: 250px;
+    }
+
+    .Navigation {
+        display: flex;
+        float: none;
+    }
+
+    .LandingPage__description {
+        width: 70%;
+        margin: 20px auto;
+    }
+
+    .RegistrationForm,
+    .LoginForm {
+        width: 70%;
+        margin: 10px auto;
+    }
+
+    .RecipeItem {
+        width: 22%;
+    }
+}
