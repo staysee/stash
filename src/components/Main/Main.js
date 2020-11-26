@@ -1,3 +1,4 @@
+/* eslint-disable react/no-did-mount-set-state */
 /* eslint-disable max-len */
 import React from 'react';
 import { Route, Switch } from 'react-router';
@@ -17,6 +18,14 @@ class Main extends React.Component {
     loading: false,
     mainApp: 'gradient'
   };
+
+  componentDidMount() {
+    const background = localStorage.getItem('userLoggedIn') ? 'app-background' : 'gradient';
+
+    this.setState({
+      mainApp: background
+    });
+  }
 
   setLoading = (status) => {
     this.setState({

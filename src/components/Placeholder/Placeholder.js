@@ -13,6 +13,7 @@ function Placeholder(props) {
           {props.verb}
           {' '}
           a
+          {' '}
           {props.item}
           {' '}
           to have it show up here!

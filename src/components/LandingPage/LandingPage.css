@@ -7,11 +7,13 @@
 .LandingPage .header {
   background-color: #ffffffd9;
   border-radius: 5px;
-  font-size: 2rem;
+  font-size: 3rem;
+  font-family: 'Varela Round', sans-serif;
   left: 10%;
   top: 25%;
   position: absolute;
   padding: 20px;
+  text-align: center;
   width: 80%;
 }
 
@@ -23,6 +25,7 @@
 
 .LandingPage__description p {
   text-align: center;
+  font-family: 'Varela Round', sans-serif;
   font-weight: bold;
   font-size: 2rem;
 }

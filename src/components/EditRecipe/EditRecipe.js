@@ -167,8 +167,10 @@ class EditRecipe extends React.Component {
             </label>
           </div>
 
-          <button type="submit">Stash My Recipe</button>
-          <button type="button">Cancel</button>
+          <div className="button-container">
+            <button className="add-new" type="submit">Stash My Recipe</button>
+            <button className="cancel-new" type="button">Cancel</button>
+          </div>
         </form>
       </div>
     );

@@ -1,5 +1,5 @@
 .Placeholder {
-  color: #808080;
+  color: #403d3d;;
   display: flex;
   flex-direction: column;
   padding: 25px 0;
@@ -17,5 +17,6 @@
 
 .placeholder-msg p {
   font-size: 1.25em;
+  font-weight: bolder;
   margin: 0.5em 0;
 }

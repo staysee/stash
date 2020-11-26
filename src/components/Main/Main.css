@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+h1, h2, h3, h4, label {
+  font-family: 'Varela Round', sans-serif;
+}
+
 .Main {
   min-width: 320px;
   margin: 0 auto;
   height: 100vh;
-  padding-top: 20px;
 }
 
 .Main a {
@@ -22,6 +27,26 @@
 .gradient {
   background: #ffc051f0;
   background: linear-gradient(96deg, #fcb401 4%, #ffc379 30%, #fdf2e6 100%);
+}
+
+.NotFoundPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 2rem;
+  margin: 0 auto;
+  margin-top: 50px;
+  text-align: center;
+  background-color: white;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+}
+
+.NotFoundPage .fa-exclamation {
+  display: block;
+  margin: 0 auto;
 }
 
 /* ------- DESKTOP/LARGE DEVICE -------- */

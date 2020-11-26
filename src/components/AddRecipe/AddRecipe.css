@@ -49,6 +49,7 @@
 
 .AddRecipe button {
   outline: none;
+  border-radius: 5px;
 }
 .AddRecipe button.add-new {
   padding: 10px;

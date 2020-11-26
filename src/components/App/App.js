@@ -6,6 +6,7 @@ import RecipesPage from '../RecipesPage/RecipesPage';
 import AddRecipe from '../AddRecipe/AddRecipe';
 import EditRecipe from '../EditRecipe/EditRecipe';
 import MealsPage from '../MealsPage/MealsPage';
+import NotFoundPage from '../../NotFoundPage';
 import StashContext from '../../StashContext';
 import RecipesService from '../../services/recipe-service';
 import MealsService from '../../services/meal-service';
@@ -192,6 +193,7 @@ class App extends React.Component {
             <Route exact path="/recipes/meals" component={MealsPage} />
             <Route exact path="/recipes/new-recipe" component={AddRecipe} />
             <Route exact path="/recipes/edit-recipe/:recipe_id" component={EditRecipe} />
+            <Route component={NotFoundPage} />
           </Switch>
         </main>
       </StashContext.Provider>
