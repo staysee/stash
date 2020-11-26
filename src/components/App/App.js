@@ -10,7 +10,6 @@ import NotFoundPage from '../../NotFoundPage';
 import StashContext from '../../StashContext';
 import RecipesService from '../../services/recipe-service';
 import MealsService from '../../services/meal-service';
-// import store from '../../store'
 
 import './App.css';
 
@@ -28,19 +27,12 @@ class App extends React.Component {
       Friday: [],
       Saturday: [],
       Sunday: [],
-    },
-    // loggedin: true
+    }
   };
 
-//  updateLoggedIn = (status) => {
-//    this.setState({
-//      loggedin: status
-//    });
-//  }
-
- componentDidMount() {
-   this.rehydrateApp();
- }
+  componentDidMount() {
+    this.rehydrateApp();
+  }
 
   rehydrateApp = async (location = 'App') => {
     console.log('location', location);
@@ -85,7 +77,6 @@ class App extends React.Component {
       recipes: newRecipe,
     });
 
-    console.log('addRecipe', recipe);
     try {
       const resolve = await RecipesService.insertNewRecipe({ ...recipe, user_id: 1 });
       console.log('resolve', resolve);
@@ -109,7 +100,6 @@ class App extends React.Component {
   };
 
   updateRecipe = async (updatedRecipe) => {
-    console.log('update this recipe');
     this.setState({
       recipes: this.state.recipes.map((recipe) => (
         recipe.id !== updatedRecipe.id ? recipe : updatedRecipe)),
@@ -126,13 +116,9 @@ class App extends React.Component {
 
   addMeal = async (meal) => {
     this.setState((prevState) => ({
-      // copy existing state
       ...prevState,
-      // update meals key
       meals: {
-        // copy existing meals state
         ...prevState.meals,
-        // update day key & filter meals array by id
         [meal.day]: [...prevState.meals[meal.day], meal],
       },
     }));
@@ -146,16 +132,10 @@ class App extends React.Component {
   };
 
   deleteMeal = async (day, mealId) => {
-    console.log('DAY', day);
-    console.log('MEALID', mealId);
     this.setState((prevState) => ({
-      // copy existing state
       ...prevState,
-      // update meals key
       meals: {
-        // copy existing meals state
         ...prevState.meals,
-        // update day key & filter meals array by id
         [day]: prevState.meals[day].filter(({ id }) => id !== mealId),
       },
     }));

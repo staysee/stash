@@ -125,11 +125,9 @@ class AddRecipe extends React.Component {
       meal_type: meal_typeVal,
       image_url: image_urlVal,
     };
-    console.log('The new recipe:', newRecipe);
 
     this.context.addRecipe(newRecipe);
     this.context.setLoading(false);
-    // return to
     this.props.history.push('/recipes');
   };
 

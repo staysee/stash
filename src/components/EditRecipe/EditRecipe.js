@@ -67,7 +67,6 @@ class EditRecipe extends React.Component {
       meal_type,
       image_url,
     };
-    console.log('The new recipe:', newRecipe);
 
     this.context.updateRecipe(newRecipe);
     // return to

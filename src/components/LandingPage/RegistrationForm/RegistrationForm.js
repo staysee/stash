@@ -71,7 +71,6 @@ class RegistrationForm extends React.Component {
       return 'Password is required';
     } if (password.length < 6 || password.length > 72) {
       return 'Password must be between 6 and 72 characters long';
-      //   } else if (!password.match(/[0-9]/)) {
     } if (!password.match(REGEX_UPPER_LOWER_NUMBER_SPECIAL)) {
       return 'Password must contain 1 upper case, lower case, number and special character';
     }
@@ -131,17 +130,14 @@ class RegistrationForm extends React.Component {
       password: passwordVal,
     })
       .then((user) => {
-        // setTimeout(() => {
         this.clearFields();
         TokenService.saveAuthToken(user.authToken);
         this.context.setLoading(false);
         this.props.onRegistrationSuccess();
-        // }, 1000);
       })
       .catch((res) => {
         this.context.setLoading(false);
         this.setState({ error: res.error });
-        console.log('ERROR:', this.state.error);
       });
   };
 

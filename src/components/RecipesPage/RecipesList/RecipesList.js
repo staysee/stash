@@ -44,6 +44,7 @@ class RecipesList extends React.Component {
   };
 
   render() {
+    const { searchTerm, filterType, recipes } = this.props;
     const {
       showModal,
       currentRecipeId,
@@ -53,9 +54,7 @@ class RecipesList extends React.Component {
       currentType,
       currentImageUrl,
     } = this.state;
-    const { searchTerm, filterType, recipes } = this.props;
-    // console.log(`THIS`, recipes)
-    // use array of recipes to make an 'li' for each recipe
+
     const recipesList = recipes
       .filter(
         (recipe) => recipe.title.toLowerCase().includes(searchTerm.toLowerCase())

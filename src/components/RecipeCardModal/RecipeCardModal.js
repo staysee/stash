@@ -26,8 +26,6 @@ class RecipeCardModal extends React.Component {
   handleClickDelete = (event, recipeId) => {
     event.preventDefault();
     this.context.deleteRecipe(recipeId);
-    console.log('recipeId', recipeId);
-    // return to
     this.props.closeModal();
   };
 

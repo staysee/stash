@@ -6,7 +6,6 @@ import StashContext from '../../StashContext';
 
 class DisplayModal extends React.Component {
   static defaultProps = {
-    // meal: {},
     showModal: false,
     closeModal: () => {},
     customStyles: {},

@@ -86,17 +86,14 @@ class LoginForm extends React.Component {
       password: passwordVal,
     })
       .then((res) => {
-        // setTimeout(() => {
         this.clearFields();
         TokenService.saveAuthToken(res.authToken);
         this.context.setLoading(false);
         this.props.onLoginSuccess();
-        // }, 3000);
       })
       .catch((res) => {
         this.context.setLoading(false);
         this.setState({ error: res.error });
-        console.log('ERROR:', this.state.error);
       });
   };
 

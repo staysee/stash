@@ -13,7 +13,6 @@
 
 .Meals__info .info_box {
   display: flex;
-  /* justify-content: center; */
 }
 
 .left {
@@ -52,5 +51,4 @@
 
 .Meals svg:hover {
   cursor: pointer;
-  color: red;
 }
