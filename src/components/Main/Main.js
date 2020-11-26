@@ -14,40 +14,44 @@ class Main extends React.Component {
   static contextType = MainContext;
 
   state = {
-    loading: false
+    loading: false,
+    mainApp: 'gradient'
   };
-
-  componentDidMount() {
-    localStorage.setItem('userLoggedIn', false);
-  }
 
   setLoading = (status) => {
     this.setState({
-      loading: status,
+      loading: status
     });
   };
 
   userLogIn = () => {
     localStorage.setItem('userLoggedIn', true);
+    this.setState({
+      mainApp: 'app-background'
+    });
+  };
+
+  userLogOut = () => {
+    localStorage.setItem('userLoggedIn', false);
+    this.setState({
+      mainApp: 'gradient'
+    });
   };
 
   render() {
     const contextValue = {
       loading: this.state.loading,
       setLoading: this.setLoading,
-      userLogIn: this.userLogIn,
+      userLogIn: this.userLogIn
     };
-
-    const userLoggedIn = localStorage.getItem('userLoggedIn');
-    console.log(userLoggedIn);
 
     return (
       <MainContext.Provider value={contextValue}>
-        <div id="main" className={`Main ${userLoggedIn ? 'app-background' : 'gradient'}`}>
+        <div id="main" className={`Main ${this.state.mainApp}`}>
           <Logo />
           <Switch>
             <Route exact path="/" component={LandingPage} />
-            <PrivateRoute path="/recipes" component={App} />
+            <PrivateRoute path="/recipes" component={App} handleLogOut={this.userLogOut} />
             <Route component={NotFoundPage} />
           </Switch>
         </div>

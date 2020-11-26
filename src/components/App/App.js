@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Navigation from '../Navigation/Navigation';
 import RecipesPage from '../RecipesPage/RecipesPage';
 import AddRecipe from '../AddRecipe/AddRecipe';
@@ -27,11 +28,18 @@ class App extends React.Component {
       Saturday: [],
       Sunday: [],
     },
+    // loggedin: true
   };
 
-  componentDidMount() {
-    this.rehydrateApp();
-  }
+//  updateLoggedIn = (status) => {
+//    this.setState({
+//      loggedin: status
+//    });
+//  }
+
+ componentDidMount() {
+   this.rehydrateApp();
+ }
 
   rehydrateApp = async (location = 'App') => {
     console.log('location', location);
@@ -159,14 +167,6 @@ class App extends React.Component {
     }
   };
 
-  // userLogIn = () => {
-  //   localStorage.setItem('userLoggedIn', true);
-  // };
-
-  userLogOut = () => {
-    localStorage.setItem('userLoggedIn', false);
-  };
-
   render() {
     const contextValue = {
       loading: this.state.loading,
@@ -181,11 +181,12 @@ class App extends React.Component {
       rehydrateApp: this.rehydrateApp,
       userLogOut: this.userLogOut,
     };
+    const { handleLogOut } = this.props;
 
     return (
       <StashContext.Provider value={contextValue}>
         <main className="App">
-          <Navigation />
+          <Navigation handleLogOut={handleLogOut} />
           <Switch>
             <Route exact path="/recipes/" component={RecipesPage} />
             <Route exact path="/recipes/meals" component={MealsPage} />
@@ -199,3 +200,7 @@ class App extends React.Component {
 }
 
 export default App;
+
+App.propTypes = {
+  handleLogOut: PropTypes.func
+};

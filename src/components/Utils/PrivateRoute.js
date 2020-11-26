@@ -3,13 +3,13 @@ import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TokenService from '../../services/token-service';
 
-export default function PrivateRoute({ component, ...props }) {
+export default function PrivateRoute({ component, handleLogOut, ...props }) {
   const Component = component;
   return (
     <Route
       {...props}
       render={(componentProps) => (TokenService.hasAuthToken() ? (
-        <Component {...componentProps} />
+        <Component {...componentProps} handleLogOut={handleLogOut} />
       ) : (
         <Redirect
           to={{
@@ -23,5 +23,6 @@ export default function PrivateRoute({ component, ...props }) {
 }
 
 PrivateRoute.propTypes = {
-  component: PropTypes.func
+  component: PropTypes.func,
+  handleLogOut: PropTypes.func
 };

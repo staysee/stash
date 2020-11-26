@@ -6,6 +6,7 @@ import {
   faSignOutAlt,
   faUtensils,
 } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 import { Link, NavLink } from 'react-router-dom';
 import TokenService from '../../services/token-service';
 import StashContext from '../../StashContext';
@@ -15,7 +16,7 @@ class Navigation extends React.Component {
   static contextType = StashContext;
 
   handleLogoutClick = () => {
-    this.context.userLogOut();
+    this.props.handleLogOut();
     TokenService.clearAuthToken();
   };
 
@@ -44,3 +45,7 @@ class Navigation extends React.Component {
 }
 
 export default Navigation;
+
+Navigation.propTypes = {
+  handleLogOut: PropTypes.func
+};
