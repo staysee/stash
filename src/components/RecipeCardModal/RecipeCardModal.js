@@ -46,7 +46,6 @@ class RecipeCardModal extends React.Component {
     });
   };
 
-  // temporary to generate meal Id
   getRandomInt = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);

@@ -69,7 +69,6 @@ class EditRecipe extends React.Component {
     };
 
     this.context.updateRecipe(newRecipe);
-    // return to
     this.props.history.push('/recipes');
   };
 

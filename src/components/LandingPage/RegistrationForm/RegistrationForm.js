@@ -123,7 +123,7 @@ class RegistrationForm extends React.Component {
       password: { value: passwordVal },
     } = this.state;
 
-    // POST to server
+    // POST to Server
     AuthApiService.postUser({
       firstname: firstnameVal,
       lastname: lastnameVal,
