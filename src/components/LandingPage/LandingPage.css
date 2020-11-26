@@ -17,6 +17,10 @@
   width: 80%;
 }
 
+.LandingPage .header p:nth-child(2){
+  font-size: 20px;
+}
+
 .LandingPage__description {
   background: linear-gradient(
       -180deg, 

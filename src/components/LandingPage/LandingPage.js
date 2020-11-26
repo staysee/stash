@@ -86,13 +86,11 @@ class LandingPage extends React.Component {
         <Parallax bgImage={bgImage1} strength={500}>
           <div style={{ height: '100vh' }}>
             <div className="header">
-              {/* <p>Keep your recipes stashed in this digital drawer. Plan meals for the week. No more wasting time thinking of what to cook!</p>
-               */}
               <p>Your Digital Recipe Drawer</p>
+              <p>Keep your recipes stashed in this digital drawer. Plan meals for the week. No more wasting time thinking of what to cook!</p>
             </div>
           </div>
         </Parallax>
-
         <div className="LandingPage__description">
 
           <p>Ready to stash your recipes?</p>
