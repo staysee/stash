@@ -5,7 +5,7 @@
 2. [Technologies Used](#technologies)
 3. [Future Implementations](#future-implementations)
 
-**Live Demo:** [Stash](https://stash.staysee.vercel.app/)
+**Live Demo:** [Stash](https://stash-zeta.vercel.app)
 -- Demo Account --  
 username: demouser
 password: P@ssword1! 
