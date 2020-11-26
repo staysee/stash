@@ -79,7 +79,6 @@ class App extends React.Component {
 
     try {
       const resolve = await RecipesService.insertNewRecipe({ ...recipe, user_id: 1 });
-      resolve(resolve);
     } catch (error) {
       console.log('add recipe failed: ', error);
     }
@@ -93,7 +92,6 @@ class App extends React.Component {
 
     try {
       const resolve = await RecipesService.deleteRecipe(recipeId);
-      resolve(resolve);
     } catch (error) {
       console.log('delete recipe failed: ', error);
     }
@@ -107,7 +105,6 @@ class App extends React.Component {
 
     try {
       const resolve = await RecipesService.updateRecipe(updatedRecipe);
-      resolve(resolve);
       await this.fetchUserRecipes();
     } catch (error) {
       console.log('update recipe failed: ', error);
@@ -125,7 +122,6 @@ class App extends React.Component {
 
     try {
       const resolve = await MealsService.addMeal(meal);
-      resolve(resolve);
     } catch (error) {
       console.log('add meal failed: ', error);
     }
@@ -142,7 +138,6 @@ class App extends React.Component {
 
     try {
       const resolve = await MealsService.deleteMeal(mealId);
-      resolve(resolve);
     } catch (error) {
       console.log('delete meal failed: ', error);
     }
