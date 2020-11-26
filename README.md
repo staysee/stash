@@ -16,11 +16,9 @@ Don't leave your recipes lying around on pieces of paper. Having trouble finding
 Stash was created to showcase my full stack abilities. The inspiration came from the need to look for recipe notes scattered in my phone, different cookbooks, and index cards stord in separate places.
 
 ## Screenshots
-![Stash Screenshot](./src/assets/Stash_1.png)
-![Stash Screenshot](./src/assets/Stash_2.png)
-![Stash Screenshot](./src/assets/Stash_3.png)
-![Stash Screenshot](./src/assets/Stash_4.png)
-![Stash Screenshot](./src/assets/Stash_5.png)
+![Stash Screenshot](./src/assets/stash_screenshots.jpg)
+![Stash Screenshot](./src/assets/stash_screenshots2.jpg)
+
 
 ## Technologies
 * React
