@@ -12,6 +12,7 @@ import MainContext from '../../MainContext';
 import bgImage1 from '../../assets/rayia-soderberg-ev_GpmUPOwo-unsplash.jpg';
 import bgImage2 from '../../assets/kristen-kaethler-vaGL6AJkUb4-unsplash.jpg';
 import './LandingPage.css';
+import '../../media-queries.css';
 
 class LandingPage extends React.Component {
   static defaultProps = {

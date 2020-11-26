@@ -7,6 +7,7 @@ import AuthApiService from '../../../services/auth-api-service';
 import MainContext from '../../../MainContext';
 
 import './LoginForm.css';
+import '../../../media-queries.css';
 
 class LoginForm extends React.Component {
   static contextType = MainContext;

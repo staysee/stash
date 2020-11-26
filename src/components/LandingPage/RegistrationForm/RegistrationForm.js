@@ -6,6 +6,7 @@ import TokenService from '../../../services/token-service';
 import MainContext from '../../../MainContext';
 
 import './RegistrationForm.css';
+import '../../../media-queries.css';
 
 class RegistrationForm extends React.Component {
   static contextType = MainContext;

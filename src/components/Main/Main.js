@@ -10,6 +10,7 @@ import PrivateRoute from '../Utils/PrivateRoute';
 import MainContext from '../../MainContext';
 
 import './Main.css';
+import '../../media-queries.css';
 
 class Main extends React.Component {
   static contextType = MainContext;

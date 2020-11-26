@@ -10,9 +10,9 @@ import NotFoundPage from '../../NotFoundPage';
 import StashContext from '../../StashContext';
 import RecipesService from '../../services/recipe-service';
 import MealsService from '../../services/meal-service';
-// import store from '../../store'
 
 import './App.css';
+import '../../media-queries.css';
 
 class App extends React.Component {
   static contextType = StashContext;
