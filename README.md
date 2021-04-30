@@ -27,7 +27,7 @@ Stash was created to showcase my full stack abilities. The inspiration came from
 * JSON Web Token (JWT) Authentication
 * JavaScript
 * HTML/CSS
-* Stash API - [Documentation]((https://documenter.getpostman.com/view/5109644/TVmHDexk))\
+* Stash API - [Documentation]((https://documenter.getpostman.com/view/5109644/TVmHDexk))
 * Deployed to Vercel
 
 ### Development
